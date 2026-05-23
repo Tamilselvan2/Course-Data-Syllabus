@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>20CS231 — Entrepreneurship Development & Business Management</title>
+    <title>Software Quality Assurance — Complete Exam Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #000000;
@@ -29,6 +29,7 @@
             --accent-purple: #bf5af2;
             --accent-teal: #64d2ff;
             --accent-yellow: #ffd60a;
+            --accent-indigo: #6366f1;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -134,6 +135,8 @@
         .card-text ul { list-style: none; padding: 0; margin: 8px 0 0; }
         .card-text ul li { padding: 4px 0; padding-left: 16px; position: relative; }
         .card-text ul li::before { content: '•'; position: absolute; left: 0; color: var(--text-tertiary); }
+        .card-text ol { margin: 8px 0 0; padding-left: 20px; }
+        .card-text ol li { padding: 4px 0; }
         .card-tag {
             display: inline-block; padding: 4px 12px; border-radius: 100px;
             font-size: 12px; font-weight: 600; margin-top: 16px; letter-spacing: -0.2px;
@@ -172,14 +175,13 @@
         ::-webkit-scrollbar-track { background: var(--bg-primary); }
         ::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #333; }
-        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-subtle); margin-top: 24px; }
-        .compare-col { padding: 32px; background: var(--bg-elevated); }
-        .compare-col:first-child { border-right: 1px solid var(--border-subtle); }
-        .compare-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: var(--text-secondary); }
-        .compare-list { list-style: none; padding: 0; }
-        .compare-list li { padding: 8px 0; font-size: 15px; color: var(--text-primary); border-bottom: 1px solid rgba(255,255,255,0.03); }
-        .compare-list li:last-child { border-bottom: none; }
-        @media (max-width: 640px) { .compare-grid { grid-template-columns: 1fr; } .compare-col:first-child { border-right: none; border-bottom: 1px solid var(--border-subtle); } }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(41, 151, 255, 0.08) 0%, rgba(191, 90, 242, 0.08) 100%);
+            border: 1px solid rgba(41, 151, 255, 0.15); border-radius: 20px;
+            padding: 28px 32px; margin: 24px 0;
+        }
+        .highlight-box-title { font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
+        .highlight-box p, .highlight-box li { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
         .code-block {
             background: #0d0d0d; border: 1px solid var(--border-subtle); border-radius: 16px;
             padding: 20px 24px; font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
@@ -190,34 +192,90 @@
         .code-block .func { color: var(--accent-yellow); }
         .code-block .comment { color: var(--text-tertiary); }
         .code-block .string { color: var(--accent-green); }
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(41, 151, 255, 0.08) 0%, rgba(191, 90, 242, 0.08) 100%);
-            border: 1px solid rgba(41, 151, 255, 0.15); border-radius: 20px;
-            padding: 28px 32px; margin: 24px 0;
-        }
-        .highlight-box-title { font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
-        .highlight-box p, .highlight-box li { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
         .tool-mini { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid var(--border-subtle); transition: all 0.3s ease; }
         .tool-mini:hover { background: rgba(255,255,255,0.06); border-color: var(--border-glow); }
         .tool-mini-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(41, 151, 255, 0.1); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
         .tool-mini-name { font-weight: 600; font-size: 14px; color: var(--text-primary); }
         .tool-mini-desc { font-size: 12px; color: var(--text-tertiary); }
-        .priority-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Flip Cards */
+        .flip-card {
+            background: transparent;
+            perspective: 1000px;
+            height: 320px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-elevated);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .flip-card-front {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+            overflow-y: auto;
+        }
+        .flip-icon {
+            width: 64px; height: 64px; border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; margin-bottom: 20px;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle);
+        }
+        .flip-title { font-size: 22px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.5px; }
+        .flip-subtitle { font-size: 14px; color: var(--text-secondary); margin-top: 8px; }
+
+        /* Doughnut Chart */
+        .chart-container { position: relative; width: 280px; height: 280px; margin: 0 auto; }
+        .chart-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        .chart-value { font-size: 36px; font-weight: 800; color: var(--text-primary); }
+        .chart-desc { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .chart-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 24px; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-subtle); margin-top: 24px; }
+        .compare-col { padding: 32px; background: var(--bg-elevated); }
+        .compare-col:first-child { border-right: 1px solid var(--border-subtle); }
+        .compare-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: var(--text-secondary); }
+        .compare-list { list-style: none; padding: 0; }
+        .compare-list li { padding: 8px 0; font-size: 15px; color: var(--text-primary); border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .compare-list li:last-child { border-bottom: none; }
+        @media (max-width: 640px) { .compare-grid { grid-template-columns: 1fr; } .compare-col:first-child { border-right: none; border-bottom: 1px solid var(--border-subtle); } }
     </style>
-<base target="_blank">
-<base target="_blank">
 </head>
 <body>
     <div id="progress-bar"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     <nav class="nav-container" id="navbar">
         <div class="nav-inner">
-            <div class="nav-logo">20CS231</div>
+            <div class="nav-logo">SQA Guide</div>
             <div class="nav-links">
                 <a href="#unit1" class="nav-link">Unit 1</a>
                 <a href="#unit2" class="nav-link">Unit 2</a>
                 <a href="#unit3" class="nav-link">Unit 3</a>
                 <a href="#unit4" class="nav-link">Unit 4</a>
+                <a href="#unit5" class="nav-link">Unit 5</a>
                 <a href="#quick" class="nav-cta">Quick Review</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
@@ -232,10 +290,11 @@
     <div class="bottom-sheet-overlay" id="bottomSheetOverlay"></div>
     <div class="bottom-sheet" id="bottomSheet">
         <div class="bottom-sheet-grabber"></div>
-        <a href="#unit1" class="bottom-sheet-link">Unit 1 — Introduction to Entrepreneurship</a>
-        <a href="#unit2" class="bottom-sheet-link">Unit 2 — Development of Business Model</a>
-        <a href="#unit3" class="bottom-sheet-link">Unit 3 — Transformation into Startup</a>
-        <a href="#unit4" class="bottom-sheet-link">Unit 4 — Case Studies & Strategy</a>
+        <a href="#unit1" class="bottom-sheet-link">Unit 1 — Quality Control & Concepts</a>
+        <a href="#unit2" class="bottom-sheet-link">Unit 2 — Management & Quality Cost</a>
+        <a href="#unit3" class="bottom-sheet-link">Unit 3 — Tools & Methodologies</a>
+        <a href="#unit4" class="bottom-sheet-link">Unit 4 — People in SQA</a>
+        <a href="#unit5" class="bottom-sheet-link">Unit 5 — Defect Control & Analysis</a>
         <a href="#quick" class="bottom-sheet-link">Quick Review & Exam Strategy</a>
     </div>
 
@@ -250,12 +309,12 @@
                 </svg>
                 Complete Syllabus Guide
             </div>
-            <h1 class="hero-title" id="heroTitle">Entrepreneurship<br>Development &<br>Business Management</h1>
-            <p class="hero-subtitle">Every definition, classification, scheme, and case study from 20CS231 — synthesized into one interactive exam guide. Built for tomorrow.</p>
+            <h1 class="hero-title" id="heroTitle">Software Quality<br>Assurance</h1>
+            <p class="hero-subtitle">Every definition, model, tool, and case study from your SQA syllabus — synthesized into one interactive exam guide. Built for tomorrow.</p>
             <div class="hero-stats">
-                <div class="stat-item"><div class="stat-value">4</div><div class="stat-label">Units</div></div>
-                <div class="stat-item"><div class="stat-value">60+</div><div class="stat-label">Topics</div></div>
-                <div class="stat-item"><div class="stat-value">15</div><div class="stat-label">Mark Essays</div></div>
+                <div class="stat-item"><div class="stat-value">5</div><div class="stat-label">Units</div></div>
+                <div class="stat-item"><div class="stat-value">50+</div><div class="stat-label">Topics</div></div>
+                <div class="stat-item"><div class="stat-value">10</div><div class="stat-label">Mark Essays</div></div>
             </div>
         </div>
     </section>
@@ -264,352 +323,223 @@
     <section class="section" id="unit1">
         <div class="section-header gs-reveal">
             <div class="section-label">Unit 1</div>
-            <h2 class="section-title">Introduction to<br>Entrepreneurship</h2>
-            <p class="section-desc">Definitions, traits, economic impact, classifications, funding ecosystems, and government schemes.</p>
+            <h2 class="section-title">Quality Control<br>& Concepts</h2>
+            <p class="section-desc">QC vs QA, McCall's Model, CMM, SPICE, inspections, walkthroughs, and the Waterfall model.</p>
         </div>
 
-        <!-- Core Definitions -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div class="card-icon">📖</div>
-            <div class="card-title">Core Definitions & Etymology</div>
-            <div class="card-text" style="margin-top: 12px;">
-                <p style="margin-bottom: 16px; font-size: 16px; line-height: 1.7;">The word <strong>Entrepreneur</strong> derives from the French <em>Entreprendre</em>, meaning "to undertake." Entrepreneurship is the process of creating something new with value by devoting time and effort, assuming financial and social risks, and receiving rewards.</p>
-                <div class="bento-grid bento-grid-2" style="margin-top: 20px;">
-                    <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Joseph Schumpeter</div>
-                        <div style="font-size: 14px; color: var(--text-secondary);">Proposed <strong>"Creative Destruction"</strong> — innovative entrepreneurs continuously destroy old market structures to create new ones.</div>
-                    </div>
-                    <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Peter Drucker</div>
-                        <div style="font-size: 14px; color: var(--text-secondary);">Defined an entrepreneur as one who <strong>shifts economic resources</strong> out of lower productivity into higher productivity and greater yield.</div>
-                    </div>
-                </div>
-                <div class="highlight-box" style="margin-top: 20px;">
-                    <div class="highlight-box-title">🎯 Exam Definition</div>
-                    <p>"Entrepreneurship is the process of starting a new business by identifying opportunities, organizing resources, taking risks, and earning profit."</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Traits -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+        <div class="bento-card gs-reveal card-large" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
                 <div>
-                    <div class="card-icon">⭐</div>
-                    <div class="card-title">Traits of Successful Entrepreneurs</div>
+                    <div class="card-icon">🛡️</div>
+                    <div class="card-title">Quality Control (QC) vs Quality Assurance (QA)</div>
                 </div>
                 <div class="card-tag tag-red">Very Important</div>
             </div>
             <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">According to the SREC answer keys, a successful entrepreneur must possess the following core traits:</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
-                <div class="tool-mini"><div class="tool-mini-icon">🎯</div><div><div class="tool-mini-name">Risk-taking</div><div class="tool-mini-desc">Ready to face uncertainty</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">💡</div><div><div class="tool-mini-name">Innovation</div><div class="tool-mini-desc">Creates new ideas/products</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">👑</div><div><div class="tool-mini-name">Leadership</div><div class="tool-mini-desc">Guides employees and teams</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">💪</div><div><div class="tool-mini-name">Self-confidence</div><div class="tool-mini-desc">Believes in own decisions</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🎨</div><div><div class="tool-mini-name">Creativity</div><div class="tool-mini-desc">Generates unique solutions</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">⚡</div><div><div class="tool-mini-name">Decision-making</div><div class="tool-mini-desc">Quick and effective choices</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🔥</div><div><div class="tool-mini-name">Hard work</div><div class="tool-mini-desc">Consistent toward goals</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🧭</div><div><div class="tool-mini-name">Goal-oriented</div><div class="tool-mini-desc">Focused on achievement</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🗣️</div><div><div class="tool-mini-name">Communication</div><div class="tool-mini-desc">Effective with customers</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🔄</div><div><div class="tool-mini-name">Adaptability</div><div class="tool-mini-desc">Adjusts to market changes</div></div></div>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Additional Traits</div>
-                    <div class="card-text">
-                        <ul>
-                            <li>High tolerance for ambiguity</li>
-                            <li>Rejection of status quo mentality</li>
-                            <li>Self-motivation & discipline</li>
-                            <li>Strong business ethics & integrity</li>
-                            <li>Willingness to fail</li>
-                            <li>Resourcefulness & empathy</li>
-                            <li>Competitive spirit</li>
+                <p style="margin-bottom: 16px;"><strong>QC</strong> is product-oriented and reactive — it focuses on testing and verification to identify defects. <strong>QA</strong> is process-oriented and proactive — it sets up processes so defects don't happen in the first place.</p>
+                <div class="compare-grid">
+                    <div class="compare-col">
+                        <div class="compare-title">Quality Control</div>
+                        <ul class="compare-list">
+                            <li>Product-oriented</li>
+                            <li>Reactive — finds existing defects</li>
+                            <li>Testing, reviews, inspections</li>
+                            <li>Goal: detect defects before release</li>
                         </ul>
                     </div>
-                </div>
-                <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Short Recall</div>
-                    <div class="card-text">
-                        <p style="margin-bottom: 12px;">Memorize this keyword chain:</p>
-                        <div class="code-block" style="margin-top: 0;">
-<span class="string">Risk-taking + Innovation + Leadership +</span>
-<span class="string">Creativity + Confidence + Hard work</span>
-                        </div>
+                    <div class="compare-col">
+                        <div class="compare-title">Quality Assurance</div>
+                        <ul class="compare-list">
+                            <li>Process-oriented</li>
+                            <li>Proactive — prevents defects</li>
+                            <li>Process definition, standards, audits</li>
+                            <li>Goal: build quality into the process</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Economic Development -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">📈</div>
-                    <div class="card-title">Role in Economic Development</div>
-                </div>
-                <div class="card-tag tag-red">Very Important Essay</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">Entrepreneurship acts as an <strong>engine of economic growth.</strong> Here are the 9 critical points:</p>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">1. Employment Generation</div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">Creates jobs and reduces unemployment.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">2. Wealth Creation</div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">Increases national income and GDP.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">3. Innovation</div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">Introduces new technology and products.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">4. Industrial Development</div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">Supports industrial growth and diversification.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">5. Balanced Regional Development</div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">Develops rural and backward areas.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">6. Standard of Living</div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">Provides better products and services.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">7. Increases Exports</div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">Boosts foreign exchange reserves.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">8. Resource Utilization</div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">Uses natural and human resources effectively.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15); grid-column: span 2;">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">9. Economic Independence</div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">Reduces dependence on imports and promotes self-reliance.</div>
-                </div>
-            </div>
-            <div class="highlight-box">
-                <div class="highlight-box-title">📝 Exam Structure</div>
-                <p>Introduction → Definition → 9 Points with headings → Example (Elon Musk / Narayana Murthy / Ritesh Agarwal) → Conclusion</p>
-            </div>
-        </div>
-
-        <!-- Classification -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">🧩</div>
-                    <div class="card-title">Classification of Entrepreneurs</div>
-                </div>
-                <div class="card-tag tag-red">Very Very Important</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;"><strong>Clarence Danhof's Classification</strong> based on economic development:</p>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">1. Innovating Entrepreneurs</div>
-                    <div class="card-text">
-                        <p>Aggressively assembles information and introduces novel combinations of production. Enters market with products based on new technology.</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">2. Adoptive / Imitative</div>
-                    <div class="card-text">
-                        <p>Copies or adopts suitable innovations made by innovative entrepreneurs to suit their local contexts.</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">3. Fabian Entrepreneurs</div>
-                    <div class="card-text">
-                        <p>Shy and lazy by nature. Neither introduces new changes nor adopts new methods easily. Remains passive until forced by loss of market share.</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">4. Drone Entrepreneurs</div>
-                    <div class="card-text">
-                        <p>Refuses to copy or use opportunities. Strictly conventional — sticks to set practices even if facing losses.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-text" style="margin-bottom: 16px;"><strong>Other Crucial Classifications:</strong></div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">By Business Type</div>
-                    <div class="card-text">
-                        <ul>
-                            <li><strong>Trading</strong> — Trading activities, not manufacturing</li>
-                            <li><strong>Industrial</strong> — Manufacturers who identify needs</li>
-                            <li><strong>Agricultural</strong> — Mechanization, irrigation, crop tech</li>
-                            <li><strong>Corporate</strong> — Within large organizations</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">By Technology & Activity</div>
-                    <div class="card-text">
-                        <ul>
-                            <li><strong>Technical</strong> — Heavy tech innovation</li>
-                            <li><strong>Non-technical</strong> — Alternative strategies</li>
-                            <li><strong>Novice</strong> — First business</li>
-                            <li><strong>Serial</strong> — Starts, grows, exits multiple</li>
-                            <li><strong>Portfolio</strong> — Owns multiple simultaneously</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Special Types</div>
-                    <div class="card-text">
-                        <ul>
-                            <li><strong>First-Generation</strong> — Starts from scratch, no family background</li>
-                            <li><strong>Social Entrepreneur</strong> — Solves community/social problems</li>
-                            <li><strong>Women Entrepreneur</strong> — Women-led ventures</li>
-                            <li><strong>Technopreneur</strong> — Technology-based startups</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Social Entrepreneurship</div>
-                    <div class="card-text">
-                        <p>Business activity aimed at solving social problems: rural education, low-cost healthcare, eco-friendly products.</p>
-                        <p style="margin-top: 8px;"><strong>Benefits:</strong> Social welfare, employment, rural development.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Entrepreneur vs Manager -->
         <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
             <div class="bento-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                    <div>
-                        <div class="card-icon">🆚</div>
-                        <div class="card-title">Entrepreneur vs Manager</div>
+                <div class="card-icon">📐</div>
+                <div class="card-title">McCall's Quality Model</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;">One of the earliest models, grouping 11 quality factors into 3 categories:</p>
+                    <div style="margin-bottom: 12px;">
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--text-primary);">Product Operation</div>
+                        <p>Correctness, Reliability, Efficiency, Integrity, Usability</p>
                     </div>
-                    <div class="card-tag tag-blue">Repeated</div>
+                    <div style="margin-bottom: 12px;">
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--text-primary);">Product Revision</div>
+                        <p>Maintainability, Flexibility, Testability</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--text-primary);">Product Transition</div>
+                        <p>Portability, Reusability, Interoperability</p>
+                    </div>
                 </div>
-                <table class="forensic-table" style="margin-top: 16px;">
-                    <thead><tr><th>Entrepreneur</th><th>Manager</th></tr></thead>
-                    <tbody>
-                        <tr><td>Owner</td><td>Employee</td></tr>
-                        <tr><td>Takes risk</td><td>Avoids risk</td></tr>
-                        <tr><td>Innovation-focused</td><td>Administration-focused</td></tr>
-                        <tr><td>Creates business</td><td>Runs business</td></tr>
-                        <tr><td>Profit-oriented</td><td>Salary-oriented</td></tr>
-                        <tr><td>Accepts organizational risk</td><td>Follows established procedures</td></tr>
-                    </tbody>
-                </table>
             </div>
             <div class="bento-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                    <div>
-                        <div class="card-icon">💰</div>
-                        <div class="card-title">Angel Investors vs Venture Capitalists</div>
+                <div class="card-icon">🏗️</div>
+                <div class="card-title">Software Quality Factors</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px;">
+                        <div class="tool-mini"><div class="tool-mini-icon">✅</div><div><div class="tool-mini-name">Correctness</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">🔒</div><div><div class="tool-mini-name">Reliability</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">⚡</div><div><div class="tool-mini-name">Efficiency</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">🛡️</div><div><div class="tool-mini-name">Integrity</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">👤</div><div><div class="tool-mini-name">Usability</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">🔧</div><div><div class="tool-mini-name">Maintainability</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">🔄</div><div><div class="tool-mini-name">Flexibility</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">🧪</div><div><div class="tool-mini-name">Testability</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">📦</div><div><div class="tool-mini-name">Portability</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">♻️</div><div><div class="tool-mini-name">Reusability</div></div></div>
+                        <div class="tool-mini"><div class="tool-mini-icon">🔗</div><div><div class="tool-mini-name">Interoperability</div></div></div>
                     </div>
-                    <div class="card-tag tag-red">Very Important</div>
                 </div>
-                <table class="forensic-table" style="margin-top: 16px;">
-                    <thead><tr><th>Feature</th><th>Angel Investors</th><th>VCs</th></tr></thead>
-                    <tbody>
-                        <tr><td>Structure</td><td>Individual (high net-worth)</td><td>Firm/company (institutional)</td></tr>
-                        <tr><td>Investment</td><td>$25,000 – $100,000</td><td>Average $7 million</td></tr>
-                        <tr><td>Stage</td><td>Early-stage / seed</td><td>Growth / mature</td></tr>
-                        <tr><td>Control</td><td>Less control, no board seat</td><td>More control, demands board seat</td></tr>
-                        <tr><td>Due Diligence</td><td>Minimal (personal wealth)</td><td>Rigorous (fiduciary duty)</td></tr>
-                        <tr><td>Type</td><td>Personal investment</td><td>Formal pooled investment</td></tr>
-                    </tbody>
-                </table>
             </div>
         </div>
 
-        <!-- Government Schemes -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">🏛️</div>
-                    <div class="card-title">Government Schemes & Institutional Support</div>
-                </div>
-                <div class="card-tag tag-purple">India Focus</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">Key schemes and institutions for Indian entrepreneurs:</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 20px;">
-                <div class="bento-card" style="padding: 24px; background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">Startup India</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Launched 2016. Tax exemptions, funding support, easier registration, self-certification on labor/environmental laws for 3 years.</div>
-                </div>
-                <div class="bento-card" style="padding: 24px; background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">Stand-Up India</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Financial loan assistance targeting SC/ST communities and women entrepreneurs.</div>
-                </div>
-                <div class="bento-card" style="padding: 24px; background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">MUDRA Yojana</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Micro Units Development & Refinance Agency. Accessible refinance support to micro-enterprises.</div>
-                </div>
-                <div class="bento-card" style="padding: 24px; background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">PMEGP</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Prime Minister's Employment Generation Programme. Financial subsidy and credit for micro-manufacturing units.</div>
-                </div>
-                <div class="bento-card" style="padding: 24px; background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">SIDBI</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Small Industries Development Bank of India. Primary body providing refined credit lines to small businesses.</div>
-                </div>
-                <div class="bento-card" style="padding: 24px; background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">NSIC & KVIC</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">NSIC provides marketing/technical support. KVIC promotes rural employment via khadi and village industries.</div>
-                </div>
-            </div>
-            <div class="highlight-box">
-                <div class="highlight-box-title">🎯 DPIIT Framework</div>
-                <p>Entities recognized as startups up to a designated timeframe from inception. Grants self-certification on labor/environmental laws for 3 years and tax exemptions for 3 consecutive years.</p>
-            </div>
-        </div>
-
-        <!-- E-Cells & EDP -->
-        <div class="bento-grid bento-grid-2 gs-reveal">
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
             <div class="bento-card">
-                <div class="card-icon">🎓</div>
-                <div class="card-title">E-Cells & EDPs</div>
+                <div class="card-icon">📊</div>
+                <div class="card-title">CMM / CMMI Levels</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <div style="margin-bottom: 16px;">
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">E-Cells (Entrepreneurship Cells)</div>
-                        <p>College-based cells that encourage startups, conduct workshops, organize hackathons, provide mentorship, and improve entrepreneurial skills.</p>
-                    </div>
-                    <div>
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">EDPs (Entrepreneurship Development Programmes)</div>
-                        <p>Training programmes to develop entrepreneurial abilities. Objectives:</p>
-                        <ul>
-                            <li>Improve leadership</li>
-                            <li>Develop business skills</li>
-                            <li>Encourage startups</li>
-                            <li>Provide training</li>
-                        </ul>
-                    </div>
+                    <ol class="numbered-list" style="margin-top: 0;">
+                        <li><div class="step-title">Initial</div><div class="step-desc">Chaotic, unpredictable, hero-dependent</div></li>
+                        <li><div class="step-title">Repeatable</div><div class="step-desc">Basic project management established</div></li>
+                        <li><div class="step-title">Defined</div><div class="step-desc">Standardized processes across org</div></li>
+                        <li><div class="step-title">Managed</div><div class="step-desc">Quantitatively measured & controlled</div></li>
+                        <li><div class="step-title">Optimizing</div><div class="step-desc">Continuous improvement & innovation</div></li>
+                    </ol>
                 </div>
             </div>
             <div class="bento-card">
-                <div class="card-icon">📋</div>
-                <div class="card-title">Incubators</div>
+                <div class="card-icon">🔍</div>
+                <div class="card-title">SPICE (ISO/IEC 15504)</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <p style="margin-bottom: 12px;">Provide startups with:</p>
+                    <p style="margin-bottom: 12px;">Software Process Improvement and Capability Determination:</p>
                     <ul>
-                        <li>Early-stage mentorship</li>
-                        <li>Plug-and-play workspace</li>
-                        <li>Key resource mapping</li>
-                        <li>Networking opportunities</li>
-                        <li>Funding connections</li>
+                        <li><strong>Level 0</strong> — Incomplete</li>
+                        <li><strong>Level 1</strong> — Performed</li>
+                        <li><strong>Level 2</strong> — Managed</li>
+                        <li><strong>Level 3</strong> — Established</li>
+                        <li><strong>Level 4</strong> — Predictable</li>
+                        <li><strong>Level 5</strong> — Optimizing</li>
                     </ul>
                     <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
                         <div class="highlight-box-title" style="font-size: 14px;">💡 Exam Tip</div>
-                        <p style="font-size: 13px;">E-Cells foster culture <em>among students</em>. Incubators support <em>actual startups</em> with infrastructure.</p>
+                        <p style="font-size: 13px;">CMM has 5 levels (1-5). SPICE has 6 levels (0-5). Don't mix them up.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">⚠️</div>
+            <div class="card-title">Software Quality Challenges</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+                    <div class="tool-mini"><div class="tool-mini-icon">🧩</div><div><div class="tool-mini-name">Increasing Complexity</div><div class="tool-mini-desc">Large systems hard to test</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">📋</div><div><div class="tool-mini-name">Changing Requirements</div><div class="tool-mini-desc">Introduces inconsistencies</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">🔐</div><div><div class="tool-mini-name">Security Threats</div><div class="tool-mini-desc">Hacking, malware risks</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">⏰</div><div><div class="tool-mini-name">Time Constraints</div><div class="tool-mini-desc">Less time for testing</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">💰</div><div><div class="tool-mini-name">Budget Limitations</div><div class="tool-mini-desc">Fewer skilled resources</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">🧬</div><div><div class="tool-mini-name">Integration Problems</div><div class="tool-mini-desc">Third-party compatibility</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">📈</div><div><div class="tool-mini-name">User Expectations</div><div class="tool-mini-desc">High performance demand</div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">👔</div>
+                <div class="card-title">Management Role in SQA</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <ul>
+                        <li><strong>Quality Planning</strong> — defines objectives & standards</li>
+                        <li><strong>Resource Allocation</strong> — tools, budget, personnel</li>
+                        <li><strong>Employee Training</strong> — technical & quality skills</li>
+                        <li><strong>Risk Management</strong> — identify & control risks</li>
+                        <li><strong>Process Monitoring</strong> — continuous compliance checks</li>
+                        <li><strong>Continuous Improvement</strong> — regular evaluation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div class="card-icon">🧱</div>
+                <div class="card-title">Components of SQA System</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <ul>
+                        <li><strong>Pre-Project</strong> — Proposal review, contract review, dev planning</li>
+                        <li><strong>Project Life Cycle</strong> — Reviews, testing, config mgmt, docs</li>
+                        <li><strong>Infrastructure</strong> — Procedures, standards, staff training</li>
+                        <li><strong>Quality Management</strong> — Audits, metrics, corrective actions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">🤖</div>
+                <div class="card-title">CASE Tools</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;">Computer-Aided Software Engineering tools automate development activities:</p>
+                    <ul>
+                        <li><strong>Upper CASE</strong> — Requirements, design, modeling</li>
+                        <li><strong>Lower CASE</strong> — Coding, testing, debugging</li>
+                        <li><strong>Integrated CASE</strong> — Full SDLC support</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>Effect on Quality:</strong> Improved productivity, better documentation, reduced human error, improved consistency.</p>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div class="card-icon">📝</div>
+                <div class="card-title">Inspections vs Walkthroughs</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <table class="forensic-table" style="margin-top: 0;">
+                        <thead><tr><th>Inspection</th><th>Walkthrough</th></tr></thead>
+                        <tbody>
+                            <tr><td>Formal review process</td><td>Informal review process</td></tr>
+                            <tr><td>Moderator present</td><td>Author leads session</td></tr>
+                            <tr><td>Checklist-based</td><td>Discussion-based</td></tr>
+                            <tr><td>Defect detection focused</td><td>Understanding focused</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
+                        <div class="highlight-box-title" style="font-size: 14px;">📌 Exam Note</div>
+                        <p style="font-size: 13px;">Inspection process: Planning → Overview → Preparation → Meeting → Rework → Follow-up.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <div class="card-icon">🌊</div>
+                    <div class="card-title">Waterfall Model & SQA</div>
+                </div>
+                <div class="card-tag tag-purple">Hidden Topic</div>
+            </div>
+            <div class="card-text" style="margin-top: 16px;">
+                <p style="margin-bottom: 16px;">Linear sequential SDLC: Requirements → Design → Implementation → Testing → Deployment → Maintenance.</p>
+                <div class="highlight-box" style="margin: 16px 0;">
+                    <div class="highlight-box-title">⚠️ The SQA Catch</div>
+                    <p>Testing happens <strong>only at the end</strong>. If a core design flaw is found during testing, almost everything must be scrapped. Modern SQA prefers Agile / V-Model where every phase has a corresponding testing phase.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal">
+            <div class="card-icon">🔀</div>
+            <div class="card-title">FSM-Based Testing in Web Applications</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <p style="margin-bottom: 12px;"><strong>Finite State Machine (FSM)</strong> testing models how an application transitions between states based on user actions.</p>
+                <p style="margin-bottom: 12px;"><strong>E-commerce Example:</strong> Browsing → Cart → Payment Gateway → Order Confirmed. FSM maps every possible transition to ensure unexpected actions (like hitting "Back" during payment) don't crash the system.</p>
+                <div class="card-tag tag-purple">From Question Papers</div>
             </div>
         </div>
     </section>
@@ -618,319 +548,294 @@
     <section class="section" id="unit2">
         <div class="section-header gs-reveal">
             <div class="section-label">Unit 2</div>
-            <h2 class="section-title">Development of<br>Business Model</h2>
-            <p class="section-desc">Innovation, feasibility, business plans, project management, and the Business Model Canvas.</p>
+            <h2 class="section-title">Management &<<br>Quality Cost</h2>
+            <p class="section-desc">TQM, Cost of Quality, CMM, maintenance QA, metrics, and documentation control.</p>
         </div>
 
-        <!-- Innovation -->
-        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
-            <div class="bento-card">
-                <div class="card-icon">💡</div>
-                <div class="card-title">Innovation & Creativity</div>
-                <div class="card-text" style="margin-top: 12px;">
-                    <div style="margin-bottom: 16px;">
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Creativity</div>
-                        <p>Generation of new ideas. Driving the development of innovative solutions to market problems.</p>
-                    </div>
-                    <div>
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Innovation</div>
-                        <p>Implementation of new ideas, processes, or products that add value.</p>
-                    </div>
-                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
-                        <div class="highlight-box-title" style="font-size: 14px;">📈 Importance</div>
-                        <p style="font-size: 13px;">Competitive advantage • Customer satisfaction • Growth • Market survival</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bento-card">
-                <div class="card-icon">⚠️</div>
-                <div class="card-title">Challenges of Innovation</div>
-                <div class="card-text" style="margin-top: 12px;">
-                    <ul>
-                        <li>Lack of funds</li>
-                        <li>Market uncertainty</li>
-                        <li>Technology changes</li>
-                        <li>Competition</li>
-                        <li>Customer acceptance</li>
-                        <li>High risk</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Business Model & Value Proposition -->
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
                 <div>
-                    <div class="card-icon">🏗️</div>
-                    <div class="card-title">Business Model & Value Proposition</div>
+                    <div class="card-icon">🎯</div>
+                    <div class="card-title">Total Quality Management (TQM)</div>
                 </div>
                 <div class="card-tag tag-red">Very Important</div>
             </div>
             <div class="card-text" style="margin-top: 16px;">
-                <p style="font-size: 16px; line-height: 1.7; margin-bottom: 16px;">A <strong>Business Model</strong> explicitly describes <strong>how an organization creates, delivers, and captures value.</strong> Developed by <strong>Alexander Osterwalder.</strong></p>
-                <p style="margin-bottom: 16px;"><strong>Value Proposition:</strong> A statement that clearly identifies the bundle of products or services that creates value and benefits for a customer. It explains <em>why customers should buy your product.</em></p>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">Value Proposition Examples</div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Faster delivery</li>
-                            <li>Lower price</li>
-                            <li>Better quality</li>
-                            <li>Eco-friendly product</li>
-                            <li>Convenience</li>
-                            <li>Customization</li>
-                        </ul>
+                <p style="margin-bottom: 16px;">Organization-wide approach focused on continuous improvement through employee involvement and customer satisfaction.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
+                    <div class="bento-card" style="padding: 20px; background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
+                        <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Customer Focus</div>
+                        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Customer determines quality</div>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
+                        <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Continuous Improvement</div>
+                        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Always seeking better ways</div>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
+                        <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Employee Involvement</div>
+                        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Empower devs to flag issues</div>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
+                        <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Data-Driven Decisions</div>
+                        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Metrics, not guesses</div>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
+                        <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Process-Oriented</div>
+                        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Quality processes → quality products</div>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
+                        <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Leadership Commitment</div>
+                        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Top management provides direction</div>
                     </div>
                 </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">Operational Business Models</div>
-                    <div class="card-text">
-                        <ul>
-                            <li><strong>Subscription</strong> — Predictable periodic payments</li>
-                            <li><strong>Freemium</strong> — Basic free, premium paid</li>
-                            <li><strong>Retailer / Manufacturer</strong></li>
-                            <li><strong>Fee-for-Service</strong></li>
-                            <li><strong>Product-as-a-Service</strong></li>
-                            <li><strong>Leasing</strong></li>
-                            <li><strong>Razor-and-Blade</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="highlight-box">
-                <div class="highlight-box-title">⚠️ Fatal Flaw</div>
-                <p>A business model faces immediate structural destruction if it operates with <strong>no clear value proposition</strong> or an <strong>undefined revenue model.</strong></p>
             </div>
         </div>
 
-        <!-- Business Model Canvas -->
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
                 <div>
-                    <div class="card-icon">🎨</div>
-                    <div class="card-title">Business Model Canvas — 9 Building Blocks</div>
+                    <div class="card-icon">💰</div>
+                    <div class="card-title">Cost of Quality (COQ)</div>
                 </div>
                 <div class="card-tag tag-red">Most Repeated</div>
             </div>
             <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">The BMC contains 9 structural building blocks. <strong>Human Resource Policy is NOT one of them.</strong></p>
+                <p style="margin-bottom: 16px;">Total cost incurred to ensure quality and manage defects. Split into <strong>Cost of Conformance</strong> and <strong>Cost of Non-Conformance</strong>.</p>
             </div>
-            <div class="bento-grid" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">1. Customer Segments</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Who are the customers? Mass, niche, local, global.</div>
+            
+            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="flip-icon" style="background: rgba(48,209,88,0.1);">🛡️</div>
+                            <div class="flip-title">Prevention Cost</div>
+                            <div class="flip-subtitle">Cost of Conformance</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">Prevention Cost</div>
+                            <div class="card-text">
+                                <p style="margin-bottom: 12px;">Expenses to <strong>prevent defects before they occur</strong>.</p>
+                                <ul style="margin-bottom: 12px;">
+                                    <li>Employee training</li>
+                                    <li>Quality planning</li>
+                                    <li>Process improvement</li>
+                                    <li>Standards development</li>
+                                </ul>
+                                <p><strong>Key insight:</strong> Higher prevention cost reduces future failure costs dramatically.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">2. Value Proposition</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">What value is offered? Why should they buy?</div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="flip-icon" style="background: rgba(41,151,255,0.1);">🔍</div>
+                            <div class="flip-title">Appraisal Cost</div>
+                            <div class="flip-subtitle">Cost of Conformance</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">Appraisal Cost</div>
+                            <div class="card-text">
+                                <p style="margin-bottom: 12px;">Expenses related to <strong>evaluating and testing</strong> quality.</p>
+                                <ul style="margin-bottom: 12px;">
+                                    <li>Software testing</li>
+                                    <li>Inspections & reviews</li>
+                                    <li>Audits</li>
+                                </ul>
+                                <p>Identifies defects before release.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">3. Channels</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">How products reach customers. Website, retail, apps.</div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="flip-icon" style="background: rgba(255,159,10,0.1);">🔧</div>
+                            <div class="flip-title">Internal Failure</div>
+                            <div class="flip-subtitle">Cost of Non-Conformance</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">Internal Failure Cost</div>
+                            <div class="card-text">
+                                <p style="margin-bottom: 12px;">Costs when defects are found <strong>before delivery</strong> to customers.</p>
+                                <ul style="margin-bottom: 12px;">
+                                    <li>Rework</li>
+                                    <li>Debugging</li>
+                                    <li>Retesting</li>
+                                    <li>Scrap cost</li>
+                                </ul>
+                                <p>Cheaper than external failure, but still expensive.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">4. Customer Relationships</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">How customers are maintained. Support, loyalty.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">5. Revenue Streams</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">How money is earned. Sales, subscription, ads.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">6. Key Activities</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Main business operations. Manufacturing, marketing.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">7. Key Resources</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Assets required. Physical, intellectual, human, financial.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">8. Key Partners</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Suppliers, partners, alliances. VARs, MSPs, OEMs.</div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15); grid-column: span 3;">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">9. Cost Structure</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Business expenses. Fixed costs, variable costs, economies of scale.</div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="flip-icon" style="background: rgba(255,69,58,0.1);">💥</div>
+                            <div class="flip-title">External Failure</div>
+                            <div class="flip-subtitle">Cost of Non-Conformance</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">External Failure Cost</div>
+                            <div class="card-text">
+                                <p style="margin-bottom: 12px;">Costs when defects are discovered <strong>after release</strong>.</p>
+                                <ul style="margin-bottom: 12px;">
+                                    <li>Customer complaints</li>
+                                    <li>Warranty support</li>
+                                    <li>Product recalls</li>
+                                    <li>Reputation damage</li>
+                                </ul>
+                                <p><strong>Most expensive.</strong> Always prioritize prevention.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="highlight-box">
-                <div class="highlight-box-title">📝 Exam Diagram</div>
-                <p>Draw a 3×3 grid. Place Value Proposition in the center. Left side: Partners, Activities, Resources. Right side: Segments, Relationships, Channels. Bottom: Cost Structure (left) and Revenue Streams (right).</p>
+
+            <div style="max-width: 600px; margin: 0 auto;">
+                <div class="chart-container">
+                    <svg viewBox="0 0 100 100" style="transform: rotate(-90deg);">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="12"/>
+                        <circle class="chart-segment" cx="50" cy="50" r="40" fill="none" stroke="#30d158" stroke-width="12" stroke-dasharray="25.1 226.2" stroke-dashoffset="0" stroke-linecap="round"/>
+                        <circle class="chart-segment" cx="50" cy="50" r="40" fill="none" stroke="#2997ff" stroke-width="12" stroke-dasharray="50.3 226.2" stroke-dashoffset="-25.1" stroke-linecap="round"/>
+                        <circle class="chart-segment" cx="50" cy="50" r="40" fill="none" stroke="#ff9f0a" stroke-width="12" stroke-dasharray="75.4 226.2" stroke-dashoffset="-75.4" stroke-linecap="round"/>
+                        <circle class="chart-segment" cx="50" cy="50" r="40" fill="none" stroke="#ff453a" stroke-width="12" stroke-dasharray="75.4 226.2" stroke-dashoffset="-150.8" stroke-linecap="round"/>
+                    </svg>
+                    <div class="chart-label">
+                        <div class="chart-value">COQ</div>
+                        <div class="chart-desc">Distribution</div>
+                    </div>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item"><div class="legend-dot" style="background: var(--accent-green);"></div>Prevention (10%)</div>
+                    <div class="legend-item"><div class="legend-dot" style="background: var(--apple-blue);"></div>Appraisal (20%)</div>
+                    <div class="legend-item"><div class="legend-dot" style="background: var(--accent-orange);"></div>Internal (30%)</div>
+                    <div class="legend-item"><div class="legend-dot" style="background: var(--accent-red);"></div>External (40%)</div>
+                </div>
+            </div>
+            <div class="highlight-box" style="margin-top: 24px;">
+                <div class="highlight-box-title">📈 Relationship</div>
+                <p>Increasing <strong>prevention</strong> and <strong>appraisal</strong> activities reduces internal and external failure costs exponentially.</p>
             </div>
         </div>
 
-        <!-- Feasibility -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">✅</div>
-                    <div class="card-title">Feasibility Analysis</div>
-                </div>
-                <div class="card-tag tag-red">Very Important</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">Checks whether a business idea is <strong>practical and profitable.</strong> A multi-layered study is mandatory before writing a business plan.</p>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">1. Technical Feasibility</div>
-                    <div class="card-text">
-                        <p>Analyzes accessibility of technical resources, plant layout capacities, and process designs. Can we build it?</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">2. Financial / Economic Feasibility</div>
-                    <div class="card-text">
-                        <p>Cost-benefit analysis. Reviews material costs, labor overheads, and potential revenue changes. Is it profitable?</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">3. Market / Industry Feasibility</div>
-                    <div class="card-text">
-                        <p>Reviews market size, industry attractiveness, demand, competition, and barriers to entry. Will customers buy?</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">4. Organizational / Management Feasibility</div>
-                    <div class="card-text">
-                        <p>Assesses whether the team possesses the management prowess and structural competence to execute the project.</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15); grid-column: span 2;">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">5. Scheduling Feasibility</div>
-                    <div class="card-text">
-                        <p>Can the project be completed on time? Examines timelines, milestones, and resource availability against deadlines.</p>
-                    </div>
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">🔧</div>
+                <div class="card-title">Software Maintenance QA</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;"><strong>Types of Maintenance:</strong></p>
+                    <ul style="margin-bottom: 12px;">
+                        <li><strong>Corrective</strong> — Fix defects after deployment</li>
+                        <li><strong>Adaptive</strong> — Modify for new environments</li>
+                        <li><strong>Perfective</strong> — Improve performance & usability</li>
+                        <li><strong>Preventive</strong> — Fix potential issues before they become defects</li>
+                    </ul>
+                    <p><strong>QA Activities:</strong> Regression testing, change management, documentation updates, configuration management.</p>
                 </div>
             </div>
-            <div class="highlight-box">
-                <div class="highlight-box-title">🎯 Exam Recall</div>
-                <p>Technical + Financial + Market + Organizational + Scheduling</p>
+            <div class="bento-card">
+                <div class="card-icon">📏</div>
+                <div class="card-title">Software Quality Metrics</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <div class="code-block" style="margin-top: 0;">
+<span class="comment">// Defect Density</span>
+<span class="func">DefectDensity</span> = <span class="type">NumberOfDefects</span> / <span class="type">KLOC</span>
+
+<span class="comment">// Defect Removal Efficiency</span>
+<span class="func">DRE</span> = (<span class="type">DefectsRemoved</span> / <span class="type">TotalDefects</span>) × <span class="type">100</span>
+
+<span class="comment">// Mean Time Between Failures</span>
+<span class="func">MTBF</span> = <span class="type">TotalOperatingTime</span> / <span class="type">NumberOfFailures</span>
+                    </div>
+                    <p style="margin-top: 12px;"><strong>Process Metrics:</strong> Review efficiency, DRE.<br><strong>Project Metrics:</strong> Cost variance, schedule variance, productivity.</p>
+                </div>
             </div>
         </div>
 
-        <!-- Business Plan -->
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">📑</div>
-                    <div class="card-title">The Business Plan</div>
-                </div>
-                <div class="card-tag tag-red">Very Very Important</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">A formal document outlining goals, operational strategies, and financial projections. The <strong>Executive Summary</strong> must be <strong>written last but placed first.</strong></p>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">Components of Business Plan</div>
-                    <div class="card-text">
-                        <ol class="numbered-list" style="margin-top: 0;">
-                            <li><div class="step-title">Executive Summary</div><div class="step-desc">Short overview (write last, place first)</div></li>
-                            <li><div class="step-title">Company Description</div><div class="step-desc">Mission, vision, history</div></li>
-                            <li><div class="step-title">Market Analysis</div><div class="step-desc">Industry outlook, target market</div></li>
-                            <li><div class="step-title">Product/Service Description</div><div class="step-desc">What you sell, lifecycle, R&D</div></li>
-                            <li><div class="step-title">Marketing Plan</div><div class="step-desc">Strategy, pricing, promotion</div></li>
-                        </ol>
+            <div class="card-icon">🔄</div>
+            <div class="card-title">Integrating Quality in SDLC</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <p style="margin-bottom: 16px;">Quality is not a final phase — it must be integrated into every stage:</p>
+                <div class="bento-grid bento-grid-2">
+                    <div class="bento-card" style="padding: 20px; background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Requirement Phase</div>
+                        <p style="font-size: 13px;">Requirement reviews & validation to eliminate ambiguity.</p>
                     </div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">Remaining Components</div>
-                    <div class="card-text">
-                        <ol class="numbered-list" style="margin-top: 0; counter-reset: item 5;">
-                            <li><div class="step-title">Operational Plan</div><div class="step-desc">Location, facilities, supply chain</div></li>
-                            <li><div class="step-title">Financial Plan</div><div class="step-desc">Projections, BEP, cash flow</div></li>
-                            <li><div class="step-title">Funding Requirement</div><div class="step-desc">Capital needed, use of funds</div></li>
-                            <li><div class="step-title">Appendix</div><div class="step-desc">Resumes, permits, contracts</div></li>
-                        </ol>
+                    <div class="bento-card" style="padding: 20px; background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Design Phase</div>
+                        <p style="font-size: 13px;">Design reviews & standards for maintainability.</p>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Coding Phase</div>
+                        <p style="font-size: 13px;">Code reviews & coding standards for readability.</p>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Testing Phase</div>
+                        <p style="font-size: 13px;">Unit, integration, system, and acceptance testing.</p>
                     </div>
                 </div>
             </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">SWOT Analysis</div>
-                    <div class="card-text">
+        </div>
+
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">📄</div>
+                <div class="card-title">Documentation & Control</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;">Types: Requirement docs, design docs, test docs, user manuals.</p>
+                    <p style="margin-bottom: 12px;"><strong>Activities:</strong></p>
+                    <ul>
+                        <li>Version control</li>
+                        <li>Approval process</li>
+                        <li>Storage & retrieval</li>
+                        <li>Change tracking</li>
+                        <li>Access control</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div class="card-icon">🏥</div>
+                <div class="card-title">SDLC in Healthcare Systems</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;">Healthcare is <strong>safety-critical</strong>. You cannot use loose models.</p>
+                    <p style="margin-bottom: 12px;">Use the <strong>V-Model</strong> (Verification & Validation): every development phase has a strictly documented corresponding testing phase.</p>
+                    <p>Focus: Compliance, privacy, zero-defect tolerance, safety assurance.</p>
+                    <div class="card-tag tag-purple">Hidden Topic</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal">
+            <div class="card-icon">❓</div>
+            <div class="card-title">Unit 2 — Expected Exam Questions</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">2-Mark Questions</div>
                         <ul>
-                            <li><strong>Strengths</strong> — Internal advantages</li>
-                            <li><strong>Weaknesses</strong> — Internal limitations</li>
-                            <li><strong>Opportunities</strong> — External favorable factors</li>
-                            <li><strong>Threats</strong> — External risks</li>
+                            <li>Define TQM</li>
+                            <li>What is Cost of Quality?</li>
+                            <li>Define defect density</li>
+                            <li>What is DRE?</li>
+                            <li>Difference between corrective and preventive maintenance</li>
+                            <li>Define appraisal cost</li>
+                            <li>What is regression testing?</li>
                         </ul>
                     </div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Lean Startup Methodology</div>
-                    <div class="card-text">
-                        <p>Eliminates heavy upfront planning by deploying an <strong>MVP (Minimum Viable Product)</strong> — a basic version with just enough features to execute a validated <strong>Build-Measure-Learn</strong> feedback loop.</p>
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">10-Mark Questions</div>
+                        <ul>
+                            <li>Explain principles of TQM</li>
+                            <li>Explain Cost of Quality categories</li>
+                            <li>Explain software quality metrics</li>
+                            <li>Discuss inspections and walkthroughs</li>
+                            <li>Explain software maturity models</li>
+                            <li>Explain integrating quality activities in SDLC</li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-            <div class="highlight-box">
-                <div class="highlight-box-title">📊 Break-Even Point (BEP)</div>
-                <p>Calculated within financial projections to determine the precise volume where total revenue exactly equals total cost.</p>
-            </div>
-        </div>
-
-        <!-- Project Management -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">⚙️</div>
-                    <div class="card-title">Project Management & Tools</div>
-                </div>
-                <div class="card-tag tag-blue">Important</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">Involves planning, organizing, and controlling temporary, unique endeavors to reach specific objectives.</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
-                <div class="tool-mini"><div class="tool-mini-icon">📊</div><div><div class="tool-mini-name">Gantt Chart</div><div class="tool-mini-desc">Bar-chart schedules for timelines</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🌐</div><div><div class="tool-mini-name">PERT</div><div class="tool-mini-desc">Handles uncertainty in estimates</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🔗</div><div><div class="tool-mini-name">CPM</div><div class="tool-mini-desc">Critical Path Method</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🐛</div><div><div class="tool-mini-name">Jira</div><div class="tool-mini-desc">Issue & project tracking</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">📋</div><div><div class="tool-mini-name">Kanban Board</div><div class="tool-mini-desc">Visual task management</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🗂️</div><div><div class="tool-mini-name">WBS</div><div class="tool-mini-desc">Work Breakdown Structure</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">📈</div><div><div class="tool-mini-name">Smartsheet</div><div class="tool-mini-desc">Collaborative work management</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">💻</div><div><div class="tool-mini-name">MS Project</div><div class="tool-mini-desc">Microsoft project planner</div></div></div>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Critical Path Method (CPM)</div>
-                    <div class="card-text">
-                        <p>Identifies the <strong>longest sequence of dependent tasks</strong> that determines the absolute minimum project duration. Any delay here immediately delays final delivery.</p>
-                        <p style="margin-top: 8px;"><strong>Purpose:</strong> Reduces delay, helps scheduling, identifies critical tasks.</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Project Development Life Cycle</div>
-                    <div class="card-text">
-                        <div class="code-block" style="margin-top: 0;">
-Initiation → Planning → Execution
-    → Monitoring & Controlling → Closure
-                        </div>
-                        <p style="margin-top: 8px;">Or simplified: Idea → Feasibility → Planning → Implementation → Monitoring → Completion</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Fatal Flaws -->
-        <div class="bento-card gs-reveal">
-            <div class="card-icon">🚫</div>
-            <div class="card-title">Fatal Flaws of Business Model</div>
-            <div class="card-text" style="margin-top: 12px;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px;">
-                    <div class="tool-mini"><div class="tool-mini-icon">❌</div><div><div class="tool-mini-name">No customer need</div></div></div>
-                    <div class="tool-mini"><div class="tool-mini-icon">❌</div><div><div class="tool-mini-name">Weak revenue model</div></div></div>
-                    <div class="tool-mini"><div class="tool-mini-icon">❌</div><div><div class="tool-mini-name">Poor market research</div></div></div>
-                    <div class="tool-mini"><div class="tool-mini-icon">❌</div><div><div class="tool-mini-name">High cost structure</div></div></div>
-                    <div class="tool-mini"><div class="tool-mini-icon">❌</div><div><div class="tool-mini-name">Lack of differentiation</div></div></div>
-                    <div class="tool-mini"><div class="tool-mini-icon">❌</div><div><div class="tool-mini-name">Wrong pricing</div></div></div>
-                    <div class="tool-mini"><div class="tool-mini-icon">❌</div><div><div class="tool-mini-name">Poor management</div></div></div>
-                    <div class="tool-mini"><div class="tool-mini-icon">❌</div><div><div class="tool-mini-name">Undefined revenue model</div></div></div>
                 </div>
             </div>
         </div>
@@ -940,317 +845,203 @@ Initiation → Planning → Execution
     <section class="section" id="unit3">
         <div class="section-header gs-reveal">
             <div class="section-label">Unit 3</div>
-            <h2 class="section-title">Transformation into<br>Startup</h2>
-            <p class="section-desc">Startup culture, market intelligence, financials, legal frameworks, and ethical practices in India.</p>
+            <h2 class="section-title">Tools &<<br>Methodologies</h2>
+            <p class="section-desc">7 QC Tools, Six Sigma, BPR, QFD, Benchmarking, ISO 9000, SPICE, and SPC.</p>
         </div>
 
-        <!-- Startup Culture -->
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
                 <div>
-                    <div class="card-icon">🚀</div>
-                    <div class="card-title">Startup Culture in India</div>
+                    <div class="card-icon">🧰</div>
+                    <div class="card-title">7 Basic QC Tools</div>
                 </div>
                 <div class="card-tag tag-red">Very Important</div>
             </div>
             <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">A startup is a venture started to provide solutions to problems that have never been answered before.</p>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">Reasons for Growth</div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Digital India initiative</li>
-                            <li>Internet & mobile growth</li>
-                            <li>Government support (Startup India)</li>
-                            <li>Funding availability</li>
-                            <li>Youth innovation & risk appetite</li>
-                            <li>Ease of registration</li>
-                        </ul>
+                <div class="bento-grid" style="margin-bottom: 20px;">
+                    <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">1. Fishbone Diagram</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Ishikawa diagram. Identifies possible causes of a problem by category.</div>
+                    </div>
+                    <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">2. Pareto Chart</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">80/20 rule. 80% of problems from 20% of causes. Prioritizes critical issues.</div>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">3. Histogram</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Frequency distribution of data values. Shows defect patterns.</div>
+                    </div>
+                    <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">4. Control Chart</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Monitors process stability with UCL, LCL, and Central Line.</div>
+                    </div>
+                    <div class="bento-card" style="background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">5. Scatter Diagram</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Shows relationship between two variables. Identifies correlations.</div>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">6. Flow Chart</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Graphical workflow representation. Identifies bottlenecks.</div>
+                    </div>
+                    <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15); grid-column: span 3;">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">7. Check Sheet</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Structured form for collecting and recording quality data systematically.</div>
                     </div>
                 </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">Key Concepts</div>
-                    <div class="card-text">
-                        <ul>
-                            <li><strong>Lean Startup</strong> — Build-Measure-Learn loop</li>
-                            <li><strong>MVP</strong> — Minimum Viable Product</li>
-                            <li><strong>Unicorn</strong> — Valued over $1 billion</li>
-                            <li><strong>Scalability</strong> — Grow revenue without proportional cost increase</li>
-                            <li><strong>Product-Market Fit</strong> — Product satisfies strong market demand</li>
-                        </ul>
-                    </div>
+                <div class="highlight-box">
+                    <div class="highlight-box-title">📝 Exam Recall</div>
+                    <p>Fishbone + Pareto + Histogram + Control Chart + Scatter + Flow Chart + Check Sheet</p>
                 </div>
-            </div>
-            <div class="highlight-box">
-                <div class="highlight-box-title">📈 Advantages</div>
-                <p>Innovation • Employment generation • Economic growth • Global competitiveness • Wealth creation</p>
             </div>
         </div>
 
-        <!-- Market Intelligence & Segments -->
         <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
             <div class="bento-card">
-                <div class="card-icon">🧠</div>
-                <div class="card-title">Market Intelligence</div>
+                <div class="card-icon">📉</div>
+                <div class="card-title">Six Sigma — DMAIC</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <p style="margin-bottom: 12px;">Collection and analysis of market-related information to make informed strategic decisions.</p>
-                    <div style="margin-bottom: 12px;">
-                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Primary Methods</div>
-                        <ul>
-                            <li>Surveys & Questionnaires (Online, In-Person, Telephone, Mail)</li>
-                            <li>Focus Groups & Interviews</li>
-                            <li>Competitor Intelligence (public filings, databases)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Includes</div>
-                        <ul>
-                            <li>Competitor analysis</li>
-                            <li>Customer behavior</li>
-                            <li>Market trends</li>
-                            <li>Pricing analysis</li>
-                        </ul>
-                    </div>
+                    <p style="margin-bottom: 12px;">Goal: <strong>3.4 defects per million opportunities.</strong></p>
+                    <ol class="numbered-list" style="margin-top: 0;">
+                        <li><div class="step-title">Define</div><div class="step-desc">Problem, goals, and customer requirements</div></li>
+                        <li><div class="step-title">Measure</div><div class="step-desc">Collect data on current performance</div></li>
+                        <li><div class="step-title">Analyze</div><div class="step-desc">Identify root causes statistically</div></li>
+                        <li><div class="step-title">Improve</div><div class="step-desc">Develop and implement solutions</div></li>
+                        <li><div class="step-title">Control</div><div class="step-desc">Monitor to sustain improvements</div></li>
+                    </ol>
                 </div>
             </div>
             <div class="bento-card">
-                <div class="card-icon">👥</div>
-                <div class="card-title">Customer Segments & Channels</div>
+                <div class="card-icon">🎯</div>
+                <div class="card-title">Zero Defect Philosophy</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <div style="margin-bottom: 16px;">
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Customer Segments</div>
-                        <p>Different groups targeted by business:</p>
-                        <ul>
-                            <li><strong>Mass market</strong> — Whole market, heavy media</li>
-                            <li><strong>Niche market</strong> — Specific segment, tailored content</li>
-                            <li><strong>Local / Global</strong> — Geographic targeting</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Channels</div>
-                        <p>Ways products reach customers:</p>
-                        <ul>
-                            <li>Website, Retail stores</li>
-                            <li>Delivery apps, Social media</li>
-                            <li>Direct sales, Distributors</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mass vs Niche -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">🎯</div>
-                    <div class="card-title">Mass Marketing vs Niche Marketing</div>
-                </div>
-                <div class="card-tag tag-blue">Repeated</div>
-            </div>
-            <table class="forensic-table" style="margin-top: 16px;">
-                <thead><tr><th>Aspect</th><th>Mass Marketing</th><th>Niche Marketing</th></tr></thead>
-                <tbody>
-                    <tr><td>Target</td><td>Entire industry</td><td>Specific, tightly defined segment</td></tr>
-                    <tr><td>Channels</td><td>Broadcast (TV, radio)</td><td>Digital (websites, email)</td></tr>
-                    <tr><td>Cost</td><td>High expenditure</td><td>Low-cost targeted</td></tr>
-                    <tr><td>Revenue</td><td>Higher long-term via scale</td><td>Lower volume, high conversion</td></tr>
-                    <tr><td>Content</td><td>Generic</td><td>Highly specialized</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Revenue Streams -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">💰</div>
-                    <div class="card-title">Revenue Streams & Marketing Strategies</div>
-                </div>
-                <div class="card-tag tag-red">Very Important</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;"><strong>Revenue Streams:</strong> The cash a company generates from each customer segment.</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px;">
-                <div class="tool-mini"><div class="tool-mini-icon">🛒</div><div><div class="tool-mini-name">Product Sales</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🔄</div><div><div class="tool-mini-name">Subscription</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">📢</div><div><div class="tool-mini-name">Advertising</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">📜</div><div><div class="tool-mini-name">Licensing</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🤝</div><div><div class="tool-mini-name">Commission</div></div></div>
-                <div class="tool-mini"><div class="tool-mini-icon">🆓</div><div><div class="tool-mini-name">Freemium</div></div></div>
-            </div>
-            <div class="card-text" style="margin-bottom: 16px;"><strong>Effective Marketing Strategies:</strong></div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
-                <div class="bento-card" style="padding: 20px; background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Social Media Marketing</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Influencer Marketing</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Email Marketing</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">SEO & Content</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Referral Marketing</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Discounts & Offers</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Financials -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">📊</div>
-                    <div class="card-title">Financial Analysis & Metrics</div>
-                </div>
-                <div class="card-tag tag-purple">Repeated</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">Evaluates profit, sales, expenses, and cash flow to ensure startup survival.</p>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">Cash Flow Projection</div>
-                    <div class="card-text">
-                        <p>The <strong>most vital early-stage statement.</strong> Maps future cash inflows and outflows to track operational survival.</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">Balance Sheet</div>
-                    <div class="card-text">
-                        <p>Financial snapshot at a specific date. If <strong>asset-to-liability ratio falls below 1:1</strong>, the startup faces high risk of immediate bankruptcy.</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">Burn Rate</div>
-                    <div class="card-text">
-                        <p>The rate at which a pre-revenue startup spends its cash reserves to cover monthly overheads. Critical for runway calculation.</p>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text-primary);">Bootstrapping</div>
-                    <div class="card-text">
-                        <p>Starting and growing a business using <strong>purely personal savings and early customer revenues</strong> without external venture funding.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle); margin-bottom: 20px;">
-                <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">Budgeting</div>
-                <div class="card-text">
-                    <p>Planning and controlling financial resources to achieve goals.</p>
-                    <p style="margin-top: 8px;"><strong>Importance:</strong> Cost control • Profit planning • Resource allocation</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Legal & Ethics -->
-        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
-            <div class="bento-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                    <div>
-                        <div class="card-icon">⚖️</div>
-                        <div class="card-title">Legal Aspects of Startups</div>
-                    </div>
-                    <div class="card-tag tag-red">Very Important</div>
-                </div>
-                <div class="card-text" style="margin-top: 12px;">
-                    <div style="margin-bottom: 16px;">
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Business Structures</div>
-                        <ul>
-                            <li><strong>Sole Proprietorship</strong> — Single owner, unlimited liability, simple to establish</li>
-                            <li><strong>Partnership</strong> — Two or more owners, shared profits/liabilities</li>
-                            <li><strong>Private Limited Company</strong> — Separate legal entity, min 2 directors, governed by Companies Act 2013</li>
-                            <li><strong>LLP</strong> — Limited Liability Partnership. Combines partnership flexibility with corporate liability protection.</li>
-                        </ul>
-                    </div>
-                    <div style="margin-bottom: 16px;">
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Mandatory Licenses</div>
-                        <ul>
-                            <li><strong>GST Registration</strong> — Unified indirect tax</li>
-                            <li><strong>Udyam / MSME</strong> — Credit protection & subsidies</li>
-                            <li><strong>Shop & Establishment Act</strong> — Commercial office license</li>
-                            <li><strong>FSSAI License</strong> — Mandatory for food businesses</li>
-                            <li><strong>Trade License</strong></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Intellectual Property Rights (IPR)</div>
-                        <ul>
-                            <li><strong>Patents</strong> — Functional innovations</li>
-                            <li><strong>Trademarks</strong> — Brand identity</li>
-                            <li><strong>Copyrights</strong> — Creative works</li>
-                        </ul>
-                    </div>
+                    <p style="margin-bottom: 12px;">Emphasizes <strong>"doing it right the first time"</strong> to eliminate rework.</p>
+                    <p style="margin-bottom: 12px;"><strong>Principles:</strong></p>
+                    <ul>
+                        <li>Do it right the first time</li>
+                        <li>Prevention over correction</li>
+                        <li>Every employee is responsible for quality</li>
+                    </ul>
                     <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
-                        <div class="highlight-box-title" style="font-size: 14px;">📋 IBC 2016</div>
-                        <p style="font-size: 13px;">Insolvency and Bankruptcy Code enables faster, legally sound exit paths for failed startups.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bento-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                    <div>
-                        <div class="card-icon">🤝</div>
-                        <div class="card-title">Ethical Culture & Strategic Plans</div>
-                    </div>
-                    <div class="card-tag tag-blue">Very Important</div>
-                </div>
-                <div class="card-text" style="margin-top: 12px;">
-                    <div style="margin-bottom: 16px;">
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Ethical Culture</div>
-                        <p>A shared set of experiences and expectations encouraging fairness, transparency, and integrity.</p>
-                        <ul>
-                            <li>Honesty in dealings</li>
-                            <li>Transparency</li>
-                            <li>Fair treatment</li>
-                            <li>Social responsibility</li>
-                        </ul>
-                        <p style="margin-top: 8px;"><strong>Importance:</strong> Customer trust, brand image, employee satisfaction.</p>
-                    </div>
-                    <div>
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">Strategic Improvement Plan</div>
-                        <p>Steps to improve startup performance:</p>
-                        <ol class="numbered-list" style="margin-top: 0;">
-                            <li><div class="step-title">Identify problem</div></li>
-                            <li><div class="step-title">Analyze market</div></li>
-                            <li><div class="step-title">Improve product</div></li>
-                            <li><div class="step-title">Reduce cost</div></li>
-                            <li><div class="step-title">Increase marketing</div></li>
-                            <li><div class="step-title">Monitor results</div></li>
-                        </ol>
+                        <div class="highlight-box-title" style="font-size: 14px;">⚠️ Limitation</div>
+                        <p style="font-size: 13px;">Difficult to achieve perfectly; requires strong organizational commitment.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Distribution Partners -->
-        <div class="bento-card gs-reveal">
-            <div class="card-icon">🔗</div>
-            <div class="card-title">Distribution Channels & Partners</div>
-            <div class="card-text" style="margin-top: 12px;">
-                <p style="margin-bottom: 16px;">The paths used to deliver value propositions to customers.</p>
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">🏭</div>
+                <div class="card-title">Business Process Re-engineering</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;"><strong>Radical redesign</strong> of business processes for massive performance leaps (not gradual improvement).</p>
+                    <p style="margin-bottom: 12px;"><strong>Steps:</strong> Process Identification → Analysis → Redesign → Implementation → Monitoring</p>
+                    <p><strong>Adv:</strong> Improves productivity, reduces complexity.</p>
+                    <p><strong>Disadv:</strong> High cost, employee resistance, risk of failure.</p>
+                </div>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-                <div class="bento-card" style="padding: 20px; background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Value-Added Resellers (VARs)</div>
+            <div class="bento-card">
+                <div class="card-icon">🏠</div>
+                <div class="card-title">QFD — House of Quality</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;">Quality Function Deployment converts <strong>Voice of the Customer</strong> into technical specifications.</p>
+                    <p style="margin-bottom: 12px;"><strong>Components:</strong></p>
+                    <ul>
+                        <li>Customer requirements (WHATs)</li>
+                        <li>Technical requirements (HOWs)</li>
+                        <li>Relationship matrix</li>
+                        <li>Competitive analysis</li>
+                    </ul>
                 </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Managed Service Providers (MSPs)</div>
+            </div>
+        </div>
+
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">📊</div>
+                <div class="card-title">Statistical Process Control (SPC)</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;">Uses statistical techniques to monitor and control processes.</p>
+                    <p style="margin-bottom: 12px;"><strong>Variation Types:</strong></p>
+                    <ul>
+                        <li><strong>Common Cause</strong> — Natural, normal process behavior</li>
+                        <li><strong>Special Cause</strong> — Abnormal, identifiable issues</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>Tools:</strong> Control charts, histograms, sampling techniques.</p>
                 </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">OEMs</div>
+            </div>
+            <div class="bento-card">
+                <div class="card-icon">🏆</div>
+                <div class="card-title">Benchmarking Types</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <ul>
+                        <li><strong>Internal</strong> — Between departments in same org</li>
+                        <li><strong>Competitive</strong> — Against direct competitors</li>
+                        <li><strong>Functional</strong> — Similar functions, different industries</li>
+                        <li><strong>Generic</strong> — Best practices regardless of industry</li>
+                    </ul>
                 </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Strategic Partners</div>
+            </div>
+        </div>
+
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">📜</div>
+                <div class="card-title">ISO 9000 Series</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;">International quality management standards:</p>
+                    <ul>
+                        <li><strong>ISO 9001</strong> — QMS requirements</li>
+                        <li><strong>ISO 9002</strong> — Production & installation QA</li>
+                        <li><strong>ISO 9003</strong> — Final inspection & testing</li>
+                        <li><strong>ISO 9004</strong> — Quality management improvement</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>Principles:</strong> Customer focus, leadership, process approach, continuous improvement, evidence-based decisions.</p>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div class="card-icon">🔬</div>
+                <div class="card-title">Modern QC Tools</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <ul>
+                        <li><strong>Affinity Diagram</strong> — Groups ideas into categories</li>
+                        <li><strong>Tree Diagram</strong> — Breaks objectives into sub-tasks</li>
+                        <li><strong>Matrix Diagram</strong> — Shows factor relationships</li>
+                        <li><strong>PDPC</strong> — Identifies possible failures & preventive actions</li>
+                        <li><strong>Arrow Diagram</strong> — Task sequence & dependencies (CPM)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal">
+            <div class="card-icon">❓</div>
+            <div class="card-title">Unit 3 — Expected Exam Questions</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">2-Mark Questions</div>
+                        <ul>
+                            <li>Define Six Sigma</li>
+                            <li>What is DMAIC?</li>
+                            <li>Define Benchmarking</li>
+                            <li>What is SPC?</li>
+                            <li>Define QFD</li>
+                            <li>What is Zero Defect?</li>
+                            <li>What is ISO 9000?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">10-Mark Questions</div>
+                        <ul>
+                            <li>Explain the 7 QC Tools</li>
+                            <li>Explain Six Sigma DMAIC methodology</li>
+                            <li>Discuss Benchmarking and its types</li>
+                            <li>Explain Statistical Process Control</li>
+                            <li>Explain ISO-9000 series</li>
+                            <li>Explain SPICE capability levels</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1260,210 +1051,349 @@ Initiation → Planning → Execution
     <section class="section" id="unit4">
         <div class="section-header gs-reveal">
             <div class="section-label">Unit 4</div>
-            <h2 class="section-title">Case Studies &<br>Exam Strategy</h2>
-            <p class="section-desc">Application-based case studies, legal deep-dives, and the final exam answering strategy.</p>
+            <h2 class="section-title">People in<br>SQA</h2>
+            <p class="section-desc">Quality expectations, external participants, procedures, training, CAPA, and documentation control.</p>
         </div>
 
-        <!-- Case Study 1 -->
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">📦</div>
-                    <div class="card-title">Case Study 1 — Eco-Friendly Packaging Startup</div>
-                </div>
-                <div class="card-tag tag-green">15 Marks</div>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-top: 20px;">
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">Entrepreneurial Qualities Needed</div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Innovation — new sustainable materials</li>
-                            <li>Risk-taking — unproven market</li>
-                            <li>Leadership — building green teams</li>
-                            <li>Environmental awareness</li>
+            <div class="card-icon">👥</div>
+            <div class="card-title">People's Quality Expectations</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Customers</div>
+                        <ul style="font-size: 14px;">
+                            <li>Reliability — no crashes</li>
+                            <li>Usability — easy to learn</li>
+                            <li>Security — data protection</li>
+                            <li>Performance — quick response</li>
+                            <li>Maintainability — easy updates</li>
                         </ul>
                     </div>
-                </div>
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">Funding Sources</div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Angel investors (early seed)</li>
-                            <li>Venture capital (scaling)</li>
-                            <li>Government schemes (MUDRA, PMEGP)</li>
-                            <li>Bootstrapping</li>
+                    <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Developers</div>
+                        <ul style="font-size: 14px;">
+                            <li>Clear requirements</li>
+                            <li>Proper tools & resources</li>
+                            <li>Training support</li>
                         </ul>
                     </div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15); grid-column: span 2;">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">Suitable Business Models</div>
-                    <div class="card-text">
-                        <ul>
-                            <li><strong>Sustainable packaging model</strong> — B2B supply to e-commerce</li>
-                            <li><strong>Subscription supply model</strong> — Regular delivery to retailers</li>
-                            <li><strong>B2B supply model</strong> — Direct to manufacturers</li>
+                    <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15); grid-column: span 2;">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Management</div>
+                        <ul style="font-size: 14px;">
+                            <li>High productivity within cost/schedule</li>
+                            <li>Quality compliance with standards</li>
+                            <li>Customer satisfaction & reputation</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Case Study 2 -->
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">🌐</div>
+                <div class="card-title">External Participants</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;">Methods to assure quality from vendors, suppliers, contractors:</p>
+                    <ul>
+                        <li><strong>Supplier Evaluation</strong> — technical capability, past performance</li>
+                        <li><strong>Contract Standards</strong> — clear quality requirements & schedules</li>
+                        <li><strong>Acceptance Testing</strong> — test before integration</li>
+                        <li><strong>Audits</strong> — verify compliance</li>
+                        <li><strong>Continuous Monitoring</strong> — performance tracking</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div class="card-icon">📋</div>
+                <div class="card-title">Procedures vs Work Instructions</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <table class="forensic-table" style="margin-top: 0;">
+                        <thead><tr><th>Procedures</th><th>Work Instructions</th></tr></thead>
+                        <tbody>
+                            <tr><td>High-level guidelines</td><td>Detailed step-by-step</td></tr>
+                            <tr><td>Focus on process</td><td>Focus on task execution</td></tr>
+                            <tr><td>Describe what to do</td><td>Describe how to do</td></tr>
+                            <tr><td>Broader scope</td><td>Narrower scope</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">🎓</div>
+                <div class="card-title">Staff Training & Certification</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;"><strong>Types:</strong></p>
+                    <ul>
+                        <li><strong>Technical</strong> — programming, testing, databases</li>
+                        <li><strong>Quality</strong> — standards, QA processes, defect prevention</li>
+                        <li><strong>Safety</strong> — security, data protection, risk management</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>Examples:</strong> ISO certification, Six Sigma, Software Testing, Project Management.</p>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div class="card-icon">🔄</div>
+                <div class="card-title">CAPA — Corrective & Preventive Actions</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <table class="forensic-table" style="margin-top: 0;">
+                        <thead><tr><th>Corrective Action</th><th>Preventive Action</th></tr></thead>
+                        <tbody>
+                            <tr><td>Eliminates existing defects</td><td>Prevents future defects</td></tr>
+                            <tr><td>Reactive approach</td><td>Proactive approach</td></tr>
+                            <tr><td>Bug fixing, patches</td><td>Code reviews, training</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
+                        <div class="highlight-box-title" style="font-size: 14px;">📝 Exam Tip</div>
+                        <p style="font-size: 13px;">Corrective: Problem → Root Cause → Fix → Verify. Preventive: Risk → Plan → Improve → Monitor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">📉</div>
-                    <div class="card-title">Case Study 2 — Poor Market Analysis</div>
-                </div>
-                <div class="card-tag tag-red">Problem-Solution</div>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-top: 20px;">
-                <div class="bento-card" style="background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">Problems</div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Weak segmentation</li>
-                            <li>Wrong targeting</li>
-                            <li>Poor research</li>
-                            <li>No clear value proposition</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">Solutions</div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Conduct market intelligence</li>
-                            <li>Identify customer segments</li>
-                            <li>Improve marketing channels</li>
-                            <li>Revise value proposition</li>
-                        </ul>
-                    </div>
+            <div class="card-icon">📁</div>
+            <div class="card-title">Documentation Control</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <p style="margin-bottom: 12px;">Systematic management of software documents for accuracy, consistency, and traceability.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+                    <div class="tool-mini"><div class="tool-mini-icon">📌</div><div><div class="tool-mini-name">Version Control</div><div class="tool-mini-desc">Track changes</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">✅</div><div><div class="tool-mini-name">Approval Process</div><div class="tool-mini-desc">Review before use</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">💾</div><div><div class="tool-mini-name">Storage & Retrieval</div><div class="tool-mini-desc">Secure access</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">📝</div><div><div class="tool-mini-name">Change Tracking</div><div class="tool-mini-desc">Audit history</div></div></div>
+                    <div class="tool-mini"><div class="tool-mini-icon">🔒</div><div><div class="tool-mini-name">Access Control</div><div class="tool-mini-desc">Security</div></div></div>
                 </div>
             </div>
         </div>
 
-        <!-- Case Study 3 -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">🍔</div>
-                    <div class="card-title">Case Study 3 — Food Delivery Startup</div>
-                </div>
-                <div class="card-tag tag-orange">Step-by-Step</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">Steps to launch a food delivery startup:</p>
-            </div>
-            <ol class="numbered-list gs-reveal">
-                <li><div class="step-title">Idea Generation</div><div class="step-desc">Identify gap in local food delivery market</div></li>
-                <li><div class="step-title">Feasibility Analysis</div><div class="step-desc">Technical (app development), Financial (funding), Market (competition)</div></li>
-                <li><div class="step-title">Business Registration</div><div class="step-desc">Choose legal structure (LLP or Pvt Ltd)</div></li>
-                <li><div class="step-title">Obtain Licenses</div><div class="step-desc">GST, FSSAI, Shop & Establishment</div></li>
-                <li><div class="step-title">Funding</div><div class="step-desc">Angel investors, bootstrapping, or bank loans</div></li>
-                <li><div class="step-title">Marketing</div><div class="step-desc">Social media, influencer partnerships, referral offers</div></li>
-                <li><div class="step-title">Launch App/Service</div><div class="step-desc">Deploy MVP, gather feedback, iterate</div></li>
-            </ol>
-        </div>
-
-        <!-- Case Study 4 -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">🌍</div>
-                    <div class="card-title">Case Study 4 — Social Entrepreneurship</div>
-                </div>
-                <div class="card-tag tag-purple">Impact</div>
-            </div>
-            <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">Contributions of social entrepreneurship to society:</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-                <div class="bento-card" style="padding: 24px; text-align: center; background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-size: 32px; margin-bottom: 12px;">🏘️</div>
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px;">Rural Development</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Mechanization, irrigation, local employment</div>
-                </div>
-                <div class="bento-card" style="padding: 24px; text-align: center; background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-size: 32px; margin-bottom: 12px;">📚</div>
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px;">Education Access</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Low-cost schools, digital literacy</div>
-                </div>
-                <div class="bento-card" style="padding: 24px; text-align: center; background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-size: 32px; margin-bottom: 12px;">💼</div>
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px;">Employment</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Job creation in backward areas</div>
-                </div>
-                <div class="bento-card" style="padding: 24px; text-align: center; background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-size: 32px; margin-bottom: 12px;">📉</div>
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px;">Poverty Reduction</div>
-                    <div style="font-size: 13px; color: var(--text-secondary);">Sustainable income generation</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Exam Strategy -->
         <div class="bento-card gs-reveal">
+            <div class="card-icon">❓</div>
+            <div class="card-title">Unit 4 — Expected Exam Questions</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">2-Mark Questions</div>
+                        <ul>
+                            <li>Define CAPA</li>
+                            <li>Difference between corrective and preventive action</li>
+                            <li>Define documentation control</li>
+                            <li>What are work instructions?</li>
+                            <li>Define staff certification</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">10-Mark Questions</div>
+                        <ul>
+                            <li>Explain people's quality expectations</li>
+                            <li>Explain assuring quality of external participants</li>
+                            <li>Discuss procedures and work instructions</li>
+                            <li>Explain staff training and certification</li>
+                            <li>Explain corrective and preventive actions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIT 5 -->
+    <section class="section" id="unit5">
+        <div class="section-header gs-reveal">
+            <div class="section-label">Unit 5</div>
+            <h2 class="section-title">Defect Control<br>& Analysis</h2>
+            <p class="section-desc">RCA, defect prevention, fault tolerance, safety assurance, FTA/ETA, and risk identification.</p>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
                 <div>
-                    <div class="card-icon">📝</div>
-                    <div class="card-title">Final Exam Strategy</div>
+                    <div class="card-icon">🔬</div>
+                    <div class="card-title">Root Cause Analysis (RCA)</div>
                 </div>
-                <div class="card-tag tag-red">Must Read</div>
+                <div class="card-tag tag-red">Very Important</div>
             </div>
-            <div class="bento-grid bento-grid-2" style="margin-top: 20px;">
-                <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">Part A — MCQs & Definitions</div>
-                    <div class="card-text">
-                        <p>Mostly direct definitions and MCQs.</p>
-                        <ul>
-                            <li>Define entrepreneurship</li>
-                            <li>Define entrepreneur</li>
-                            <li>Define business model</li>
-                            <li>Define feasibility analysis</li>
-                            <li>Define value proposition</li>
-                            <li>Define startup culture</li>
-                            <li>Define revenue streams</li>
-                            <li>Define budgeting</li>
-                            <li>Define market intelligence</li>
-                            <li>Define social entrepreneurship</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">Part B — Short Answers (5 Marks)</div>
-                    <div class="card-text">
-                        <p>Structure:</p>
-                        <ul>
-                            <li>Definition</li>
-                            <li>3–5 points</li>
-                            <li>Short conclusion</li>
-                        </ul>
-                        <p style="margin-top: 12px;"><strong>High chance topics:</strong></p>
-                        <ul>
-                            <li>Business model canvas</li>
-                            <li>Revenue streams</li>
-                            <li>Customer segmentation</li>
-                            <li>Ethical culture</li>
-                            <li>Strategic improvement plan</li>
-                            <li>Market intelligence</li>
-                            <li>Channels and partners</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15); grid-column: span 2;">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary);">Part C — Essays (15 Marks)</div>
-                    <div class="card-text">
-                        <p><strong>Structure:</strong></p>
+            <div class="card-text" style="margin-top: 16px;">
+                <p style="margin-bottom: 16px;">Systematic problem-solving to identify the <strong>fundamental cause</strong> of defects, not just symptoms.</p>
+                <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Steps in RCA</div>
                         <ol class="numbered-list" style="margin-top: 0;">
-                            <li><div class="step-title">Introduction</div></li>
-                            <li><div class="step-title">Definition</div></li>
-                            <li><div class="step-title">Main points with headings</div></li>
-                            <li><div class="step-title">Example (Indian or global)</div></li>
-                            <li><div class="step-title">Conclusion</div></li>
+                            <li><div class="step-title">Problem Identification</div></li>
+                            <li><div class="step-title">Data Collection</div></li>
+                            <li><div class="step-title">Cause Identification</div></li>
+                            <li><div class="step-title">Root Cause Determination</div></li>
+                            <li><div class="step-title">Corrective Action</div></li>
+                            <li><div class="step-title">Verification</div></li>
                         </ol>
-                        <p style="margin-top: 12px;">Use underlines/headings for better presentation. You already have repeated university-pattern answers in your uploaded files and answer keys.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">RCA Techniques</div>
+                        <div class="card-text">
+                            <ul>
+                                <li><strong>Fishbone Diagram</strong> — Categorize causes visually</li>
+                                <li><strong>5 Whys</strong> — Repeatedly ask "Why?" until root cause is found</li>
+                                <li><strong>Pareto Analysis</strong> — 80/20 principle to prioritize causes</li>
+                            </ul>
+                        </div>
+                        <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
+                            <div class="highlight-box-title" style="font-size: 14px;">💡 Example</div>
+                            <p style="font-size: 13px;">Symptom: Web app crashes. Why? DB lock. Why? Poor SQL. Why? No training. <strong>Root Cause: Lack of developer training.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">🛡️</div>
+                <div class="card-title">Defect Prevention Methodologies</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <ul>
+                        <li><strong>Coding Standards</strong> — Consistent, readable code rules</li>
+                        <li><strong>Reviews & Inspections</strong> — Early defect detection</li>
+                        <li><strong>Testing Standards</strong> — Consistent test procedures</li>
+                        <li><strong>Training Programs</strong> — Skill improvement</li>
+                        <li><strong>Process Improvement</strong> — Continuous analysis</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>Advanced:</strong></p>
+                    <ul>
+                        <li><strong>Cleanroom</strong> — Formal methods, correctness verification</li>
+                        <li><strong>PSP</strong> — Personal Software Process for individuals</li>
+                        <li><strong>TSP</strong> — Team Software Process for collaboration</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div class="card-icon">⚡</div>
+                <div class="card-title">Fault Tolerance & Failure Containment</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;"><strong>Fault Tolerance Techniques:</strong></p>
+                    <ul style="margin-bottom: 12px;">
+                        <li>Redundancy — backup components</li>
+                        <li>Error Detection — validation checks</li>
+                        <li>Recovery Mechanisms — restore normal state</li>
+                        <li>Exception Handling — manage runtime errors</li>
+                    </ul>
+                    <p style="margin-bottom: 12px;"><strong>Failure Containment:</strong></p>
+                    <ul>
+                        <li>Isolation — separate faulty modules</li>
+                        <li>Partitioning — independent sections</li>
+                        <li>Backup Systems — continue operation</li>
+                        <li>Monitoring — detect abnormal conditions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
+            <div class="bento-card">
+                <div class="card-icon">⚠️</div>
+                <div class="card-title">Safety Assurance & Damage Control</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;"><strong>Safety Assurance Activities:</strong></p>
+                    <ul style="margin-bottom: 12px;">
+                        <li>Hazard Identification</li>
+                        <li>Risk Assessment</li>
+                        <li>Safety Testing</li>
+                        <li>Safety Documentation</li>
+                    </ul>
+                    <p><strong>Damage Control:</strong></p>
+                    <ul>
+                        <li>Backup & Recovery</li>
+                        <li>Emergency Shutdown</li>
+                        <li>Incident Response</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div class="card-icon">🌳</div>
+                <div class="card-title">FTA vs ETA</div>
+                <div class="card-text" style="margin-top: 12px;">
+                    <table class="forensic-table" style="margin-top: 0;">
+                        <thead><tr><th>Fault Tree (FTA)</th><th>Event Tree (ETA)</th></tr></thead>
+                        <tbody>
+                            <tr><td>Top-down approach</td><td>Forward analysis</td></tr>
+                            <tr><td>Focuses on causes</td><td>Focuses on consequences</td></tr>
+                            <tr><td>Starts with failure</td><td>Starts with initiating event</td></tr>
+                            <tr><td>AND / OR gates</td><td>Branching outcomes</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
+                        <div class="highlight-box-title" style="font-size: 14px;">🔑 Logic Gates</div>
+                        <p style="font-size: 13px;"><strong>AND Gate:</strong> Output fails only if ALL inputs fail.<br><strong>OR Gate:</strong> Output fails if ANY input fails.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">📡</div>
+            <div class="card-title">QA Monitoring, Measurement & Risk</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Monitoring Activities</div>
+                        <ul>
+                            <li>Process Monitoring</li>
+                            <li>Defect Tracking</li>
+                            <li>Performance Monitoring</li>
+                            <li>Audit Activities</li>
+                        </ul>
+                        <div class="code-block" style="margin-top: 16px;">
+<span class="comment">// Key Metrics</span>
+<span class="func">MTBF</span> = <span class="type">TotalOperatingTime</span> / <span class="type">NumberOfFailures</span>
+<span class="func">DRE</span> = (<span class="type">DefectsRemoved</span> / <span class="type">TotalDefects</span>) × <span class="type">100</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Risk Identification</div>
+                        <p style="margin-bottom: 12px;"><strong>Types:</strong></p>
+                        <ul style="margin-bottom: 12px;">
+                            <li><strong>Technical</strong> — design complexity, integration</li>
+                            <li><strong>Project</strong> — cost overrun, delays</li>
+                            <li><strong>Business</strong> — competition, dissatisfaction</li>
+                        </ul>
+                        <p><strong>Techniques:</strong> Brainstorming, Checklist Analysis, SWOT Analysis.</p>
+                        <p style="margin-top: 8px;"><strong>Mitigation:</strong> Actions to reduce probability and impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal">
+            <div class="card-icon">❓</div>
+            <div class="card-title">Unit 5 — Expected Exam Questions</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">2-Mark Questions</div>
+                        <ul>
+                            <li>Define RCA</li>
+                            <li>What is defect prevention?</li>
+                            <li>Define fault tolerance</li>
+                            <li>What is failure containment?</li>
+                            <li>Define safety assurance</li>
+                            <li>What is FTA?</li>
+                            <li>Define ETA</li>
+                            <li>What is MTBF?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">10-Mark Questions</div>
+                        <ul>
+                            <li>Explain Root Cause Analysis techniques</li>
+                            <li>Discuss standards for defect prevention</li>
+                            <li>Explain fault tolerance and failure containment</li>
+                            <li>Discuss safety assurance and damage control</li>
+                            <li>Explain Fault Tree and Event Tree Analysis</li>
+                            <li>Explain QA monitoring and measurement</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1475,176 +1405,57 @@ Initiation → Planning → Execution
         <div class="section-header gs-reveal">
             <div class="section-label">Quick Review</div>
             <h2 class="section-title">Exam Priority<br>& Memory Shortcuts</h2>
-            <p class="section-desc">The most expected questions, fill-in-the-blanks, and last-minute revision points organized by marks weightage.</p>
+            <p class="section-desc">High-yield formulas, comparison tables, hidden topics, and last-minute revision.</p>
         </div>
 
-        <!-- 15 Mark Questions -->
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
                 <div>
                     <div class="card-icon">🎯</div>
-                    <div class="card-title">Most Expected 15-Mark Questions</div>
+                    <div class="card-title">Most Expected 10-Mark Questions</div>
                 </div>
                 <div class="card-tag tag-red">Exam Focus</div>
             </div>
             <div class="bento-grid bento-grid-2" style="margin-top: 20px;">
-                <div>
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-                        <span style="display: inline-block; padding: 4px 10px; background: var(--apple-blue); border-radius: 8px; font-size: 12px; color: white;">UNIT 1</span>
-                        Introduction
-                    </div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Role of entrepreneurship in economic development</li>
-                            <li>Traits of successful entrepreneur</li>
-                            <li>Classification of entrepreneurs (Danhof's)</li>
-                            <li>Venture capitalist vs angel investor</li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-                        <span style="display: inline-block; padding: 4px 10px; background: var(--accent-purple); border-radius: 8px; font-size: 12px; color: white;">UNIT 2</span>
-                        Business Model
-                    </div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Business model and value proposition</li>
-                            <li>Business Model Canvas (9 blocks)</li>
-                            <li>Feasibility analysis (5 types)</li>
-                            <li>Business plan components</li>
-                            <li>Project management tools</li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-                        <span style="display: inline-block; padding: 4px 10px; background: var(--accent-green); border-radius: 8px; font-size: 12px; color: white;">UNIT 3</span>
-                        Startup
-                    </div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Startup culture in India</li>
-                            <li>Revenue streams and customer segments</li>
-                            <li>Legal aspects of startups</li>
-                            <li>Ethical business culture</li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-                        <span style="display: inline-block; padding: 4px 10px; background: var(--accent-red); border-radius: 8px; font-size: 12px; color: white;">UNIT 4</span>
-                        Cases & Strategy
-                    </div>
-                    <div class="card-text">
-                        <ul>
-                            <li>Eco-friendly packaging startup</li>
-                            <li>Food delivery startup steps</li>
-                            <li>Social entrepreneurship contributions</li>
-                            <li>Strategic improvement plan</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 5 Mark Questions -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">📝</div>
-                    <div class="card-title">Most Expected 5-Mark Questions</div>
-                </div>
-                <div class="card-tag tag-orange">Short Answers</div>
-            </div>
-            <div class="bento-grid bento-grid-2" style="margin-top: 20px;">
                 <div class="card-text">
                     <ul>
-                        <li>Entrepreneur vs Manager</li>
-                        <li>Angel Investors vs Venture Capitalists</li>
-                        <li>Business Model Canvas (any 5 blocks)</li>
-                        <li>Types of feasibility</li>
-                        <li>Project management tools</li>
+                        <li>Role of management in SQA</li>
+                        <li>McCall's Quality Factors</li>
+                        <li>CMM / CMMI Levels</li>
+                        <li>Principles of TQM</li>
+                        <li>Cost of Quality categories</li>
+                        <li>7 QC Tools</li>
+                        <li>Six Sigma DMAIC</li>
                     </ul>
                 </div>
                 <div class="card-text">
                     <ul>
-                        <li>Startup culture reasons</li>
-                        <li>Revenue stream types</li>
-                        <li>Marketing strategies</li>
-                        <li>Legal structures (Sole Prop vs LLP vs Pvt Ltd)</li>
-                        <li>Budgeting importance</li>
+                        <li>Inspections vs Walkthroughs</li>
+                        <li>Software Quality Metrics (with formulas)</li>
+                        <li>Root Cause Analysis techniques</li>
+                        <li>Fault Tolerance & Failure Containment</li>
+                        <li>FTA vs ETA</li>
+                        <li>CAPA with examples</li>
+                        <li>People's Quality Expectations</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Fill in the Blanks -->
-        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <div class="card-icon">✏️</div>
-                    <div class="card-title">Important Fill in the Blanks / MCQs</div>
-                </div>
-                <div class="card-tag tag-blue">Quick Marks</div>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 20px;">
-                <div class="bento-card" style="padding: 20px; background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">The word Entrepreneur derives from French ___</div>
-                    <div style="font-weight: 700; font-size: 16px; color: var(--apple-blue);">Entreprendre</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">BMC was developed by ___</div>
-                    <div style="font-weight: 700; font-size: 16px; color: var(--accent-green);">Alexander Osterwalder</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">Startup India was launched in ___</div>
-                    <div style="font-weight: 700; font-size: 16px; color: var(--accent-orange);">2016</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">A startup valued over $1 billion is called a ___</div>
-                    <div style="font-weight: 700; font-size: 16px; color: var(--accent-purple);">Unicorn</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
-                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">MUDRA stands for ___</div>
-                    <div style="font-weight: 700; font-size: 16px; color: var(--accent-red);">Micro Units Development & Refinance Agency</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
-                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">Minimum directors for Pvt Ltd company ___</div>
-                    <div style="font-weight: 700; font-size: 16px; color: var(--accent-teal);">2</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Key Comparisons -->
         <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
             <div class="bento-card">
-                <div class="card-icon">🆚</div>
-                <div class="card-title">Key Comparison Tables</div>
+                <div class="card-icon">🧮</div>
+                <div class="card-title">Key Formulas</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <div style="margin-bottom: 16px;">
-                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Entrepreneur vs Manager</div>
-                        <table class="forensic-table" style="margin-top: 0;">
-                            <thead><tr><th>Entrepreneur</th><th>Manager</th></tr></thead>
-                            <tbody>
-                                <tr><td>Takes risk</td><td>Avoids risk</td></tr>
-                                <tr><td>Innovation-focused</td><td>Administration-focused</td></tr>
-                                <tr><td>Creates business</td><td>Runs business</td></tr>
-                                <tr><td>Profit-oriented</td><td>Salary-oriented</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Angel vs Venture Capitalist</div>
-                        <table class="forensic-table" style="margin-top: 0;">
-                            <thead><tr><th>Angel</th><th>VC</th></tr></thead>
-                            <tbody>
-                                <tr><td>Individual</td><td>Firm</td></tr>
-                                <tr><td>Early stage</td><td>Growth stage</td></tr>
-                                <tr><td>Smaller amount</td><td>Larger amount</td></tr>
-                                <tr><td>Less control</td><td>More control</td></tr>
-                            </tbody>
-                        </table>
+                    <div class="code-block" style="margin-top: 0;">
+<span class="comment">// Defect Density</span>
+<span class="type">DD</span> = <span class="type">Defects</span> / <span class="type">KLOC</span>
+
+<span class="comment">// Defect Removal Efficiency</span>
+<span class="type">DRE</span> = (<span class="type">Removed</span> / <span class="type">Total</span>) × <span class="type">100</span>
+
+<span class="comment">// Mean Time Between Failures</span>
+<span class="type">MTBF</span> = <span class="type">TotalTime</span> / <span class="type">Failures</span>
                     </div>
                 </div>
             </div>
@@ -1652,94 +1463,98 @@ Initiation → Planning → Execution
                 <div class="card-icon">📚</div>
                 <div class="card-title">Memory Shortcuts</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <div style="margin-bottom: 16px;">
-                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">1-Hour Quick Revision</div>
-                        <div class="code-block" style="margin-top: 0;">
-<span class="comment">// Entrepreneurship</span>
-Innovation + Risk + Profit
+                    <div class="code-block" style="margin-top: 0;">
+<span class="comment">// McCall's 3 Categories</span>
+Operation + Revision + Transition
 
-<span class="comment">// Business Model</span>
-Create + Deliver + Capture Value
+<span class="comment">// COQ 4 Categories</span>
+Prevention + Appraisal + Internal + External
 
-<span class="comment">// Feasibility</span>
-Technical + Financial + Market
-  + Organizational + Scheduling
+<span class="comment">// DMAIC</span>
+Define + Measure + Analyze + Improve + Control
 
-<span class="comment">// Business Plan</span>
-Roadmap of business
-
-<span class="comment">// Revenue Stream</span>
-How money comes
-
-<span class="comment">// Startup Culture</span>
-Innovation + Funding + Technology
-
-<span class="comment">// Ethical Culture</span>
-Honesty + Transparency
-                        </div>
-                    </div>
-                    <div>
-                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Expected Questions Priority</div>
-                        <div class="code-block" style="margin-top: 0;">
-1. Types of entrepreneurs
-2. Business plan
-3. Feasibility analysis
-4. Business model canvas
-5. Startup culture
-6. Venture capital vs angel
-7. Traits of entrepreneur
-8. Economic development
-9. Legal aspects
-10. Project management tools
-                        </div>
+<span class="comment">// CMM 5 Levels</span>
+Initial → Repeatable → Defined → Managed → Optimizing
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Government Schemes Quick -->
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <div class="card-icon">👻</div>
+                    <div class="card-title">Hidden Exam Topics (From Question Papers)</div>
+                </div>
+                <div class="card-tag tag-purple">Curveballs</div>
+            </div>
+            <div class="card-text" style="margin-top: 16px;">
+                <div class="bento-grid bento-grid-2">
+                    <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Waterfall Model & Quality</div>
+                        <p>Testing happens only at the end. A design flaw found late requires scrapping almost everything. Modern SQA prefers V-Model or Agile.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Healthcare SDLC</div>
+                        <p>Safety-critical systems require rigorous models like V-Model. Focus on compliance, privacy, zero-defect tolerance.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15); grid-column: span 2;">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">FSM-Based Testing in Web Apps</div>
+                        <p>Finite State Machine testing models transitions between states (Browsing → Cart → Payment → Confirmed). Ensures unexpected user actions (like hitting "Back") don't crash the system.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">📝</div>
+            <div class="card-title">Final Exam Strategy</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div>
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Part A — 2 Marks</div>
+                        <p>Be direct. One sentence definition + one example or 2-3 key points. Common picks: TQM, COQ, DMAIC, DRE, MTBF, CAPA.</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Part B / C — 10 Marks</div>
+                        <p><strong>Structure:</strong> Definition → Headings with explanations → Example/Formula → Conclusion. Use underlines and diagrams (BMC grid, Fishbone sketch, CMM levels). For application questions, map theory directly to the scenario.</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <div class="highlight-box-title">🎓 You've Got This</div>
+                    <p>Deep breaths. Map your practical dev experience (UniPool, AI agents) to the academic terms. You already know quality intuitively — now just name the frameworks.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="bento-card gs-reveal">
-            <div class="card-icon">🏛️</div>
-            <div class="card-title">Government Schemes — Quick Recall</div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 20px;">
-                <div class="bento-card" style="padding: 20px; background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Startup India</div>
-                    <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">2016 • Tax exemption • Self-certification</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Stand-Up India</div>
-                    <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">SC/ST & Women • Loan assistance</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">MUDRA</div>
-                    <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Micro enterprises • Refinance</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">PMEGP</div>
-                    <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Employment generation • Subsidy</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">SIDBI</div>
-                    <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Small industries • Credit lines</div>
-                </div>
-                <div class="bento-card" style="padding: 20px; background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
-                    <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">NSIC / KVIC</div>
-                    <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Marketing / Rural employment</div>
-                </div>
+            <div class="card-icon">🆚</div>
+            <div class="card-title">Mega Comparison Table</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <table class="forensic-table">
+                    <thead><tr><th>Concept A</th><th>Concept B</th><th>Key Difference</th></tr></thead>
+                    <tbody>
+                        <tr><td>Inspection</td><td>Walkthrough</td><td>Formal + moderator vs Informal + author-led</td></tr>
+                        <tr><td>Corrective Action</td><td>Preventive Action</td><td>Fix existing vs Prevent future</td></tr>
+                        <tr><td>Procedures</td><td>Work Instructions</td><td>What to do vs How to do</td></tr>
+                        <tr><td>FTA</td><td>ETA</td><td>Top-down causes vs Forward consequences</td></tr>
+                        <tr><td>QC</td><td>QA</td><td>Product testing vs Process prevention</td></tr>
+                        <tr><td>Internal Failure</td><td>External Failure</td><td>Pre-release vs Post-release (more expensive)</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer style="padding: 80px 24px; text-align: center; border-top: 1px solid var(--border-subtle);">
         <div style="max-width: 600px; margin: 0 auto;">
             <div style="font-size: 32px; margin-bottom: 16px;">🎓</div>
-            <div style="font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">You've Got This.</div>
+            <div style="font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">You've Got This, Tamil Selvan.</div>
             <div style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">
-                Every concept, definition, classification, and case study from 20CS231 — synthesized into one interactive exam guide.
+                Every concept, model, tool, and hidden topic from your SQA syllabus — synthesized into one interactive exam guide.
             </div>
             <div style="margin-top: 24px; font-size: 13px; color: var(--text-tertiary);">
-                Good luck on your exam. Deep breaths. You've prepared.
+                Good luck on your exam. Trust your developer instincts.
             </div>
         </div>
     </footer>
@@ -1873,6 +1688,15 @@ Honesty + Transparency
         gsap.to('#progress-bar', {
             width: '100%', ease: 'none',
             scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: true }
+        });
+
+        // Animate chart segments on scroll
+        gsap.from('.chart-segment', {
+            strokeDasharray: '0 226.2',
+            duration: 1.5,
+            stagger: 0.2,
+            ease: 'power2.out',
+            scrollTrigger: { trigger: '.chart-container', start: 'top 80%' }
         });
 
         // ============================================
