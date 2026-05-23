@@ -263,6 +263,7 @@
         .compare-list li:last-child { border-bottom: none; }
         @media (max-width: 640px) { .compare-grid { grid-template-columns: 1fr; } .compare-col:first-child { border-right: none; border-bottom: 1px solid var(--border-subtle); } }
     </style>
+<base target="_blank">
 </head>
 <body>
     <div id="progress-bar"></div>
@@ -324,7 +325,7 @@
         <div class="section-header gs-reveal">
             <div class="section-label">Unit 1</div>
             <h2 class="section-title">Quality Control<br>& Concepts</h2>
-            <p class="section-desc">QC vs QA, McCall's Model, CMM, SPICE, inspections, walkthroughs, and the Waterfall model.</p>
+            <p class="section-desc">QC vs QA, McCall's Model, CMM, SPICE, inspections, walkthroughs, Waterfall, and software quality implementation.</p>
         </div>
 
         <div class="bento-card gs-reveal card-large" style="margin-bottom: 20px;">
@@ -481,18 +482,65 @@
             </div>
         </div>
 
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">🔄</div>
+            <div class="card-title">Software Quality Implementation</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <p style="margin-bottom: 16px;">The practical application of standards, reviews, testing, and monitoring to ensure software quality:</p>
+                <ol class="numbered-list">
+                    <li><div class="step-title">Requirement Analysis</div><div class="step-desc">Customer requirements analyzed carefully to avoid ambiguity</div></li>
+                    <li><div class="step-title">Quality Planning</div><div class="step-desc">Goals, standards, testing methods, and review procedures defined</div></li>
+                    <li><div class="step-title">Process Definition</div><div class="step-desc">Development and testing processes documented clearly</div></li>
+                    <li><div class="step-title">Standard Establishment</div><div class="step-desc">Coding, documentation, and testing guidelines established</div></li>
+                    <li><div class="step-title">Reviews and Testing</div><div class="step-desc">Performed regularly to detect defects early</div></li>
+                    <li><div class="step-title">Defect Tracking</div><div class="step-desc">Detected defects recorded, monitored, and corrected</div></li>
+                    <li><div class="step-title">Continuous Improvement</div><div class="step-desc">Feedback and metrics used to improve processes</div></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">🔧</div>
+            <div class="card-title">Software Quality Implementation Techniques</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                    <div class="bento-card" style="padding: 20px; background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Testing</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Verifies correctness by executing programs with different inputs</div>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Reviews</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Identifies defects in documents and code through examination</div>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Audits</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Verifies compliance with standards and procedures</div>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Metrics</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Measures quality, performance, and efficiency quantitatively</div>
+                    </div>
+                    <div class="bento-card" style="padding: 20px; background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Automation Tools</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Improves testing speed, accuracy, and consistency</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
             <div class="bento-card">
                 <div class="card-icon">🤖</div>
                 <div class="card-title">CASE Tools</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <p style="margin-bottom: 12px;">Computer-Aided Software Engineering tools automate development activities:</p>
+                    <p style="margin-bottom: 12px;">Computer-Aided Software Engineering tools automate development:</p>
                     <ul>
                         <li><strong>Upper CASE</strong> — Requirements, design, modeling</li>
                         <li><strong>Lower CASE</strong> — Coding, testing, debugging</li>
                         <li><strong>Integrated CASE</strong> — Full SDLC support</li>
                     </ul>
                     <p style="margin-top: 12px;"><strong>Effect on Quality:</strong> Improved productivity, better documentation, reduced human error, improved consistency.</p>
+                    <p style="margin-top: 8px;"><strong>Disadvantages:</strong> High cost, requires training, tool dependency.</p>
                 </div>
             </div>
             <div class="bento-card">
@@ -509,8 +557,8 @@
                         </tbody>
                     </table>
                     <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
-                        <div class="highlight-box-title" style="font-size: 14px;">📌 Exam Note</div>
-                        <p style="font-size: 13px;">Inspection process: Planning → Overview → Preparation → Meeting → Rework → Follow-up.</p>
+                        <div class="highlight-box-title" style="font-size: 14px;">📌 Inspection Process</div>
+                        <p style="font-size: 13px;">Planning → Overview Meeting → Preparation → Inspection Meeting → Rework → Follow-up</p>
                     </div>
                 </div>
             </div>
@@ -520,15 +568,45 @@
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
                 <div>
                     <div class="card-icon">🌊</div>
-                    <div class="card-title">Waterfall Model & SQA</div>
+                    <div class="card-title">Waterfall Model</div>
                 </div>
                 <div class="card-tag tag-purple">Hidden Topic</div>
             </div>
             <div class="card-text" style="margin-top: 16px;">
-                <p style="margin-bottom: 16px;">Linear sequential SDLC: Requirements → Design → Implementation → Testing → Deployment → Maintenance.</p>
-                <div class="highlight-box" style="margin: 16px 0;">
+                <p style="margin-bottom: 16px;">Linear sequential SDLC where phases are completed one after another:</p>
+                <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Phases</div>
+                        <ol class="numbered-list" style="margin-top: 0;">
+                            <li><div class="step-title">Requirement Analysis</div></li>
+                            <li><div class="step-title">System Design</div></li>
+                            <li><div class="step-title">Implementation</div></li>
+                            <li><div class="step-title">Testing</div></li>
+                            <li><div class="step-title">Deployment</div></li>
+                            <li><div class="step-title">Maintenance</div></li>
+                        </ol>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Advantages & Disadvantages</div>
+                        <div class="card-text">
+                            <p style="margin-bottom: 8px;"><strong>Advantages:</strong></p>
+                            <ul style="margin-bottom: 12px;">
+                                <li>Simple and easy to understand</li>
+                                <li>Well-structured documentation</li>
+                                <li>Suitable for small, stable projects</li>
+                            </ul>
+                            <p style="margin-bottom: 8px;"><strong>Disadvantages:</strong></p>
+                            <ul>
+                                <li>Difficult to handle changing requirements</li>
+                                <li>Testing only after development</li>
+                                <li>Not suitable for complex dynamic projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
                     <div class="highlight-box-title">⚠️ The SQA Catch</div>
-                    <p>Testing happens <strong>only at the end</strong>. If a core design flaw is found during testing, almost everything must be scrapped. Modern SQA prefers Agile / V-Model where every phase has a corresponding testing phase.</p>
+                    <p>Testing happens <strong>only at the end</strong>. A design flaw found late requires scrapping almost everything. Modern SQA prefers V-Model or Agile where every phase has corresponding testing.</p>
                 </div>
             </div>
         </div>
@@ -539,6 +617,7 @@
             <div class="card-text" style="margin-top: 12px;">
                 <p style="margin-bottom: 12px;"><strong>Finite State Machine (FSM)</strong> testing models how an application transitions between states based on user actions.</p>
                 <p style="margin-bottom: 12px;"><strong>E-commerce Example:</strong> Browsing → Cart → Payment Gateway → Order Confirmed. FSM maps every possible transition to ensure unexpected actions (like hitting "Back" during payment) don't crash the system.</p>
+                <p>Why it's used: Web apps often crash when users do unexpected things. FSM testing ensures no matter what sequence of buttons the user clicks, the system handles it gracefully without throwing an unverified state error.</p>
                 <div class="card-tag tag-purple">From Question Papers</div>
             </div>
         </div>
@@ -548,8 +627,8 @@
     <section class="section" id="unit2">
         <div class="section-header gs-reveal">
             <div class="section-label">Unit 2</div>
-            <h2 class="section-title">Management &<<br>Quality Cost</h2>
-            <p class="section-desc">TQM, Cost of Quality, CMM, maintenance QA, metrics, and documentation control.</p>
+            <h2 class="section-title">Management &<br>Quality Cost</h2>
+            <p class="section-desc">TQM, Cost of Quality, maintenance QA, metrics, documentation, and integrating quality in SDLC.</p>
         </div>
 
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
@@ -588,6 +667,11 @@
                         <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Top management provides direction</div>
                     </div>
                 </div>
+                <div class="highlight-box">
+                    <div class="highlight-box-title">📈 Advantages & Disadvantages</div>
+                    <p><strong>Advantages:</strong> Improves product quality, enhances customer satisfaction, reduces defects and rework, increases employee productivity.</p>
+                    <p style="margin-top: 8px;"><strong>Disadvantages:</strong> Requires long-term commitment, high training and implementation cost, resistance to organizational change.</p>
+                </div>
             </div>
         </div>
 
@@ -602,7 +686,7 @@
             <div class="card-text" style="margin-top: 16px;">
                 <p style="margin-bottom: 16px;">Total cost incurred to ensure quality and manage defects. Split into <strong>Cost of Conformance</strong> and <strong>Cost of Non-Conformance</strong>.</p>
             </div>
-            
+
             <div class="bento-grid bento-grid-2" style="margin-bottom: 20px;">
                 <div class="flip-card">
                     <div class="flip-card-inner">
@@ -732,7 +816,17 @@
                         <li><strong>Perfective</strong> — Improve performance & usability</li>
                         <li><strong>Preventive</strong> — Fix potential issues before they become defects</li>
                     </ul>
-                    <p><strong>QA Activities:</strong> Regression testing, change management, documentation updates, configuration management.</p>
+                    <p style="margin-bottom: 12px;"><strong>QA Activities:</strong></p>
+                    <ul>
+                        <li>Regression testing</li>
+                        <li>Change management</li>
+                        <li>Documentation updates</li>
+                        <li>Configuration management</li>
+                    </ul>
+                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
+                        <div class="highlight-box-title" style="font-size: 14px;">💡 Key Point</div>
+                        <p style="font-size: 13px;">Regression testing ensures modifications don't break existing functionality.</p>
+                    </div>
                 </div>
             </div>
             <div class="bento-card">
@@ -749,7 +843,12 @@
 <span class="comment">// Mean Time Between Failures</span>
 <span class="func">MTBF</span> = <span class="type">TotalOperatingTime</span> / <span class="type">NumberOfFailures</span>
                     </div>
-                    <p style="margin-top: 12px;"><strong>Process Metrics:</strong> Review efficiency, DRE.<br><strong>Project Metrics:</strong> Cost variance, schedule variance, productivity.</p>
+                    <p style="margin-top: 12px;"><strong>Process Metrics:</strong> Review efficiency, DRE.</p>
+                    <p><strong>Project Metrics:</strong> Cost variance, schedule variance, productivity.</p>
+                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
+                        <div class="highlight-box-title" style="font-size: 14px;">📌 Exam Formula</div>
+                        <p style="font-size: 13px;">Lower defect density = higher quality. Higher DRE = effective testing.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -760,21 +859,25 @@
             <div class="card-text" style="margin-top: 12px;">
                 <p style="margin-bottom: 16px;">Quality is not a final phase — it must be integrated into every stage:</p>
                 <div class="bento-grid bento-grid-2">
-                    <div class="bento-card" style="padding: 20px; background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Requirement Phase</div>
-                        <p style="font-size: 13px;">Requirement reviews & validation to eliminate ambiguity.</p>
+                        <p style="font-size: 13px;">Requirement reviews & validation to eliminate ambiguity and ensure completeness.</p>
                     </div>
-                    <div class="bento-card" style="padding: 20px; background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Design Phase</div>
-                        <p style="font-size: 13px;">Design reviews & standards for maintainability.</p>
+                        <p style="font-size: 13px;">Design reviews & standards for maintainability and consistency.</p>
                     </div>
-                    <div class="bento-card" style="padding: 20px; background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Coding Phase</div>
-                        <p style="font-size: 13px;">Code reviews & coding standards for readability.</p>
+                        <p style="font-size: 13px;">Code reviews & coding standards for readability and maintainability.</p>
                     </div>
-                    <div class="bento-card" style="padding: 20px; background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Testing Phase</div>
                         <p style="font-size: 13px;">Unit, integration, system, and acceptance testing.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle); grid-column: span 2;">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Maintenance Phase</div>
+                        <p style="font-size: 13px;">Regression testing and change control to ensure system stability after modifications.</p>
                     </div>
                 </div>
             </div>
@@ -785,15 +888,15 @@
                 <div class="card-icon">📄</div>
                 <div class="card-title">Documentation & Control</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <p style="margin-bottom: 12px;">Types: Requirement docs, design docs, test docs, user manuals.</p>
+                    <p style="margin-bottom: 12px;"><strong>Types:</strong> Requirement docs, design docs, test docs, user manuals.</p>
                     <p style="margin-bottom: 12px;"><strong>Activities:</strong></p>
                     <ul>
-                        <li>Version control</li>
-                        <li>Approval process</li>
-                        <li>Storage & retrieval</li>
-                        <li>Change tracking</li>
-                        <li>Access control</li>
+                        <li>Version control — track changes</li>
+                        <li>Approval process — review before use</li>
+                        <li>Storage & retrieval — secure access</li>
+                        <li>Change tracking — audit history</li>
                     </ul>
+                    <p style="margin-top: 12px;"><strong>Importance:</strong> Ensures consistency, supports maintenance, prevents confusion.</p>
                 </div>
             </div>
             <div class="bento-card">
@@ -802,9 +905,52 @@
                 <div class="card-text" style="margin-top: 12px;">
                     <p style="margin-bottom: 12px;">Healthcare is <strong>safety-critical</strong>. You cannot use loose models.</p>
                     <p style="margin-bottom: 12px;">Use the <strong>V-Model</strong> (Verification & Validation): every development phase has a strictly documented corresponding testing phase.</p>
-                    <p>Focus: Compliance, privacy, zero-defect tolerance, safety assurance.</p>
+                    <p><strong>Focus:</strong> Compliance, privacy, zero-defect tolerance, safety assurance.</p>
                     <div class="card-tag tag-purple">Hidden Topic</div>
                 </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">📊</div>
+            <div class="card-title">Models for Quality Assurance</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px;">McCall's Model</div>
+                        <p style="font-size: 14px;">Evaluates quality using factors related to operation, revision, and transition.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px;">ISO 9000</div>
+                        <p style="font-size: 14px;">International standards for quality management systems and process consistency.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px;">CMM</div>
+                        <p style="font-size: 14px;">Measures organizational process maturity from Level 1 (Initial) to Level 5 (Optimizing).</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px;">SPICE</div>
+                        <p style="font-size: 14px;">Evaluates software process capability and supports improvement activities.</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <div class="highlight-box-title">🎯 Advantages of QA Models</div>
+                    <p>Improves process standardization • Enhances software quality • Supports continuous improvement</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">📈</div>
+            <div class="card-title">Software Maturity Models — Advantages</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <ul>
+                    <li>Improves software quality through standardized processes</li>
+                    <li>Enhances process consistency across teams and projects</li>
+                    <li>Reduces development risks and defect occurrence</li>
+                    <li>Provides measurable benchmarks for improvement</li>
+                    <li>Increases productivity through repeatable practices</li>
+                </ul>
             </div>
         </div>
 
@@ -823,6 +969,9 @@
                             <li>Difference between corrective and preventive maintenance</li>
                             <li>Define appraisal cost</li>
                             <li>What is regression testing?</li>
+                            <li>Define software metrics</li>
+                            <li>What is documentation control?</li>
+                            <li>Define maturity model</li>
                         </ul>
                     </div>
                     <div>
@@ -834,6 +983,8 @@
                             <li>Discuss inspections and walkthroughs</li>
                             <li>Explain software maturity models</li>
                             <li>Explain integrating quality activities in SDLC</li>
+                            <li>Explain documentation control</li>
+                            <li>Discuss software maintenance QA activities</li>
                         </ul>
                     </div>
                 </div>
@@ -845,8 +996,8 @@
     <section class="section" id="unit3">
         <div class="section-header gs-reveal">
             <div class="section-label">Unit 3</div>
-            <h2 class="section-title">Tools &<<br>Methodologies</h2>
-            <p class="section-desc">7 QC Tools, Six Sigma, BPR, QFD, Benchmarking, ISO 9000, SPICE, and SPC.</p>
+            <h2 class="section-title">Tools &<br>Methodologies</h2>
+            <p class="section-desc">7 QC Tools, Six Sigma, BPR, QFD, Benchmarking, ISO 9000, SPICE, SPC, and modern tools.</p>
         </div>
 
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
@@ -861,31 +1012,31 @@
                 <div class="bento-grid" style="margin-bottom: 20px;">
                     <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">1. Fishbone Diagram</div>
-                        <div style="font-size: 13px; color: var(--text-secondary);">Ishikawa diagram. Identifies possible causes of a problem by category.</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Ishikawa diagram. Identifies possible causes of a problem by category. Main problem = fish head, causes = bones.</div>
                     </div>
                     <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">2. Pareto Chart</div>
-                        <div style="font-size: 13px; color: var(--text-secondary);">80/20 rule. 80% of problems from 20% of causes. Prioritizes critical issues.</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">80/20 rule. 80% of problems from 20% of causes. Bar graph prioritizing defects by frequency.</div>
                     </div>
                     <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">3. Histogram</div>
-                        <div style="font-size: 13px; color: var(--text-secondary);">Frequency distribution of data values. Shows defect patterns.</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Frequency distribution of data values. Shows defect patterns and process stability.</div>
                     </div>
                     <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">4. Control Chart</div>
-                        <div style="font-size: 13px; color: var(--text-secondary);">Monitors process stability with UCL, LCL, and Central Line.</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Monitors process stability with UCL (Upper), LCL (Lower), and CL (Central Line).</div>
                     </div>
                     <div class="bento-card" style="background: rgba(100,210,255,0.05); border-color: rgba(100,210,255,0.15);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">5. Scatter Diagram</div>
-                        <div style="font-size: 13px; color: var(--text-secondary);">Shows relationship between two variables. Identifies correlations.</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Shows relationship between two variables using plotted points. Identifies correlations.</div>
                     </div>
                     <div class="bento-card" style="background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">6. Flow Chart</div>
-                        <div style="font-size: 13px; color: var(--text-secondary);">Graphical workflow representation. Identifies bottlenecks.</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Graphical workflow representation. Identifies bottlenecks and process steps.</div>
                     </div>
                     <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15); grid-column: span 3;">
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">7. Check Sheet</div>
-                        <div style="font-size: 13px; color: var(--text-secondary);">Structured form for collecting and recording quality data systematically.</div>
+                        <div style="font-size: 13px; color: var(--text-secondary);">Structured form for collecting and recording quality data systematically. Simple, improves accuracy, supports statistical analysis.</div>
                     </div>
                 </div>
                 <div class="highlight-box">
@@ -908,6 +1059,10 @@
                         <li><div class="step-title">Improve</div><div class="step-desc">Develop and implement solutions</div></li>
                         <li><div class="step-title">Control</div><div class="step-desc">Monitor to sustain improvements</div></li>
                     </ol>
+                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
+                        <div class="highlight-box-title" style="font-size: 14px;">🎯 Applications</div>
+                        <p style="font-size: 13px;">Software defect reduction, process optimization, quality improvement, risk reduction.</p>
+                    </div>
                 </div>
             </div>
             <div class="bento-card">
@@ -922,8 +1077,8 @@
                         <li>Every employee is responsible for quality</li>
                     </ul>
                     <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
-                        <div class="highlight-box-title" style="font-size: 14px;">⚠️ Limitation</div>
-                        <p style="font-size: 13px;">Difficult to achieve perfectly; requires strong organizational commitment.</p>
+                        <div class="highlight-box-title" style="font-size: 14px;">⚠️ Limitations</div>
+                        <p style="font-size: 13px;">Difficult to achieve perfectly; requires strong organizational commitment; continuous monitoring necessary.</p>
                     </div>
                 </div>
             </div>
@@ -935,8 +1090,15 @@
                 <div class="card-title">Business Process Re-engineering</div>
                 <div class="card-text" style="margin-top: 12px;">
                     <p style="margin-bottom: 12px;"><strong>Radical redesign</strong> of business processes for massive performance leaps (not gradual improvement).</p>
-                    <p style="margin-bottom: 12px;"><strong>Steps:</strong> Process Identification → Analysis → Redesign → Implementation → Monitoring</p>
-                    <p><strong>Adv:</strong> Improves productivity, reduces complexity.</p>
+                    <p style="margin-bottom: 12px;"><strong>Steps:</strong></p>
+                    <ol>
+                        <li>Process Identification</li>
+                        <li>Process Analysis</li>
+                        <li>Process Redesign</li>
+                        <li>Implementation</li>
+                        <li>Monitoring</li>
+                    </ol>
+                    <p style="margin-top: 12px;"><strong>Adv:</strong> Improves productivity, reduces complexity, enhances customer satisfaction.</p>
                     <p><strong>Disadv:</strong> High cost, employee resistance, risk of failure.</p>
                 </div>
             </div>
@@ -952,6 +1114,8 @@
                         <li>Relationship matrix</li>
                         <li>Competitive analysis</li>
                     </ul>
+                    <p style="margin-top: 12px;"><strong>Adv:</strong> Improves communication, reduces design defects.</p>
+                    <p><strong>Limitations:</strong> Complex, time-consuming, extensive data needed.</p>
                 </div>
             </div>
         </div>
@@ -963,11 +1127,12 @@
                 <div class="card-text" style="margin-top: 12px;">
                     <p style="margin-bottom: 12px;">Uses statistical techniques to monitor and control processes.</p>
                     <p style="margin-bottom: 12px;"><strong>Variation Types:</strong></p>
-                    <ul>
+                    <ul style="margin-bottom: 12px;">
                         <li><strong>Common Cause</strong> — Natural, normal process behavior</li>
                         <li><strong>Special Cause</strong> — Abnormal, identifiable issues</li>
                     </ul>
                     <p style="margin-top: 12px;"><strong>Tools:</strong> Control charts, histograms, sampling techniques.</p>
+                    <p><strong>Adv:</strong> Improves consistency, detects issues early, supports continuous improvement.</p>
                 </div>
             </div>
             <div class="bento-card">
@@ -980,6 +1145,8 @@
                         <li><strong>Functional</strong> — Similar functions, different industries</li>
                         <li><strong>Generic</strong> — Best practices regardless of industry</li>
                     </ul>
+                    <p style="margin-top: 12px;"><strong>Adv:</strong> Improves performance, encourages innovation.</p>
+                    <p><strong>Disadv:</strong> Time-consuming, difficult data collection, risk of copying unsuitable practices.</p>
                 </div>
             </div>
         </div>
@@ -990,13 +1157,15 @@
                 <div class="card-title">ISO 9000 Series</div>
                 <div class="card-text" style="margin-top: 12px;">
                     <p style="margin-bottom: 12px;">International quality management standards:</p>
-                    <ul>
+                    <ul style="margin-bottom: 12px;">
                         <li><strong>ISO 9001</strong> — QMS requirements</li>
                         <li><strong>ISO 9002</strong> — Production & installation QA</li>
                         <li><strong>ISO 9003</strong> — Final inspection & testing</li>
                         <li><strong>ISO 9004</strong> — Quality management improvement</li>
                     </ul>
                     <p style="margin-top: 12px;"><strong>Principles:</strong> Customer focus, leadership, process approach, continuous improvement, evidence-based decisions.</p>
+                    <p><strong>Adv:</strong> Standardization, customer trust, product quality.</p>
+                    <p><strong>Limitations:</strong> High cost, extensive documentation, time-consuming certification.</p>
                 </div>
             </div>
             <div class="bento-card">
@@ -1007,9 +1176,80 @@
                         <li><strong>Affinity Diagram</strong> — Groups ideas into categories</li>
                         <li><strong>Tree Diagram</strong> — Breaks objectives into sub-tasks</li>
                         <li><strong>Matrix Diagram</strong> — Shows factor relationships</li>
-                        <li><strong>PDPC</strong> — Identifies possible failures & preventive actions</li>
+                        <li><strong>PDPC</strong> — Identifies failures & preventive actions</li>
                         <li><strong>Arrow Diagram</strong> — Task sequence & dependencies (CPM)</li>
                     </ul>
+                    <p style="margin-top: 12px;"><strong>Adv:</strong> Supports complex problem-solving, improves planning, enhances collaboration.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <div class="card-icon">⭐</div>
+                    <div class="card-title">SEI CMM Level 5 — Optimizing</div>
+                </div>
+                <div class="card-tag tag-red">Very Important</div>
+            </div>
+            <div class="card-text" style="margin-top: 16px;">
+                <p style="margin-bottom: 16px;">Highest maturity level focusing on continuous process optimization and defect prevention.</p>
+                <div class="bento-grid bento-grid-2">
+                    <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Continuous Improvement</div>
+                        <p style="font-size: 13px;">Processes continuously evaluated and enhanced for better efficiency.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Defect Prevention</div>
+                        <p style="font-size: 13px;">Potential defects identified and prevented proactively before occurrence.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Process Innovation</div>
+                        <p style="font-size: 13px;">New technologies and methods adopted to improve quality.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Quantitative Management</div>
+                        <p style="font-size: 13px;">Decisions made using statistical analysis and metrics.</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <div class="highlight-box-title">🎯 Advantages of Level 5</div>
+                    <p>Highest process maturity • Improved software reliability • Reduced development risk</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">📐</div>
+            <div class="card-title">McCall's Quality Factors & Criteria (Unit 3 Review)</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-3">
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Product Operation</div>
+                        <ul style="font-size: 13px;">
+                            <li><strong>Correctness</strong> — satisfies requirements accurately</li>
+                            <li><strong>Reliability</strong> — stability and failure-free operation</li>
+                            <li><strong>Efficiency</strong> — optimal resource use</li>
+                            <li><strong>Integrity</strong> — protection against unauthorized access</li>
+                            <li><strong>Usability</strong> — ease of use</li>
+                        </ul>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Product Revision</div>
+                        <ul style="font-size: 13px;">
+                            <li><strong>Maintainability</strong> — ease of correcting defects</li>
+                            <li><strong>Flexibility</strong> — adaptability to changes</li>
+                            <li><strong>Testability</strong> — ease of testing functions</li>
+                        </ul>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Product Transition</div>
+                        <ul style="font-size: 13px;">
+                            <li><strong>Portability</strong> — transfer between environments</li>
+                            <li><strong>Reusability</strong> — use in other applications</li>
+                            <li><strong>Interoperability</strong> — interaction with external systems</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1029,6 +1269,9 @@
                             <li>Define QFD</li>
                             <li>What is Zero Defect?</li>
                             <li>What is ISO 9000?</li>
+                            <li>Define Fishbone Diagram</li>
+                            <li>What is a Pareto Chart?</li>
+                            <li>Define SPICE</li>
                         </ul>
                     </div>
                     <div>
@@ -1040,6 +1283,10 @@
                             <li>Explain Statistical Process Control</li>
                             <li>Explain ISO-9000 series</li>
                             <li>Explain SPICE capability levels</li>
+                            <li>Discuss QFD and House of Quality</li>
+                            <li>Explain Business Process Re-engineering</li>
+                            <li>Explain McCall's Quality Factors</li>
+                            <li>Explain Zero Defect philosophy</li>
                         </ul>
                     </div>
                 </div>
@@ -1063,48 +1310,68 @@
                     <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15);">
                         <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Customers</div>
                         <ul style="font-size: 14px;">
-                            <li>Reliability — no crashes</li>
-                            <li>Usability — easy to learn</li>
-                            <li>Security — data protection</li>
-                            <li>Performance — quick response</li>
-                            <li>Maintainability — easy updates</li>
+                            <li>Reliability — no crashes or failures</li>
+                            <li>Usability — easy to learn and operate</li>
+                            <li>Security — data protection from threats</li>
+                            <li>Performance — quick response under load</li>
+                            <li>Maintainability — easy updates without affecting existing functions</li>
                         </ul>
                     </div>
                     <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
                         <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Developers</div>
                         <ul style="font-size: 14px;">
                             <li>Clear requirements</li>
-                            <li>Proper tools & resources</li>
+                            <li>Proper tools and resources</li>
                             <li>Training support</li>
                         </ul>
                     </div>
                     <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15); grid-column: span 2;">
                         <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Management</div>
                         <ul style="font-size: 14px;">
-                            <li>High productivity within cost/schedule</li>
+                            <li>High productivity within cost and schedule</li>
                             <li>Quality compliance with standards</li>
-                            <li>Customer satisfaction & reputation</li>
+                            <li>Customer satisfaction and reputation</li>
                         </ul>
                     </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <div class="highlight-box-title">🎯 Importance</div>
+                    <p>Improves satisfaction • Reduces defects • Enhances reputation • Increases reliability</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">🌐</div>
+            <div class="card-title">Assuring Quality of External Participants</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <p style="margin-bottom: 16px;">Third-party vendors, suppliers, contractors, and outsourced teams:</p>
+                <div class="bento-grid bento-grid-2">
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Supplier Evaluation</div>
+                        <p style="font-size: 13px;">Evaluate based on technical capability, reliability, quality standards, past performance.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Contract Standards</div>
+                        <p style="font-size: 13px;">Define quality requirements, delivery schedules, testing standards, performance expectations.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Acceptance Testing</div>
+                        <p style="font-size: 13px;">Test external components before integration into main system.</p>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Audits & Monitoring</div>
+                        <p style="font-size: 13px;">Verify compliance and continuously monitor performance throughout project.</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <div class="highlight-box-title">✅ Advantages</div>
+                    <p>Reduces integration defects • Improves reliability • Ensures standards compliance • Enhances coordination</p>
                 </div>
             </div>
         </div>
 
         <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
-            <div class="bento-card">
-                <div class="card-icon">🌐</div>
-                <div class="card-title">External Participants</div>
-                <div class="card-text" style="margin-top: 12px;">
-                    <p style="margin-bottom: 12px;">Methods to assure quality from vendors, suppliers, contractors:</p>
-                    <ul>
-                        <li><strong>Supplier Evaluation</strong> — technical capability, past performance</li>
-                        <li><strong>Contract Standards</strong> — clear quality requirements & schedules</li>
-                        <li><strong>Acceptance Testing</strong> — test before integration</li>
-                        <li><strong>Audits</strong> — verify compliance</li>
-                        <li><strong>Continuous Monitoring</strong> — performance tracking</li>
-                    </ul>
-                </div>
-            </div>
             <div class="bento-card">
                 <div class="card-icon">📋</div>
                 <div class="card-title">Procedures vs Work Instructions</div>
@@ -1118,40 +1385,71 @@
                             <tr><td>Broader scope</td><td>Narrower scope</td></tr>
                         </tbody>
                     </table>
+                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
+                        <div class="highlight-box-title" style="font-size: 14px;">💡 Example</div>
+                        <p style="font-size: 13px;">Procedure: "Code must be reviewed." Work Instruction: "Use GitHub PRs, assign 2 reviewers, follow checklist X."</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
             <div class="bento-card">
                 <div class="card-icon">🎓</div>
                 <div class="card-title">Staff Training & Certification</div>
                 <div class="card-text" style="margin-top: 12px;">
                     <p style="margin-bottom: 12px;"><strong>Types:</strong></p>
-                    <ul>
+                    <ul style="margin-bottom: 12px;">
                         <li><strong>Technical</strong> — programming, testing, databases</li>
                         <li><strong>Quality</strong> — standards, QA processes, defect prevention</li>
                         <li><strong>Safety</strong> — security, data protection, risk management</li>
                     </ul>
-                    <p style="margin-top: 12px;"><strong>Examples:</strong> ISO certification, Six Sigma, Software Testing, Project Management.</p>
+                    <p style="margin-bottom: 12px;"><strong>Examples:</strong></p>
+                    <ul>
+                        <li>ISO certification</li>
+                        <li>Six Sigma certification</li>
+                        <li>Software testing certification</li>
+                        <li>Project management certification</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>Adv:</strong> Improves quality, reduces mistakes, enhances productivity.</p>
                 </div>
             </div>
-            <div class="bento-card">
-                <div class="card-icon">🔄</div>
-                <div class="card-title">CAPA — Corrective & Preventive Actions</div>
-                <div class="card-text" style="margin-top: 12px;">
-                    <table class="forensic-table" style="margin-top: 0;">
-                        <thead><tr><th>Corrective Action</th><th>Preventive Action</th></tr></thead>
-                        <tbody>
-                            <tr><td>Eliminates existing defects</td><td>Prevents future defects</td></tr>
-                            <tr><td>Reactive approach</td><td>Proactive approach</td></tr>
-                            <tr><td>Bug fixing, patches</td><td>Code reviews, training</td></tr>
-                        </tbody>
-                    </table>
-                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
-                        <div class="highlight-box-title" style="font-size: 14px;">📝 Exam Tip</div>
-                        <p style="font-size: 13px;">Corrective: Problem → Root Cause → Fix → Verify. Preventive: Risk → Plan → Improve → Monitor.</p>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">🔄</div>
+            <div class="card-title">CAPA — Corrective & Preventive Actions</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div class="bento-card" style="background: rgba(255,69,58,0.05); border-color: rgba(255,69,58,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Corrective Action</div>
+                        <div class="card-text">
+                            <p style="margin-bottom: 12px;">Eliminates <strong>existing</strong> defects. Reactive approach.</p>
+                            <p style="margin-bottom: 8px;"><strong>Steps:</strong></p>
+                            <ol style="font-size: 13px;">
+                                <li>Problem Identification</li>
+                                <li>Root Cause Analysis</li>
+                                <li>Corrective Implementation</li>
+                                <li>Verification</li>
+                            </ol>
+                            <p style="margin-top: 12px;"><strong>Examples:</strong> Bug fixing, patches, code modification.</p>
+                        </div>
                     </div>
+                    <div class="bento-card" style="background: rgba(48,209,88,0.05); border-color: rgba(48,209,88,0.15);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Preventive Action</div>
+                        <div class="card-text">
+                            <p style="margin-bottom: 12px;">Prevents <strong>future</strong> defects. Proactive approach.</p>
+                            <p style="margin-bottom: 8px;"><strong>Steps:</strong></p>
+                            <ol style="font-size: 13px;">
+                                <li>Risk Identification</li>
+                                <li>Preventive Planning</li>
+                                <li>Process Improvement</li>
+                                <li>Monitoring</li>
+                            </ol>
+                            <p style="margin-top: 12px;"><strong>Examples:</strong> Code review standards, training, automated testing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <div class="highlight-box-title">🎯 Advantages of CAPA</div>
+                    <p>Reduces recurring defects • Improves process quality • Enhances customer satisfaction • Supports continuous improvement</p>
                 </div>
             </div>
         </div>
@@ -1160,13 +1458,29 @@
             <div class="card-icon">📁</div>
             <div class="card-title">Documentation Control</div>
             <div class="card-text" style="margin-top: 12px;">
-                <p style="margin-bottom: 12px;">Systematic management of software documents for accuracy, consistency, and traceability.</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+                <p style="margin-bottom: 16px;">Systematic management of software documents for accuracy, consistency, security, and traceability.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
                     <div class="tool-mini"><div class="tool-mini-icon">📌</div><div><div class="tool-mini-name">Version Control</div><div class="tool-mini-desc">Track changes</div></div></div>
                     <div class="tool-mini"><div class="tool-mini-icon">✅</div><div><div class="tool-mini-name">Approval Process</div><div class="tool-mini-desc">Review before use</div></div></div>
                     <div class="tool-mini"><div class="tool-mini-icon">💾</div><div><div class="tool-mini-name">Storage & Retrieval</div><div class="tool-mini-desc">Secure access</div></div></div>
                     <div class="tool-mini"><div class="tool-mini-icon">📝</div><div><div class="tool-mini-name">Change Tracking</div><div class="tool-mini-desc">Audit history</div></div></div>
                     <div class="tool-mini"><div class="tool-mini-icon">🔒</div><div><div class="tool-mini-name">Access Control</div><div class="tool-mini-desc">Security</div></div></div>
+                </div>
+                <div class="bento-grid bento-grid-2">
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Types of Controlled Documents</div>
+                        <ul>
+                            <li>Requirement Documents</li>
+                            <li>Design Documents</li>
+                            <li>Test Documents</li>
+                            <li>User Manuals</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 8px;">Advantages & Limitations</div>
+                        <p style="margin-bottom: 8px;"><strong>Adv:</strong> Consistency, maintenance support, audit support, improved communication.</p>
+                        <p><strong>Limitations:</strong> Time-consuming, requires updates, extensive effort for large projects.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1184,6 +1498,11 @@
                             <li>Define documentation control</li>
                             <li>What are work instructions?</li>
                             <li>Define staff certification</li>
+                            <li>What is acceptance testing?</li>
+                            <li>Define external participants</li>
+                            <li>What is version control?</li>
+                            <li>Define quality expectations</li>
+                            <li>What is supplier evaluation?</li>
                         </ul>
                     </div>
                     <div>
@@ -1194,6 +1513,9 @@
                             <li>Discuss procedures and work instructions</li>
                             <li>Explain staff training and certification</li>
                             <li>Explain corrective and preventive actions</li>
+                            <li>Discuss documentation control</li>
+                            <li>Differentiate procedures and work instructions</li>
+                            <li>Explain CAPA with examples</li>
                         </ul>
                     </div>
                 </div>
@@ -1206,7 +1528,7 @@
         <div class="section-header gs-reveal">
             <div class="section-label">Unit 5</div>
             <h2 class="section-title">Defect Control<br>& Analysis</h2>
-            <p class="section-desc">RCA, defect prevention, fault tolerance, safety assurance, FTA/ETA, and risk identification.</p>
+            <p class="section-desc">RCA, defect prevention, fault tolerance, safety assurance, FTA/ETA, QA monitoring, and risk identification.</p>
         </div>
 
         <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
@@ -1236,7 +1558,7 @@
                         <div class="card-text">
                             <ul>
                                 <li><strong>Fishbone Diagram</strong> — Categorize causes visually</li>
-                                <li><strong>5 Whys</strong> — Repeatedly ask "Why?" until root cause is found</li>
+                                <li><strong>5 Whys</strong> — Repeatedly ask "Why?" until root cause found</li>
                                 <li><strong>Pareto Analysis</strong> — 80/20 principle to prioritize causes</li>
                             </ul>
                         </div>
@@ -1246,47 +1568,75 @@
                         </div>
                     </div>
                 </div>
+                <div class="highlight-box">
+                    <div class="highlight-box-title">🎯 Advantages & Limitations</div>
+                    <p><strong>Adv:</strong> Prevents recurring defects, improves quality, reduces maintenance cost, supports continuous improvement.</p>
+                    <p style="margin-top: 8px;"><strong>Limitations:</strong> Time-consuming, requires skilled analysis, incorrect data may produce wrong conclusions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">🛡️</div>
+            <div class="card-title">Standards & Methodologies for Defect Prevention</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Defect Prevention Techniques</div>
+                        <ul>
+                            <li><strong>Coding Standards</strong> — Consistent, readable code rules</li>
+                            <li><strong>Reviews & Inspections</strong> — Early defect detection</li>
+                            <li><strong>Testing Standards</strong> — Consistent test procedures</li>
+                            <li><strong>Training Programs</strong> — Skill improvement</li>
+                            <li><strong>Process Improvement</strong> — Continuous analysis</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Advanced Methodologies</div>
+                        <ul>
+                            <li><strong>Cleanroom</strong> — Formal methods, correctness verification. Produces highly reliable, low-defect software.</li>
+                            <li><strong>PSP</strong> — Personal Software Process. Helps individual developers improve through planning, measurement, self-review.</li>
+                            <li><strong>TSP</strong> — Team Software Process. Extends PSP to teams for improved collaboration and quality.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <div class="highlight-box-title">🎯 Advantages</div>
+                    <p>Reduces defect occurrence • Improves reliability • Lowers maintenance cost • Enhances customer satisfaction</p>
+                </div>
             </div>
         </div>
 
         <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
             <div class="bento-card">
-                <div class="card-icon">🛡️</div>
-                <div class="card-title">Defect Prevention Methodologies</div>
+                <div class="card-icon">⚡</div>
+                <div class="card-title">Fault Tolerance</div>
                 <div class="card-text" style="margin-top: 12px;">
+                    <p style="margin-bottom: 12px;">Ability of software to continue operating properly even when faults occur.</p>
+                    <p style="margin-bottom: 12px;"><strong>Techniques:</strong></p>
                     <ul>
-                        <li><strong>Coding Standards</strong> — Consistent, readable code rules</li>
-                        <li><strong>Reviews & Inspections</strong> — Early defect detection</li>
-                        <li><strong>Testing Standards</strong> — Consistent test procedures</li>
-                        <li><strong>Training Programs</strong> — Skill improvement</li>
-                        <li><strong>Process Improvement</strong> — Continuous analysis</li>
+                        <li><strong>Redundancy</strong> — Backup components continue operation</li>
+                        <li><strong>Error Detection</strong> — Validation checks identify errors</li>
+                        <li><strong>Recovery Mechanisms</strong> — Restore normal state after failure</li>
+                        <li><strong>Exception Handling</strong> — Manage unexpected runtime errors</li>
                     </ul>
-                    <p style="margin-top: 12px;"><strong>Advanced:</strong></p>
-                    <ul>
-                        <li><strong>Cleanroom</strong> — Formal methods, correctness verification</li>
-                        <li><strong>PSP</strong> — Personal Software Process for individuals</li>
-                        <li><strong>TSP</strong> — Team Software Process for collaboration</li>
-                    </ul>
+                    <p style="margin-top: 12px;"><strong>Adv:</strong> Improves reliability, prevents complete failure, enhances availability.</p>
+                    <p><strong>Limitations:</strong> Increases complexity, higher cost, additional resources needed.</p>
                 </div>
             </div>
             <div class="bento-card">
-                <div class="card-icon">⚡</div>
-                <div class="card-title">Fault Tolerance & Failure Containment</div>
+                <div class="card-icon">🔒</div>
+                <div class="card-title">Failure Containment</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <p style="margin-bottom: 12px;"><strong>Fault Tolerance Techniques:</strong></p>
-                    <ul style="margin-bottom: 12px;">
-                        <li>Redundancy — backup components</li>
-                        <li>Error Detection — validation checks</li>
-                        <li>Recovery Mechanisms — restore normal state</li>
-                        <li>Exception Handling — manage runtime errors</li>
-                    </ul>
-                    <p style="margin-bottom: 12px;"><strong>Failure Containment:</strong></p>
+                    <p style="margin-bottom: 12px;">Limits the spread of faults and prevents failures from affecting the entire system.</p>
+                    <p style="margin-bottom: 12px;"><strong>Techniques:</strong></p>
                     <ul>
-                        <li>Isolation — separate faulty modules</li>
-                        <li>Partitioning — independent sections</li>
-                        <li>Backup Systems — continue operation</li>
-                        <li>Monitoring — detect abnormal conditions</li>
+                        <li><strong>Isolation</strong> — Separate faulty modules</li>
+                        <li><strong>Partitioning</strong> — Independent sections limit impact</li>
+                        <li><strong>Backup Systems</strong> — Continue operation when primary fails</li>
+                        <li><strong>Monitoring</strong> — Detect abnormal conditions early</li>
                     </ul>
+                    <p style="margin-top: 12px;"><strong>Adv:</strong> Limits damage, improves stability, reduces operational risks.</p>
                 </div>
             </div>
         </div>
@@ -1294,41 +1644,80 @@
         <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom: 20px;">
             <div class="bento-card">
                 <div class="card-icon">⚠️</div>
-                <div class="card-title">Safety Assurance & Damage Control</div>
+                <div class="card-title">Safety Assurance</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <p style="margin-bottom: 12px;"><strong>Safety Assurance Activities:</strong></p>
-                    <ul style="margin-bottom: 12px;">
+                    <p style="margin-bottom: 12px;">Ensures software operates safely without causing harm to users, data, or environment.</p>
+                    <p style="margin-bottom: 12px;"><strong>Activities:</strong></p>
+                    <ul>
                         <li>Hazard Identification</li>
                         <li>Risk Assessment</li>
                         <li>Safety Testing</li>
                         <li>Safety Documentation</li>
                     </ul>
-                    <p><strong>Damage Control:</strong></p>
-                    <ul>
-                        <li>Backup & Recovery</li>
-                        <li>Emergency Shutdown</li>
-                        <li>Incident Response</li>
-                    </ul>
+                    <p style="margin-top: 12px;"><strong>Objectives:</strong> Prevent hazardous situations, ensure safe operation, reduce accident risk.</p>
                 </div>
             </div>
             <div class="bento-card">
-                <div class="card-icon">🌳</div>
-                <div class="card-title">FTA vs ETA</div>
+                <div class="card-icon">🚨</div>
+                <div class="card-title">Damage Control</div>
                 <div class="card-text" style="margin-top: 12px;">
-                    <table class="forensic-table" style="margin-top: 0;">
-                        <thead><tr><th>Fault Tree (FTA)</th><th>Event Tree (ETA)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Top-down approach</td><td>Forward analysis</td></tr>
-                            <tr><td>Focuses on causes</td><td>Focuses on consequences</td></tr>
-                            <tr><td>Starts with failure</td><td>Starts with initiating event</td></tr>
-                            <tr><td>AND / OR gates</td><td>Branching outcomes</td></tr>
-                        </tbody>
-                    </table>
-                    <div class="highlight-box" style="margin-top: 16px; padding: 16px;">
-                        <div class="highlight-box-title" style="font-size: 14px;">🔑 Logic Gates</div>
-                        <p style="font-size: 13px;"><strong>AND Gate:</strong> Output fails only if ALL inputs fail.<br><strong>OR Gate:</strong> Output fails if ANY input fails.</p>
+                    <p style="margin-bottom: 12px;">Actions to minimize impact of failures and recover functionality.</p>
+                    <p style="margin-bottom: 12px;"><strong>Techniques:</strong></p>
+                    <ul>
+                        <li><strong>Backup & Recovery</strong> — Restore after failures</li>
+                        <li><strong>Emergency Shutdown</strong> — Safe shutdown during critical failures</li>
+                        <li><strong>Incident Response</strong> — Structured handling of failures</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>Adv:</strong> Reduces operational risks, improves safety, prevents major losses.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
+            <div class="card-icon">🌳</div>
+            <div class="card-title">Hazard Analysis: FTA vs ETA</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Fault Tree Analysis (FTA)</div>
+                        <div class="card-text">
+                            <p style="margin-bottom: 12px;"><strong>Top-down</strong> approach. Starts with disaster, works backward to causes.</p>
+                            <p style="margin-bottom: 8px;"><strong>Structure:</strong></p>
+                            <ul style="margin-bottom: 12px;">
+                                <li><strong>Top Event</strong> — Main system failure</li>
+                                <li><strong>Intermediate Events</strong> — Between root and top</li>
+                                <li><strong>Basic Events</strong> — Root causes</li>
+                            </ul>
+                            <p style="margin-bottom: 8px;"><strong>Logic Gates:</strong></p>
+                            <ul>
+                                <li><strong>AND Gate</strong> — Output fails only if ALL inputs fail</li>
+                                <li><strong>OR Gate</strong> — Output fails if ANY input fails</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bento-card" style="background: rgba(255,255,255,0.03); border-color: var(--border-subtle);">
+                        <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Event Tree Analysis (ETA)</div>
+                        <div class="card-text">
+                            <p style="margin-bottom: 12px;"><strong>Forward analysis</strong>. Starts with initiating event, maps outcomes.</p>
+                            <p style="margin-bottom: 8px;"><strong>Steps:</strong></p>
+                            <ol style="margin-bottom: 12px;">
+                                <li>Initiating Event — starting failure</li>
+                                <li>Event Sequence Analysis — system responses</li>
+                                <li>Outcome Evaluation — final consequences</li>
+                            </ol>
+                            <p><strong>Adv:</strong> Evaluates multiple outcomes, supports safety decision-making, improves emergency planning.</p>
+                        </div>
                     </div>
                 </div>
+                <table class="forensic-table" style="margin-top: 24px;">
+                    <thead><tr><th>Fault Tree Analysis</th><th>Event Tree Analysis</th></tr></thead>
+                    <tbody>
+                        <tr><td>Top-down approach</td><td>Forward analysis approach</td></tr>
+                        <tr><td>Focuses on causes</td><td>Focuses on consequences</td></tr>
+                        <tr><td>Starts with failure</td><td>Starts with initiating event</td></tr>
+                        <tr><td>Used for root cause analysis</td><td>Used for outcome analysis</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -1338,12 +1727,12 @@
             <div class="card-text" style="margin-top: 12px;">
                 <div class="bento-grid bento-grid-2">
                     <div>
-                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Monitoring Activities</div>
+                        <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">QA Monitoring Activities</div>
                         <ul>
-                            <li>Process Monitoring</li>
-                            <li>Defect Tracking</li>
-                            <li>Performance Monitoring</li>
-                            <li>Audit Activities</li>
+                            <li><strong>Process Monitoring</strong> — Ensure compliance with standards</li>
+                            <li><strong>Defect Tracking</strong> — Record, monitor, analyze defects</li>
+                            <li><strong>Performance Monitoring</strong> — Response time, throughput, resource use</li>
+                            <li><strong>Audit Activities</strong> — Verify compliance</li>
                         </ul>
                         <div class="code-block" style="margin-top: 16px;">
 <span class="comment">// Key Metrics</span>
@@ -1355,13 +1744,22 @@
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Risk Identification</div>
                         <p style="margin-bottom: 12px;"><strong>Types:</strong></p>
                         <ul style="margin-bottom: 12px;">
-                            <li><strong>Technical</strong> — design complexity, integration</li>
-                            <li><strong>Project</strong> — cost overrun, delays</li>
-                            <li><strong>Business</strong> — competition, dissatisfaction</li>
+                            <li><strong>Technical</strong> — design complexity, integration, technology failure</li>
+                            <li><strong>Project</strong> — cost overrun, delays, lack of skilled staff</li>
+                            <li><strong>Business</strong> — competition, dissatisfaction, financial loss</li>
                         </ul>
-                        <p><strong>Techniques:</strong> Brainstorming, Checklist Analysis, SWOT Analysis.</p>
-                        <p style="margin-top: 8px;"><strong>Mitigation:</strong> Actions to reduce probability and impact.</p>
+                        <p style="margin-bottom: 8px;"><strong>Techniques:</strong></p>
+                        <ul style="margin-bottom: 12px;">
+                            <li>Brainstorming</li>
+                            <li>Checklist Analysis</li>
+                            <li>SWOT Analysis</li>
+                        </ul>
+                        <p><strong>Risk Mitigation:</strong> Actions to reduce probability and impact of identified risks.</p>
                     </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <div class="highlight-box-title">🎯 Advantages</div>
+                    <p>Improves process control • Reduces defects • Supports continuous improvement • Reduces uncertainty</p>
                 </div>
             </div>
         </div>
@@ -1382,17 +1780,21 @@
                             <li>What is FTA?</li>
                             <li>Define ETA</li>
                             <li>What is MTBF?</li>
+                            <li>Define DRE</li>
+                            <li>What is risk mitigation?</li>
                         </ul>
                     </div>
                     <div>
                         <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px; color: var(--text-primary);">10-Mark Questions</div>
                         <ul>
                             <li>Explain Root Cause Analysis techniques</li>
-                            <li>Discuss standards for defect prevention</li>
+                            <li>Discuss standards and methodologies for defect prevention</li>
                             <li>Explain fault tolerance and failure containment</li>
                             <li>Discuss safety assurance and damage control</li>
-                            <li>Explain Fault Tree and Event Tree Analysis</li>
+                            <li>Explain Fault Tree Analysis and Event Tree Analysis</li>
                             <li>Explain QA monitoring and measurement</li>
+                            <li>Discuss software risk identification techniques</li>
+                            <li>Explain quantifiable quality improvement methods</li>
                         </ul>
                     </div>
                 </div>
@@ -1418,25 +1820,44 @@
             </div>
             <div class="bento-grid bento-grid-2" style="margin-top: 20px;">
                 <div class="card-text">
+                    <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Unit 1</div>
                     <ul>
                         <li>Role of management in SQA</li>
                         <li>McCall's Quality Factors</li>
                         <li>CMM / CMMI Levels</li>
-                        <li>Principles of TQM</li>
-                        <li>Cost of Quality categories</li>
-                        <li>7 QC Tools</li>
-                        <li>Six Sigma DMAIC</li>
+                        <li>Software Quality Implementation</li>
+                        <li>Inspections vs Walkthroughs</li>
                     </ul>
                 </div>
                 <div class="card-text">
+                    <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Unit 2</div>
                     <ul>
-                        <li>Inspections vs Walkthroughs</li>
+                        <li>Principles of TQM</li>
+                        <li>Cost of Quality categories</li>
                         <li>Software Quality Metrics (with formulas)</li>
+                        <li>Integrating quality in SDLC</li>
+                        <li>Software Maintenance QA</li>
+                    </ul>
+                </div>
+                <div class="card-text">
+                    <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Unit 3</div>
+                    <ul>
+                        <li>7 QC Tools</li>
+                        <li>Six Sigma DMAIC</li>
+                        <li>Benchmarking types</li>
+                        <li>ISO 9000 series</li>
+                        <li>SPICE capability levels</li>
+                    </ul>
+                </div>
+                <div class="card-text">
+                    <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Unit 4 & 5</div>
+                    <ul>
+                        <li>People's quality expectations</li>
+                        <li>CAPA with examples</li>
                         <li>Root Cause Analysis techniques</li>
                         <li>Fault Tolerance & Failure Containment</li>
                         <li>FTA vs ETA</li>
-                        <li>CAPA with examples</li>
-                        <li>People's Quality Expectations</li>
+                        <li>QA Monitoring & Risk</li>
                     </ul>
                 </div>
             </div>
@@ -1449,13 +1870,13 @@
                 <div class="card-text" style="margin-top: 12px;">
                     <div class="code-block" style="margin-top: 0;">
 <span class="comment">// Defect Density</span>
-<span class="type">DD</span> = <span class="type">Defects</span> / <span class="type">KLOC</span>
+<span class="type">DD</span> = <span class="type">NumberOfDefects</span> / <span class="type">KLOC</span>
 
 <span class="comment">// Defect Removal Efficiency</span>
-<span class="type">DRE</span> = (<span class="type">Removed</span> / <span class="type">Total</span>) × <span class="type">100</span>
+<span class="type">DRE</span> = (<span class="type">DefectsRemoved</span> / <span class="type">TotalDefects</span>) × <span class="type">100</span>
 
 <span class="comment">// Mean Time Between Failures</span>
-<span class="type">MTBF</span> = <span class="type">TotalTime</span> / <span class="type">Failures</span>
+<span class="type">MTBF</span> = <span class="type">TotalOperatingTime</span> / <span class="type">NumberOfFailures</span>
                     </div>
                 </div>
             </div>
@@ -1475,6 +1896,9 @@ Define + Measure + Analyze + Improve + Control
 
 <span class="comment">// CMM 5 Levels</span>
 Initial → Repeatable → Defined → Managed → Optimizing
+
+<span class="comment">// 7 QC Tools</span>
+Fishbone + Pareto + Histogram + Control + Scatter + Flow + Check
                     </div>
                 </div>
             </div>
@@ -1492,15 +1916,15 @@ Initial → Repeatable → Defined → Managed → Optimizing
                 <div class="bento-grid bento-grid-2">
                     <div class="bento-card" style="background: rgba(255,159,10,0.05); border-color: rgba(255,159,10,0.15);">
                         <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Waterfall Model & Quality</div>
-                        <p>Testing happens only at the end. A design flaw found late requires scrapping almost everything. Modern SQA prefers V-Model or Agile.</p>
+                        <p>Testing happens only at the end. A design flaw found late requires scrapping almost everything. Modern SQA prefers V-Model or Agile where every phase has corresponding testing.</p>
                     </div>
                     <div class="bento-card" style="background: rgba(191,90,242,0.05); border-color: rgba(191,90,242,0.15);">
                         <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Healthcare SDLC</div>
-                        <p>Safety-critical systems require rigorous models like V-Model. Focus on compliance, privacy, zero-defect tolerance.</p>
+                        <p>Safety-critical systems require rigorous models like V-Model. Focus on compliance, privacy, zero-defect tolerance, safety assurance.</p>
                     </div>
                     <div class="bento-card" style="background: rgba(41,151,255,0.05); border-color: rgba(41,151,255,0.15); grid-column: span 2;">
                         <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">FSM-Based Testing in Web Apps</div>
-                        <p>Finite State Machine testing models transitions between states (Browsing → Cart → Payment → Confirmed). Ensures unexpected user actions (like hitting "Back") don't crash the system.</p>
+                        <p>Finite State Machine testing models transitions between states (Browsing → Cart → Payment → Confirmed). Ensures unexpected user actions (like hitting "Back") don't crash the system. Maps every possible state and transition for graceful handling.</p>
                     </div>
                 </div>
             </div>
@@ -1513,21 +1937,21 @@ Initial → Repeatable → Defined → Managed → Optimizing
                 <div class="bento-grid bento-grid-2">
                     <div>
                         <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Part A — 2 Marks</div>
-                        <p>Be direct. One sentence definition + one example or 2-3 key points. Common picks: TQM, COQ, DMAIC, DRE, MTBF, CAPA.</p>
+                        <p>Be direct. One sentence definition + one example or 2-3 key points. Common picks: TQM, COQ, DMAIC, DRE, MTBF, CAPA, RCA, FTA.</p>
                     </div>
                     <div>
                         <div style="font-weight: 700; font-size: 16px; margin-bottom: 12px;">Part B / C — 10 Marks</div>
-                        <p><strong>Structure:</strong> Definition → Headings with explanations → Example/Formula → Conclusion. Use underlines and diagrams (BMC grid, Fishbone sketch, CMM levels). For application questions, map theory directly to the scenario.</p>
+                        <p><strong>Structure:</strong> Definition → Headings with explanations → Example/Formula/Diagram → Conclusion. Use underlines and diagrams (Fishbone, CMM levels, COQ chart). For application questions, map theory directly to the scenario.</p>
                     </div>
                 </div>
                 <div class="highlight-box" style="margin-top: 20px;">
-                    <div class="highlight-box-title">🎓 You've Got This</div>
-                    <p>Deep breaths. Map your practical dev experience (UniPool, AI agents) to the academic terms. You already know quality intuitively — now just name the frameworks.</p>
+                    <div class="highlight-box-title">🎓 You've Got This, Tamil Selvan</div>
+                    <p>Deep breaths. Map your practical dev experience (UniPool, AI agents) to the academic terms. You already know quality intuitively — now just name the frameworks. Trust your developer instincts.</p>
                 </div>
             </div>
         </div>
 
-        <div class="bento-card gs-reveal">
+        <div class="bento-card gs-reveal" style="margin-bottom: 20px;">
             <div class="card-icon">🆚</div>
             <div class="card-title">Mega Comparison Table</div>
             <div class="card-text" style="margin-top: 12px;">
@@ -1540,8 +1964,87 @@ Initial → Repeatable → Defined → Managed → Optimizing
                         <tr><td>FTA</td><td>ETA</td><td>Top-down causes vs Forward consequences</td></tr>
                         <tr><td>QC</td><td>QA</td><td>Product testing vs Process prevention</td></tr>
                         <tr><td>Internal Failure</td><td>External Failure</td><td>Pre-release vs Post-release (more expensive)</td></tr>
+                        <tr><td>CMM</td><td>SPICE</td><td>5 levels (1-5) vs 6 levels (0-5)</td></tr>
+                        <tr><td>Common Cause</td><td>Special Cause</td><td>Natural variation vs Abnormal, identifiable</td></tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <div class="bento-card gs-reveal">
+            <div class="card-icon">🏛️</div>
+            <div class="card-title">Complete Topic Checklist — All 5 Units</div>
+            <div class="card-text" style="margin-top: 12px;">
+                <div class="bento-grid bento-grid-2">
+                    <div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Unit 1 — Quality Control</div>
+                        <ul style="font-size: 13px;">
+                            <li>✅ QC vs QA</li>
+                            <li>✅ McCall's Quality Model</li>
+                            <li>✅ Software Quality Factors (11 factors)</li>
+                            <li>✅ CMM / CMMI (5 levels)</li>
+                            <li>✅ SPICE / ISO 15504 (6 levels)</li>
+                            <li>✅ Software Quality Challenges</li>
+                            <li>✅ Management Role in SQA</li>
+                            <li>✅ Components of SQA System</li>
+                            <li>✅ Software Quality Implementation (7 steps)</li>
+                            <li>✅ Software Quality Implementation Techniques</li>
+                            <li>✅ CASE Tools (Upper, Lower, Integrated)</li>
+                            <li>✅ Inspections vs Walkthroughs</li>
+                            <li>✅ Waterfall Model (phases + adv/disadv)</li>
+                            <li>✅ FSM-Based Testing</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Unit 2 — Management</div>
+                        <ul style="font-size: 13px;">
+                            <li>✅ TQM (7 principles + adv/disadv)</li>
+                            <li>✅ Cost of Quality (4 categories)</li>
+                            <li>✅ Software Maintenance QA (4 types)</li>
+                            <li>✅ Software Quality Metrics (DD, DRE, MTBF)</li>
+                            <li>✅ Integrating Quality in SDLC (all phases)</li>
+                            <li>✅ Documentation & Control</li>
+                            <li>✅ Models for QA (McCall's, ISO, CMM, SPICE)</li>
+                            <li>✅ Software Maturity Models advantages</li>
+                            <li>✅ Healthcare SDLC / V-Model</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Unit 3 — Tools</div>
+                        <ul style="font-size: 13px;">
+                            <li>✅ 7 QC Tools</li>
+                            <li>✅ Modern QC Tools (5 tools)</li>
+                            <li>✅ Six Sigma DMAIC</li>
+                            <li>✅ Zero Defect Philosophy</li>
+                            <li>✅ Business Process Re-engineering</li>
+                            <li>✅ QFD / House of Quality</li>
+                            <li>✅ Benchmarking (4 types)</li>
+                            <li>✅ Statistical Process Control</li>
+                            <li>✅ ISO 9000 Series</li>
+                            <li>✅ SPICE</li>
+                            <li>✅ SEI CMM Level 5</li>
+                            <li>✅ McCall's Factors (Unit 3 review)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-primary);">Unit 4 & 5 — People & Defects</div>
+                        <ul style="font-size: 13px;">
+                            <li>✅ People's Quality Expectations</li>
+                            <li>✅ External Participants</li>
+                            <li>✅ Procedures vs Work Instructions</li>
+                            <li>✅ Staff Training & Certification</li>
+                            <li>✅ CAPA (Corrective & Preventive)</li>
+                            <li>✅ Documentation Control</li>
+                            <li>✅ Root Cause Analysis</li>
+                            <li>✅ Defect Prevention (Cleanroom, PSP, TSP)</li>
+                            <li>✅ Fault Tolerance & Failure Containment</li>
+                            <li>✅ Safety Assurance & Damage Control</li>
+                            <li>✅ FTA vs ETA</li>
+                            <li>✅ QA Monitoring & Measurement</li>
+                            <li>✅ Risk Identification & Mitigation</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1551,7 +2054,7 @@ Initial → Repeatable → Defined → Managed → Optimizing
             <div style="font-size: 32px; margin-bottom: 16px;">🎓</div>
             <div style="font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">You've Got This, Tamil Selvan.</div>
             <div style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">
-                Every concept, model, tool, and hidden topic from your SQA syllabus — synthesized into one interactive exam guide.
+                Every concept, model, tool, hidden topic, and exam question from your SQA syllabus — 100% covered in one interactive guide.
             </div>
             <div style="margin-top: 24px; font-size: 13px; color: var(--text-tertiary);">
                 Good luck on your exam. Trust your developer instincts.
