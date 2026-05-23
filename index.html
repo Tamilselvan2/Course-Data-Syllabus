@@ -1,1123 +1,1087 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Quality Assurance | Complete Exam Guide</title>
-    
-    <!-- Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software Quality Assurance — Complete Exam Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary:#000;
+      --bg-elevated:#1a1a1a;
+      --bg-secondary:#0d0d0d;
+      --border-subtle:rgba(255,255,255,.08);
+      --border-glow:rgba(255,255,255,.15);
+      --text-primary:#f5f5f7;
+      --text-secondary:#86868b;
+      --text-tertiary:#6e6e73;
+      --apple-blue:#2997ff;
+      --apple-blue-hover:#0077ed;
+      --accent-green:#30d158;
+      --accent-red:#ff453a;
+      --accent-orange:#ff9f0a;
+      --accent-purple:#bf5af2;
+      --accent-teal:#64d2ff;
+      --accent-yellow:#ffd60a;
+      --accent-indigo:#6366f1;
+    }
 
-    <!-- Tailwind Config for Apple Design Language -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-                    },
-                    colors: {
-                        apple: {
-                            black: '#000000',
-                            card: '#1a1a1a',
-                            border: 'rgba(255, 255, 255, 0.05)',
-                            text: '#f5f5f7',
-                            subtext: '#86868b',
-                            blue: '#2997ff',
-                            green: '#30d158',
-                            red: '#ff453a',
-                            orange: '#ff9f0a'
-                        }
-                    },
-                    fontSize: {
-                        'hero': 'clamp(48px, 8vw, 96px)',
-                    },
-                    letterSpacing: {
-                        'tighter': '-0.04em',
-                        'tight': '-0.02em',
-                    }
-                }
-            }
-        }
-    </script>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+      background:var(--bg-primary);
+      color:var(--text-primary);
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
 
-    <style>
-        :root {
-            --bg-color: #000000;
-            --card-color: #1a1a1a;
-        }
+    #progress-bar{
+      position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--apple-blue),var(--accent-purple),var(--accent-teal));
+      z-index:9999;width:0%;transition:width .1s linear;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            color: #f5f5f7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    .nav-container{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      padding:16px 24px;transition:all .4s cubic-bezier(.4,0,.2,1);
+    }
+    .nav-container.scrolled{
+      background:rgba(0,0,0,.7);
+      backdrop-filter:blur(20px) saturate(180%);
+      -webkit-backdrop-filter:blur(20px) saturate(180%);
+      border-bottom:1px solid var(--border-subtle);
+    }
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .nav-logo{font-weight:700;font-size:18px;letter-spacing:-.5px}
+    .nav-links{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+    .nav-link{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .25s ease}
+    .nav-link:hover{color:var(--text-primary)}
+    .nav-cta{
+      background:var(--apple-blue);color:#fff;padding:8px 18px;border-radius:980px;
+      font-size:13px;font-weight:600;text-decoration:none;transition:all .25s ease
+    }
+    .nav-cta:hover{background:var(--apple-blue-hover)}
+    .mobile-menu-btn{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px}
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000000; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
+    .hero{
+      position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;
+    }
+    #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:940px;padding:0 24px}
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 16px;border-radius:100px;background:rgba(41,151,255,.1);
+      border:1px solid rgba(41,151,255,.2);color:var(--apple-blue);
+      font-size:13px;font-weight:600;margin-bottom:32px;letter-spacing:-.2px
+    }
+    .hero-title{
+      font-size:clamp(48px,8vw,96px);font-weight:800;line-height:1.05;letter-spacing:-.04em;
+      margin-bottom:24px;background:linear-gradient(180deg,#fff 0%,#86868b 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+    }
+    .hero-subtitle{
+      font-size:clamp(18px,2.5vw,24px);font-weight:400;color:var(--text-secondary);
+      line-height:1.5;max-width:700px;margin:0 auto 40px;letter-spacing:-.3px
+    }
+    .hero-stats{display:flex;justify-content:center;gap:48px;margin-top:48px;flex-wrap:wrap}
+    .stat-item{text-align:center;animation:float 6s ease-in-out infinite}
+    .stat-item:nth-child(2){animation-delay:-2s}
+    .stat-item:nth-child(3){animation-delay:-4s}
+    .stat-value{font-size:36px;font-weight:700;letter-spacing:-1px}
+    .stat-label{font-size:13px;color:var(--text-secondary);margin-top:4px;font-weight:500}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-        /* Typography & Gradients */
-        .text-gradient {
-            background: linear-gradient(180deg, #ffffff 0%, #86868b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    .section{padding:120px 24px;max-width:1200px;margin:0 auto;position:relative}
+    .section-header{margin-bottom:64px}
+    .section-label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--apple-blue);margin-bottom:16px}
+    .section-title{
+      font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.1;
+      background:linear-gradient(180deg,#fff 0%,#86868b 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+    }
+    .section-desc{font-size:18px;color:var(--text-secondary);margin-top:16px;max-width:760px;line-height:1.6;letter-spacing:-.2px}
 
-        /* Glassmorphism Cards (Apple Bento Style) */
-        .glass-card {
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02), 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
+    .bento-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bento-grid-2{grid-template-columns:repeat(2,1fr)}
+    .bento-grid-4{grid-template-columns:repeat(4,1fr)}
+    .card-large{grid-column:span 2}
+    @media(max-width:1024px){
+      .bento-grid,.bento-grid-4{grid-template-columns:repeat(2,1fr)}
+      .card-large{grid-column:span 1}
+    }
+    @media(max-width:640px){
+      .bento-grid,.bento-grid-2,.bento-grid-4{grid-template-columns:1fr}
+    }
 
-        /* Inner Glow */
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 24px;
-            padding: 1px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
+    .bento-card{
+      background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:24px;padding:32px;position:relative;overflow:hidden;
+      transition:all .4s cubic-bezier(.4,0,.2,1);cursor:default
+    }
+    .bento-card::before{
+      content:'';position:absolute;inset:0;border-radius:24px;padding:1px;
+      background:linear-gradient(180deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,0) 100%);
+      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity .4s ease
+    }
+    .bento-card:hover::before{opacity:1}
+    .bento-card:hover{
+      transform:translateY(-4px);border-color:var(--border-glow);
+      box-shadow:0 20px 40px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.1)
+    }
+    .card-icon{
+      width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+      font-size:20px;margin-bottom:20px;background:rgba(255,255,255,.05);border:1px solid var(--border-subtle)
+    }
+    .card-title{font-size:20px;font-weight:700;letter-spacing:-.4px;margin-bottom:12px}
+    .card-text{font-size:15px;line-height:1.6;color:var(--text-secondary);letter-spacing:-.2px}
+    .card-text ul{list-style:none;padding:0;margin:8px 0 0}
+    .card-text ul li{padding:4px 0;padding-left:16px;position:relative}
+    .card-text ul li::before{content:'•';position:absolute;left:0;color:var(--text-tertiary)}
+    .card-tag{
+      display:inline-block;padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;margin-top:16px;letter-spacing:-.2px
+    }
+    .tag-green{background:rgba(48,209,88,.15);color:var(--accent-green);border:1px solid rgba(48,209,88,.2)}
+    .tag-red{background:rgba(255,69,58,.15);color:var(--accent-red);border:1px solid rgba(255,69,58,.2)}
+    .tag-orange{background:rgba(255,159,10,.15);color:var(--accent-orange);border:1px solid rgba(255,159,10,.2)}
+    .tag-blue{background:rgba(41,151,255,.15);color:var(--apple-blue);border:1px solid rgba(41,151,255,.2)}
+    .tag-purple{background:rgba(191,90,242,.15);color:var(--accent-purple);border:1px solid rgba(191,90,242,.2)}
+    .tag-yellow{background:rgba(255,214,10,.15);color:var(--accent-yellow);border:1px solid rgba(255,214,10,.2)}
 
-        /* Gentle Lift on Hover (Touch Safe) - NO 3D ROTATION */
-        @media (hover: hover) and (pointer: fine) {
-            .glass-card.interactive:hover {
-                transform: translateY(-4px);
-                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0,0,0,0.6);
-            }
-        }
+    .forensic-table{width:100%;border-collapse:separate;border-spacing:0;margin-top:18px;font-size:14px}
+    .forensic-table th{
+      text-align:left;padding:14px 18px;font-weight:600;color:var(--text-secondary);border-bottom:1px solid var(--border-subtle);font-size:13px;text-transform:uppercase;letter-spacing:.5px
+    }
+    .forensic-table td{padding:14px 18px;border-bottom:1px solid var(--border-subtle);color:var(--text-primary);vertical-align:top}
+    .forensic-table tr:last-child td{border-bottom:none}
+    .forensic-table tr:hover td{background:rgba(255,255,255,.02)}
 
-        /* Navigation Blur */
-        .nav-blur {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+    .numbered-list{list-style:none;counter-reset:item;padding:0}
+    .numbered-list li{
+      counter-increment:item;padding:16px 0 16px 48px;position:relative;border-bottom:1px solid var(--border-subtle)
+    }
+    .numbered-list li:last-child{border-bottom:none}
+    .numbered-list li::before{
+      content:counter(item,decimal-leading-zero);position:absolute;left:0;top:16px;
+      font-family:'SF Mono',Monaco,monospace;font-size:13px;font-weight:600;color:var(--text-tertiary);width:32px;text-align:right
+    }
+    .step-title{font-weight:600;font-size:16px;margin-bottom:4px;color:var(--text-primary);letter-spacing:-.3px}
+    .step-desc{font-size:14px;color:var(--text-secondary);line-height:1.5}
 
-        /* Top Progress Bar */
-        #progress-bar {
-            position: fixed;
-            top: 0; left: 0;
-            width: 0%; height: 2px;
-            background: linear-gradient(90deg, #2997ff, #30d158);
-            z-index: 9999;
-            transition: width 0.1s ease;
-        }
+    .highlight-box{
+      background:linear-gradient(135deg,rgba(41,151,255,.08) 0%,rgba(191,90,242,.08) 100%);
+      border:1px solid rgba(41,151,255,.15);border-radius:20px;padding:28px 32px;margin:24px 0
+    }
+    .highlight-box-title{
+      font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text-primary);display:flex;align-items:center;gap:10px
+    }
 
-        /* Three.js Canvas Container */
-        #canvas-container {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-            opacity: 0.6;
-        }
+    .tool-mini{
+      display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,.03);
+      border-radius:12px;border:1px solid var(--border-subtle);transition:all .3s ease
+    }
+    .tool-mini:hover{background:rgba(255,255,255,.06);border-color:var(--border-glow)}
+    .tool-mini-icon{
+      width:36px;height:36px;border-radius:10px;background:rgba(41,151,255,.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0
+    }
+    .tool-mini-name{font-weight:600;font-size:14px;color:var(--text-primary)}
+    .tool-mini-desc{font-size:12px;color:var(--text-tertiary)}
 
-        /* Tab System */
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.4s ease-out;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .tab-btn {
-            transition: all 0.3s ease;
-        }
-        .tab-btn.active {
-            background-color: #2997ff;
-            color: white;
-            border-color: #2997ff;
-        }
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:24px;overflow:hidden;border:1px solid var(--border-subtle);margin-top:24px}
+    .compare-col{padding:32px;background:var(--bg-elevated)}
+    .compare-col:first-child{border-right:1px solid var(--border-subtle)}
+    .compare-title{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;color:var(--text-secondary)}
+    .compare-list{list-style:none;padding:0}
+    .compare-list li{padding:8px 0;font-size:15px;color:var(--text-primary);border-bottom:1px solid rgba(255,255,255,.03)}
+    .compare-list li:last-child{border-bottom:none}
+    @media(max-width:640px){
+      .compare-grid{grid-template-columns:1fr}
+      .compare-col:first-child{border-right:none;border-bottom:1px solid var(--border-subtle)}
+    }
 
-        /* Mobile Bottom Sheet */
-        #mobile-menu {
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        #mobile-menu.open { transform: translateY(0); }
-        .sheet-overlay {
-            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
-        }
-        .sheet-overlay.open { opacity: 1; pointer-events: auto; }
+    .code-block{
+      background:#0d0d0d;border:1px solid var(--border-subtle);border-radius:16px;padding:20px 24px;
+      font-family:'SF Mono',Monaco,'Cascadia Code',monospace;font-size:13px;line-height:1.6;color:var(--text-secondary);overflow-x:auto;margin-top:16px
+    }
+    .code-block .keyword{color:var(--accent-purple)}
+    .code-block .type{color:var(--accent-teal)}
+    .code-block .func{color:var(--accent-yellow)}
+    .code-block .comment{color:var(--text-tertiary)}
+    .code-block .string{color:var(--accent-green)}
 
-        /* Table Styling */
-        table {
-            border-collapse: separate;
-            border-spacing: 0;
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-        th, td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.875rem;
-        }
-        th {
-            background: rgba(255,255,255,0.05);
-            font-weight: 600;
-            color: #f5f5f7;
-        }
-        tr:last-child td { border-bottom: none; }
-        
-        .content-block h2 { color: white; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
-        .content-block h3 { color: #2997ff; font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-        .content-block p { color: #86868b; line-height: 1.6; margin-bottom: 1rem; font-size: 0.95rem; }
-        .content-block ul { list-style-type: disc; padding-left: 1.5rem; color: #86868b; margin-bottom: 1rem; font-size: 0.95rem; }
-        .content-block li { margin-bottom: 0.5rem; }
-        .content-block strong { color: #f5f5f7; }
-    </style>
+    .cursor-glow{
+      position:fixed;width:300px;height:300px;border-radius:50%;
+      background:radial-gradient(circle,rgba(41,151,255,.08) 0%,transparent 70%);
+      pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:opacity .3s ease;opacity:0
+    }
+    @media(hover:hover){.cursor-glow{opacity:1}}
+
+    .bottom-sheet-overlay{
+      position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:2000;opacity:0;visibility:hidden;transition:all .3s ease
+    }
+    .bottom-sheet-overlay.active{opacity:1;visibility:visible}
+    .bottom-sheet{
+      position:fixed;bottom:0;left:0;right:0;background:var(--bg-elevated);border-radius:24px 24px 0 0;z-index:2001;
+      padding:20px 0 32px;transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);max-height:80vh;overflow-y:auto
+    }
+    .bottom-sheet.active{transform:translateY(0)}
+    .bottom-sheet-grabber{width:36px;height:4px;background:var(--text-tertiary);border-radius:2px;margin:0 auto 20px}
+    .bottom-sheet-link{display:block;padding:16px 24px;color:var(--text-primary);text-decoration:none;font-size:17px;font-weight:500;border-bottom:1px solid var(--border-subtle);transition:background .2s ease}
+    .bottom-sheet-link:last-child{border-bottom:none}
+    .bottom-sheet-link:active{background:rgba(255,255,255,.05)}
+
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .mobile-menu-btn{display:block}
+      .hero-stats{flex-direction:column;gap:24px}
+      .section{padding:80px 20px}
+      .bento-card{padding:24px}
+    }
+
+    ::-webkit-scrollbar{width:8px}
+    ::-webkit-scrollbar-track{background:var(--bg-primary)}
+    ::-webkit-scrollbar-thumb{background:var(--bg-elevated);border-radius:4px}
+    ::-webkit-scrollbar-thumb:hover{background:#333}
+
+    .footer{
+      padding:80px 24px;text-align:center;border-top:1px solid var(--border-subtle);
+    }
+  </style>
 </head>
-<body class="antialiased selection:bg-apple-blue selection:text-white">
+<body>
+  <div id="progress-bar"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-    <!-- Progress Bar -->
-    <div id="progress-bar"></div>
+  <nav class="nav-container" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">SQA Guide</div>
+      <div class="nav-links">
+        <a href="#unit1" class="nav-link">Unit 1</a>
+        <a href="#unit2" class="nav-link">Unit 2</a>
+        <a href="#unit3" class="nav-link">Unit 3</a>
+        <a href="#unit4" class="nav-link">Unit 4</a>
+        <a href="#unit5" class="nav-link">Unit 5</a>
+        <a href="#quick" class="nav-cta">Quick Review</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
 
-    <!-- 3D Canvas Background -->
-    <div id="canvas-container"></div>
+  <div class="bottom-sheet-overlay" id="bottomSheetOverlay"></div>
+  <div class="bottom-sheet" id="bottomSheet">
+    <div class="bottom-sheet-grabber"></div>
+    <a href="#unit1" class="bottom-sheet-link">Unit 1 — Quality Control & Concepts</a>
+    <a href="#unit2" class="bottom-sheet-link">Unit 2 — Management & Quality Cost</a>
+    <a href="#unit3" class="bottom-sheet-link">Unit 3 — Tools & Methodologies</a>
+    <a href="#unit4" class="bottom-sheet-link">Unit 4 — People in SQA</a>
+    <a href="#unit5" class="bottom-sheet-link">Unit 5 — Defect Control & Analysis</a>
+    <a href="#quick" class="bottom-sheet-link">Quick Review & Exam Strategy</a>
+  </div>
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-apple-blue to-purple-600 flex items-center justify-center font-bold text-white shadow-lg">
-                    SQ
-                </div>
-                <span class="font-semibold text-lg tracking-tight">SQA Master</span>
-            </div>
-            
-            <!-- Desktop Links -->
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-apple-subtext">
-                <button onclick="scrollToTabs('unit1')" class="hover:text-white transition-colors">Unit 1</button>
-                <button onclick="scrollToTabs('unit2')" class="hover:text-white transition-colors">Unit 2</button>
-                <button onclick="scrollToTabs('unit3')" class="hover:text-white transition-colors">Unit 3</button>
-                <button onclick="scrollToTabs('unit4')" class="hover:text-white transition-colors">Unit 4</button>
-                <button onclick="scrollToTabs('unit5')" class="hover:text-white transition-colors">Unit 5</button>
-            </div>
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+        SQA Only • Reference Styled
+      </div>
+      <h1 class="hero-title" id="heroTitle">Software Quality<br>Assurance</h1>
+      <p class="hero-subtitle">A complete exam guide built from your SQA syllabus. The layout follows your reference style, with the Entrepreneurship content removed and the syllabus kept fully focused on SQA.</p>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-value">5</div><div class="stat-label">Units</div></div>
+        <div class="stat-item"><div class="stat-value">50+</div><div class="stat-label">Topics</div></div>
+        <div class="stat-item"><div class="stat-value">10</div><div class="stat-label">Mark Answers</div></div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Mobile Hamburger -->
-            <button id="menu-btn" class="md:hidden text-white p-2">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Bottom Sheet Menu -->
-    <div id="sheet-overlay" class="sheet-overlay fixed inset-0 bg-black/60 backdrop-blur-sm z-40"></div>
-    <div id="mobile-menu" class="fixed bottom-0 left-0 w-full bg-[#1c1c1e] rounded-t-3xl z-50 p-6 pb-12 shadow-2xl border-t border-white/10">
-        <div class="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-8"></div>
-        <div class="flex flex-col gap-6 text-lg font-medium">
-            <button onclick="scrollToTabsMobile('unit1')" class="text-left text-white">Unit 1: Quality Control</button>
-            <button onclick="scrollToTabsMobile('unit2')" class="text-left text-white">Unit 2: Management & Cost</button>
-            <button onclick="scrollToTabsMobile('unit3')" class="text-left text-white">Unit 3: Tools</button>
-            <button onclick="scrollToTabsMobile('unit4')" class="text-left text-white">Unit 4: People in SQA</button>
-            <button onclick="scrollToTabsMobile('unit5')" class="text-left text-white">Unit 5: Defect Control</button>
-        </div>
+  <section class="section" id="unit1">
+    <div class="section-header gs-reveal">
+      <div class="section-label">Unit 1</div>
+      <h2 class="section-title">Quality Control<br>& Concepts</h2>
+      <p class="section-desc">QC vs QA, McCall’s model, CMM, SPICE, CASE tools, inspections, walkthroughs, and the Waterfall model.</p>
     </div>
 
-    <main class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6">
-        <div class="max-w-7xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 text-sm font-medium text-apple-subtext animate-fade-in-up">
-                <span class="w-2 h-2 rounded-full bg-apple-green animate-pulse"></span>
-                Complete Syllabus Covered
-            </div>
-            
-            <h1 class="text-hero font-bold tracking-tighter leading-[1.1] mb-6 gsap-hero">
-                Software <br>
-                <span class="text-gradient">Quality Assurance</span>
-            </h1>
-            
-            <p class="text-xl md:text-2xl text-apple-subtext max-w-2xl mx-auto mb-12 tracking-tight gsap-hero-sub">
-                The definitive, structured study guide covering all 5 units, frameworks, metrics, and high-probability exam questions.
-            </p>
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">🛡️</div>
+          <div class="card-title">Quality Control (QC) vs Quality Assurance (QA)</div>
         </div>
-    </main>
-
-    <section id="syllabus-content" class="py-12 px-6 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            
-            <!-- Sticky Tab Navigation -->
-            <div class="sticky top-20 z-40 bg-black/80 backdrop-blur-xl border-y border-white/10 py-4 mb-12 gsap-fade-up">
-                <div class="flex overflow-x-auto hide-scrollbar justify-start md:justify-center gap-3 px-4">
-                    <button class="tab-btn active shrink-0 px-6 py-2 rounded-full border border-white/10 text-sm font-medium hover:bg-white/5" onclick="openTab(event, 'unit1')">Unit 1: Quality Control</button>
-                    <button class="tab-btn shrink-0 px-6 py-2 rounded-full border border-white/10 text-sm font-medium hover:bg-white/5" onclick="openTab(event, 'unit2')">Unit 2: Management & Cost</button>
-                    <button class="tab-btn shrink-0 px-6 py-2 rounded-full border border-white/10 text-sm font-medium hover:bg-white/5" onclick="openTab(event, 'unit3')">Unit 3: Tools</button>
-                    <button class="tab-btn shrink-0 px-6 py-2 rounded-full border border-white/10 text-sm font-medium hover:bg-white/5" onclick="openTab(event, 'unit4')">Unit 4: People in SQA</button>
-                    <button class="tab-btn shrink-0 px-6 py-2 rounded-full border border-white/10 text-sm font-medium hover:bg-white/5" onclick="openTab(event, 'unit5')">Unit 5: Defect Control</button>
-                </div>
-            </div>
-
-            <!-- Unit 1 -->
-            <div id="unit1" class="tab-content active content-block">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <div class="glass-card interactive p-8">
-                        <h2>1. Quality Control Concepts</h2>
-                        <p><strong>Quality Control (QC)</strong> is a process used to identify defects in software products and ensure that the developed software meets customer requirements and quality standards. It mainly focuses on testing and verification activities.</p>
-                        
-                        <h3>Objectives of QC</h3>
-                        <ul>
-                            <li><strong>Defect Detection:</strong> Identify defects before release to reduce maintenance effort.</li>
-                            <li><strong>Ensuring Product Quality:</strong> Satisfies specifications and industry standards.</li>
-                            <li><strong>Improving Reliability:</strong> Enhances stability and reduces failure probability.</li>
-                            <li><strong>Reducing Maintenance Cost:</strong> Cheaper to find defects early.</li>
-                        </ul>
-
-                        <h3>Activities in QC</h3>
-                        <ul>
-                            <li><strong>Testing:</strong> Verifying software behaves as expected.</li>
-                            <li><strong>Reviews:</strong> Documents and code are reviewed to detect errors early.</li>
-                            <li><strong>Inspections:</strong> Formal meetings to systematically identify defects.</li>
-                            <li><strong>Walkthroughs:</strong> Developers explain components to obtain feedback.</li>
-                            <li><strong>Debugging:</strong> Locating and fixing defects.</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>2. QA Models & Standards</h2>
-                        
-                        <h3>McCall’s Quality Model</h3>
-                        <p>Evaluates software quality based on factors and criteria:</p>
-                        <ul>
-                            <li><strong>Product Operation:</strong> Correctness, Reliability, Efficiency, Integrity, Usability.</li>
-                            <li><strong>Product Revision:</strong> Maintainability, Flexibility, Testability.</li>
-                            <li><strong>Product Transition:</strong> Portability, Reusability, Interoperability.</li>
-                        </ul>
-
-                        <h3>Capability Maturity Model (CMM)</h3>
-                        <p>Measures the maturity of development processes:</p>
-                        <ol class="list-decimal pl-5 text-apple-subtext text-sm space-y-1 mb-4">
-                            <li><strong>Initial:</strong> Unorganized, unpredictable. Success depends on individuals.</li>
-                            <li><strong>Repeatable:</strong> Basic project management, previous success repeatable.</li>
-                            <li><strong>Defined:</strong> Standardized, documented processes.</li>
-                            <li><strong>Managed:</strong> Quantitatively measured and controlled.</li>
-                            <li><strong>Optimizing:</strong> Continuous process improvement.</li>
-                        </ol>
-
-                        <h3>ISO 9000 & SPICE</h3>
-                        <ul>
-                            <li><strong>ISO 9000:</strong> International standard focusing on documentation control, process standardization, and continuous improvement.</li>
-                            <li><strong>SPICE (ISO/IEC 15504):</strong> Evaluates software process capability to identify weaknesses and support improvement.</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card interactive p-8 lg:col-span-2">
-                        <h2>3. Methodologies & Implementation</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div>
-                                <h3>Waterfall Model</h3>
-                                <p>Sequential SDLC model (Requirements &rarr; Design &rarr; Implementation &rarr; Testing &rarr; Deployment &rarr; Maintenance).</p>
-                                <ul>
-                                    <li><strong>Advantages:</strong> Simple, well-structured documentation.</li>
-                                    <li><strong>Disadvantages:</strong> Difficult to handle changing requirements. Testing happens only at the end.</li>
-                                </ul>
-
-                                <h3>CASE Tools</h3>
-                                <p>Computer Aided Software Engineering tools automate SDLC activities.</p>
-                                <ul>
-                                    <li><strong>Upper CASE:</strong> Requirement analysis, system design.</li>
-                                    <li><strong>Lower CASE:</strong> Coding, testing, debugging.</li>
-                                    <li><strong>Integrated:</strong> Unified environment for whole SDLC.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3>Inspections vs Walkthroughs</h3>
-                                <div class="overflow-x-auto">
-                                    <table>
-                                        <thead><tr><th>Feature</th><th>Inspection</th><th>Walkthrough</th></tr></thead>
-                                        <tbody>
-                                            <tr><td>Formality</td><td>Formal review process</td><td>Informal review process</td></tr>
-                                            <tr><td>Leadership</td><td>Moderator present</td><td>Author leads session</td></tr>
-                                            <tr><td>Approach</td><td>Structured approach</td><td>Flexible discussion</td></tr>
-                                            <tr><td>Focus</td><td>Defect detection (Uses checklists)</td><td>Knowledge sharing & Understanding</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Unit 1 Questions -->
-                    <div class="glass-card p-8 lg:col-span-2 border-t border-white/10 bg-gradient-to-b from-transparent to-white/[0.02]">
-                        <h2 class="!mt-0 !border-none flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-apple-blue"></span> Important Questions
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                            <div>
-                                <h3 class="!mt-0 text-white">2-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>Define Quality Control.</li>
-                                    <li>What is McCall's Quality Model?</li>
-                                    <li>Define software testability.</li>
-                                    <li>What is a Walkthrough?</li>
-                                    <li>Name the levels of CMM.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="!mt-0 text-white">10-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>Explain McCall’s Quality Factors in detail.</li>
-                                    <li>Discuss the levels of Capability Maturity Model (CMM).</li>
-                                    <li>Differentiate between Inspections and Walkthroughs.</li>
-                                    <li>Explain the Software Quality Challenges.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 2 -->
-            <div id="unit2" class="tab-content content-block">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <div class="glass-card interactive p-8">
-                        <h2>1. Total Quality Management (TQM)</h2>
-                        <p>TQM is an organization-wide approach focused on continuous quality improvement through employee involvement, customer satisfaction, and process enhancement.</p>
-                        
-                        <h3>Principles of TQM</h3>
-                        <ul>
-                            <li><strong>Customer Focus:</strong> Understanding requirements to satisfy users.</li>
-                            <li><strong>Continuous Improvement:</strong> Regularly improving processes.</li>
-                            <li><strong>Employee Involvement:</strong> Active participation in decision-making.</li>
-                            <li><strong>Process-Oriented Approach:</strong> High-quality processes yield high-quality products.</li>
-                            <li><strong>Data-Driven Decision Making:</strong> Using metrics and stats, not guesses.</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>2. Cost of Quality (COQ)</h2>
-                        <p>Total cost incurred to ensure software quality and manage defects.</p>
-                        
-                        <div class="mt-4 relative h-48 w-full flex justify-center">
-                            <canvas id="coqChart"></canvas>
-                        </div>
-                        
-                        <div class="mt-4 grid grid-cols-2 gap-4">
-                            <div>
-                                <h3 class="!mt-0 text-apple-green">Prevention Cost</h3>
-                                <p class="text-xs">Preventing defects (Training, planning).</p>
-                            </div>
-                            <div>
-                                <h3 class="!mt-0 text-apple-blue">Appraisal Cost</h3>
-                                <p class="text-xs">Evaluating quality (Testing, reviews).</p>
-                            </div>
-                            <div>
-                                <h3 class="!mt-0 text-apple-orange">Internal Failure Cost</h3>
-                                <p class="text-xs">Detected before release (Rework, debugging).</p>
-                            </div>
-                            <div>
-                                <h3 class="!mt-0 text-apple-red">External Failure Cost</h3>
-                                <p class="text-xs">Detected after release (Lawsuits, product recalls).</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>3. Software Quality Metrics</h2>
-                        <p>Quantitative measurements to evaluate quality, performance, and efficiency.</p>
-                        
-                        <h3>Product Metrics</h3>
-                        <ul>
-                            <li><strong>Defect Density:</strong> <code>(Number of Defects) / KLOC</code>. Lower is better.</li>
-                            <li><strong>Reliability:</strong> Probability of operating without failure over time.</li>
-                        </ul>
-
-                        <h3>Process Metrics</h3>
-                        <ul>
-                            <li><strong>Defect Removal Efficiency (DRE):</strong> <code>(Defects Removed / Total Defects) * 100</code>. Higher means effective testing.</li>
-                            <li><strong>Review Efficiency:</strong> Effectiveness of catching bugs before testing.</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>4. Documentation Control & Maintenance</h2>
-                        
-                        <h3>Documentation Control</h3>
-                        <p>Systematic management ensuring accuracy and traceability. Includes Version Control, Approval Processes, and Change Tracking. Prevents confusion and supports future maintenance.</p>
-
-                        <h3>Software Maintenance QA</h3>
-                        <ul>
-                            <li><strong>Corrective:</strong> Fixing defects post-deployment.</li>
-                            <li><strong>Adaptive:</strong> Modifying to work in new environments (OS updates).</li>
-                            <li><strong>Perfective:</strong> Improving performance or usability based on feedback.</li>
-                            <li><strong>Regression Testing:</strong> Crucial step to ensure new changes don't break existing features.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Unit 2 Questions -->
-                    <div class="glass-card p-8 lg:col-span-2 border-t border-white/10 bg-gradient-to-b from-transparent to-white/[0.02]">
-                        <h2 class="!mt-0 !border-none flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-apple-blue"></span> Important Questions
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                            <div>
-                                <h3 class="!mt-0 text-white">2-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>Define TQM.</li>
-                                    <li>What is Cost of Quality?</li>
-                                    <li>Define defect density and DRE.</li>
-                                    <li>Difference between corrective and preventive maintenance.</li>
-                                    <li>What is regression testing?</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="!mt-0 text-white">10-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>Explain principles of TQM.</li>
-                                    <li>Explain Cost of Quality categories in detail.</li>
-                                    <li>Explain integrating quality activities across the SDLC.</li>
-                                    <li>Discuss software maintenance QA activities.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 3 -->
-            <div id="unit3" class="tab-content content-block">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <div class="glass-card interactive p-8 lg:col-span-2">
-                        <h2>1. The 7 Basic QC Tools</h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-                                <strong class="text-white block mb-1">Fishbone Diagram</strong>
-                                <p class="text-xs">Identifies root causes systematically by categorizing contributing factors.</p>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-                                <strong class="text-white block mb-1">Pareto Chart</strong>
-                                <p class="text-xs">Uses 80/20 rule to identify the most significant defects.</p>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-                                <strong class="text-white block mb-1">Control Chart</strong>
-                                <p class="text-xs">Monitors process stability over time using Upper/Lower limits.</p>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-                                <strong class="text-white block mb-1">Histogram</strong>
-                                <p class="text-xs">Graphical representation showing frequency distribution of data.</p>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-                                <strong class="text-white block mb-1">Scatter Diagram</strong>
-                                <p class="text-xs">Shows relationship (correlation) between two variables.</p>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-                                <strong class="text-white block mb-1">Flow Chart</strong>
-                                <p class="text-xs">Represents process steps and workflow sequence.</p>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-                                <strong class="text-white block mb-1">Check Sheet</strong>
-                                <p class="text-xs">Structured form to collect and record data systematically.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>2. Six Sigma (DMAIC)</h2>
-                        <p>Data-driven methodology to reduce defects. Goal: 3.4 defects per million.</p>
-                        <ul class="space-y-2 mt-4">
-                            <li><strong class="text-apple-blue">Define:</strong> Identify problem and customer requirements.</li>
-                            <li><strong class="text-apple-blue">Measure:</strong> Collect data on current process performance.</li>
-                            <li><strong class="text-apple-blue">Analyze:</strong> Identify root causes using statistical analysis.</li>
-                            <li><strong class="text-apple-blue">Improve:</strong> Implement solutions to eliminate defects.</li>
-                            <li><strong class="text-apple-blue">Control:</strong> Monitor new mechanisms to sustain improvements.</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>3. Process Methodologies</h2>
-                        
-                        <h3>Business Process Re-engineering (BPR)</h3>
-                        <p>The radical redesign of business processes to achieve massive leaps in performance, speed, and efficiency (unlike continuous improvement which is gradual).</p>
-
-                        <h3>Zero Defect</h3>
-                        <p>Philosophy focused on "Doing it right the first time". Emphasizes prevention over correction.</p>
-
-                        <h3>Quality Function Deployment (QFD)</h3>
-                        <p>Translates customer wants into technical specs. Uses the "House of Quality" matrix to map relationships.</p>
-                    </div>
-
-                    <div class="glass-card interactive p-8 lg:col-span-2">
-                        <h2>4. Benchmarking & ISO 9000</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div>
-                                <h3>Benchmarking</h3>
-                                <p>Comparing performance against industry best practices.</p>
-                                <ul>
-                                    <li><strong>Internal:</strong> Between internal teams.</li>
-                                    <li><strong>Competitive:</strong> Against direct competitors.</li>
-                                    <li><strong>Generic:</strong> Best practices regardless of industry.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3>ISO-9000 Series</h3>
-                                <p>International family of quality standards.</p>
-                                <ul>
-                                    <li><strong>ISO 9001:</strong> Requirements for QMS.</li>
-                                    <li><strong>ISO 9002:</strong> Production & installation QA.</li>
-                                    <li><strong>ISO 9003:</strong> Final inspection & testing.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Unit 3 Questions -->
-                    <div class="glass-card p-8 lg:col-span-2 border-t border-white/10 bg-gradient-to-b from-transparent to-white/[0.02]">
-                        <h2 class="!mt-0 !border-none flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-apple-blue"></span> Important Questions
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                            <div>
-                                <h3 class="!mt-0 text-white">2-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>What is DMAIC?</li>
-                                    <li>Define Benchmarking.</li>
-                                    <li>What is SPC?</li>
-                                    <li>What is Zero Defect?</li>
-                                    <li>Define Fishbone Diagram.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="!mt-0 text-white">10-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>Explain the 7 QC Tools in detail.</li>
-                                    <li>Explain Six Sigma DMAIC methodology.</li>
-                                    <li>Discuss Benchmarking and its types.</li>
-                                    <li>Explain Business Process Re-engineering (BPR).</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 4 -->
-            <div id="unit4" class="tab-content content-block">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <div class="glass-card interactive p-8">
-                        <h2>1. Corrective & Preventive Actions (CAPA)</h2>
-                        
-                        <h3>Corrective Action (Reactive)</h3>
-                        <p>Focuses on eliminating the root cause of an *existing* defect.</p>
-                        <ol class="list-decimal pl-5 text-sm space-y-1 mb-4 text-apple-subtext">
-                            <li>Identify problem.</li>
-                            <li>Root Cause Analysis.</li>
-                            <li>Implement solution (e.g., bug fix, code modification).</li>
-                            <li>Verify effectiveness.</li>
-                        </ol>
-
-                        <h3>Preventive Action (Proactive)</h3>
-                        <p>Focuses on identifying potential defects *before* they occur.</p>
-                        <ol class="list-decimal pl-5 text-sm space-y-1 mb-4 text-apple-subtext">
-                            <li>Risk identification.</li>
-                            <li>Preventive planning.</li>
-                            <li>Process improvement (e.g., adding automated tests).</li>
-                            <li>Continuous monitoring.</li>
-                        </ol>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>2. Procedures vs Work Instructions</h2>
-                        <div class="overflow-x-auto mt-4">
-                            <table>
-                                <thead><tr><th>Procedures</th><th>Work Instructions</th></tr></thead>
-                                <tbody>
-                                    <tr><td>High-level organizational guidelines</td><td>Detailed step-by-step task instructions</td></tr>
-                                    <tr><td>Describes "What to do"</td><td>Describes "How to do it"</td></tr>
-                                    <tr><td>Focuses on process flow</td><td>Focuses on task execution</td></tr>
-                                    <tr><td>Broader scope</td><td>Narrower, specific scope</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>3. People & External Participants</h2>
-                        
-                        <h3>People's Quality Expectations</h3>
-                        <ul>
-                            <li><strong>Customers:</strong> Reliability, Usability, Security, Performance.</li>
-                            <li><strong>Developers:</strong> Clear requirements, proper tools, training support.</li>
-                            <li><strong>Management:</strong> High productivity, quality compliance.</li>
-                        </ul>
-
-                        <h3>Assuring External Contributions</h3>
-                        <p>Managing quality from outsourced teams or third-party vendors requires:</p>
-                        <ul>
-                            <li><strong>Supplier Evaluation:</strong> Vetting capability before hiring.</li>
-                            <li><strong>Contract Standards:</strong> Strict SLAs and definitions of done.</li>
-                            <li><strong>Acceptance Testing:</strong> Verifying deliverables before integration.</li>
-                            <li><strong>Audits:</strong> Ensuring they follow your organizational standards.</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>4. Training & Documentation Control</h2>
-                        
-                        <h3>Staff Training & Certification</h3>
-                        <p>Improves technical capability and reduces manual errors. Ensures everyone understands organizational standards (e.g., Six Sigma certs, ISO certs, tech stack training).</p>
-
-                        <h3>Documentation Control Activities</h3>
-                        <ul>
-                            <li><strong>Version Control:</strong> Tracks modifications.</li>
-                            <li><strong>Approval Process:</strong> Mandatory reviews before release.</li>
-                            <li><strong>Access Control:</strong> Restricts unauthorized modifications.</li>
-                            <li><strong>Change Tracking:</strong> Audit trails of who changed what and when.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Unit 4 Questions -->
-                    <div class="glass-card p-8 lg:col-span-2 border-t border-white/10 bg-gradient-to-b from-transparent to-white/[0.02]">
-                        <h2 class="!mt-0 !border-none flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-apple-blue"></span> Important Questions
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                            <div>
-                                <h3 class="!mt-0 text-white">2-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>Define CAPA.</li>
-                                    <li>Difference between corrective and preventive action.</li>
-                                    <li>What are work instructions?</li>
-                                    <li>Define external participants.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="!mt-0 text-white">10-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>Explain people’s quality expectations.</li>
-                                    <li>Discuss procedures vs work instructions.</li>
-                                    <li>Explain corrective and preventive actions with examples.</li>
-                                    <li>Explain assuring quality of external participants’ contributions.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Unit 5 -->
-            <div id="unit5" class="tab-content content-block">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <div class="glass-card interactive p-8">
-                        <h2>1. Root Cause Analysis (RCA)</h2>
-                        <p>Systematic technique to find the fundamental cause of a defect, rather than just treating symptoms.</p>
-                        
-                        <h3>Steps</h3>
-                        <ol class="list-decimal pl-5 text-sm space-y-1 mb-4 text-apple-subtext">
-                            <li>Problem Identification.</li>
-                            <li>Data Collection.</li>
-                            <li>Cause Identification.</li>
-                            <li>Root Cause Determination.</li>
-                            <li>Corrective Action & Verification.</li>
-                        </ol>
-
-                        <h3>Techniques</h3>
-                        <ul>
-                            <li><strong>Fishbone Diagram:</strong> Visual categorization of contributing factors.</li>
-                            <li><strong>5 Whys:</strong> Repeatedly asking "why" to drill down.</li>
-                            <li><strong>Pareto Analysis:</strong> 80/20 prioritization of major causes.</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>2. Hazard Analysis Methods</h2>
-                        
-                        <div class="space-y-6">
-                            <div>
-                                <h3>Fault Tree Analysis (FTA)</h3>
-                                <p><strong>Top-down approach.</strong> Starts with the disaster (Top Event) and maps backward to root causes using logic gates (AND/OR). Used for root cause analysis.</p>
-                            </div>
-                            <div>
-                                <h3>Event Tree Analysis (ETA)</h3>
-                                <p><strong>Forward analysis.</strong> Starts with an initiating event (e.g., sensor failure) and maps forward to analyze all possible consequences. Used for outcome analysis.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>3. Fault Tolerance & Failure Containment</h2>
-                        
-                        <h3>Fault Tolerance</h3>
-                        <p>System continues operating despite failure. Includes:</p>
-                        <ul>
-                            <li><strong>Redundancy:</strong> Backup servers taking over.</li>
-                            <li><strong>Exception Handling:</strong> Catching runtime errors without crashing.</li>
-                        </ul>
-
-                        <h3>Failure Containment</h3>
-                        <p>Limits the spread of a fault.</p>
-                        <ul>
-                            <li><strong>Isolation:</strong> Cutting off faulty modules.</li>
-                            <li><strong>Partitioning:</strong> Dividing system into independent sections (e.g., payment fails, but browsing still works).</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card interactive p-8">
-                        <h2>4. Defect Prevention & Risk</h2>
-                        
-                        <h3>Defect Prevention</h3>
-                        <p>Implementing coding standards, testing standards, and methodologies like <strong>Cleanroom Software Engineering</strong> (formal correctness verification) and <strong>PSP/TSP</strong> (Personal/Team Software Process).</p>
-
-                        <h3>Risk Identification</h3>
-                        <p>Recognizing potential problems affecting schedule, cost, or quality.</p>
-                        <ul>
-                            <li><strong>Technical Risks:</strong> Design complexity, tech stack failures.</li>
-                            <li><strong>Project Risks:</strong> Cost overruns, delayed delivery.</li>
-                            <li><strong>Business Risks:</strong> Market competition, changing client needs.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Unit 5 Questions -->
-                    <div class="glass-card p-8 lg:col-span-2 border-t border-white/10 bg-gradient-to-b from-transparent to-white/[0.02]">
-                        <h2 class="!mt-0 !border-none flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-apple-blue"></span> Important Questions
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                            <div>
-                                <h3 class="!mt-0 text-white">2-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>Define RCA.</li>
-                                    <li>What is fault tolerance?</li>
-                                    <li>Difference between FTA and ETA.</li>
-                                    <li>What is MTBF?</li>
-                                    <li>Define risk mitigation.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="!mt-0 text-white">10-Mark Questions</h3>
-                                <ul class="text-sm space-y-2">
-                                    <li>Explain Root Cause Analysis techniques.</li>
-                                    <li>Explain Fault Tree Analysis and Event Tree Analysis.</li>
-                                    <li>Explain fault tolerance and failure containment.</li>
-                                    <li>Discuss standards and methodologies for defect prevention.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="card-tag tag-red">Very Important</div>
+      </div>
+      <div class="card-text" style="margin-top:16px;">
+        <p><strong>QC</strong> is product-oriented and reactive. It focuses on testing and verification to identify defects.</p>
+        <p style="margin-top:10px;"><strong>QA</strong> is process-oriented and proactive. It focuses on building quality into the process so defects are prevented.</p>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-title">Quality Control</div>
+          <ul class="compare-list">
+            <li>Product testing and inspection</li>
+            <li>Reactive</li>
+            <li>Finds defects</li>
+            <li>Focused on the product</li>
+          </ul>
         </div>
-    </section>
+        <div class="compare-col">
+          <div class="compare-title">Quality Assurance</div>
+          <ul class="compare-list">
+            <li>Process planning and standards</li>
+            <li>Proactive</li>
+            <li>Prevents defects</li>
+            <li>Focused on the process</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-white/10 text-center text-apple-subtext text-sm relative z-10 bg-black">
-        <p>&copy; 2026 SQA Master Guide. Complete Syllabus.</p>
-    </footer>
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">📐</div>
+        <div class="card-title">McCall’s Quality Model</div>
+        <div class="card-text">
+          <p style="margin-bottom:10px;">Groups quality into three categories:</p>
+          <ul>
+            <li><strong>Product Operation</strong> — Correctness, Reliability, Efficiency, Integrity, Usability</li>
+            <li><strong>Product Revision</strong> — Maintainability, Flexibility, Testability</li>
+            <li><strong>Product Transition</strong> — Portability, Reusability, Interoperability</li>
+          </ul>
+        </div>
+      </div>
 
-    <script>
-        // Tab System Logic
-        function openTab(evt, tabName) {
-            let i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active");
-            
-            if(evt) {
-                evt.currentTarget.classList.add("active");
-            } else {
-                // Find matching button if called programmatically
-                const btns = Array.from(tablinks);
-                const targetBtn = btns.find(btn => btn.getAttribute('onclick').includes(tabName));
-                if(targetBtn) targetBtn.classList.add("active");
-            }
-            
-            // Refresh ScrollTrigger as heights changed
-            setTimeout(() => ScrollTrigger.refresh(), 100);
+      <div class="bento-card">
+        <div class="card-icon">🏗️</div>
+        <div class="card-title">Software Quality Factors</div>
+        <div class="card-text">
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;">
+            <div class="tool-mini"><div class="tool-mini-icon">✅</div><div class="tool-mini-name">Correctness</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">🔒</div><div class="tool-mini-name">Reliability</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">⚡</div><div class="tool-mini-name">Efficiency</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">🛡️</div><div class="tool-mini-name">Integrity</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">👤</div><div class="tool-mini-name">Usability</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">🔧</div><div class="tool-mini-name">Maintainability</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">🔄</div><div class="tool-mini-name">Flexibility</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">🧪</div><div class="tool-mini-name">Testability</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">📊</div>
+        <div class="card-title">CMM / CMMI Levels</div>
+        <ol class="numbered-list">
+          <li><div class="step-title">Initial</div><div class="step-desc">Chaotic and unpredictable.</div></li>
+          <li><div class="step-title">Repeatable</div><div class="step-desc">Basic project management practices exist.</div></li>
+          <li><div class="step-title">Defined</div><div class="step-desc">Processes are standardized and documented.</div></li>
+          <li><div class="step-title">Managed</div><div class="step-desc">Processes are measured quantitatively.</div></li>
+          <li><div class="step-title">Optimizing</div><div class="step-desc">Continuous improvement and defect prevention.</div></li>
+        </ol>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">🔍</div>
+        <div class="card-title">SPICE (ISO/IEC 15504)</div>
+        <div class="card-text">
+          <p style="margin-bottom:10px;">Software Process Improvement and Capability Determination.</p>
+          <ul>
+            <li>Level 0 — Incomplete</li>
+            <li>Level 1 — Performed</li>
+            <li>Level 2 — Managed</li>
+            <li>Level 3 — Established</li>
+            <li>Level 4 — Predictable</li>
+            <li>Level 5 — Optimizing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div class="card-icon">🤖</div>
+      <div class="card-title">CASE Tools and Quality</div>
+      <div class="card-text">
+        <ul>
+          <li><strong>Upper CASE</strong> — Requirements, design, modeling</li>
+          <li><strong>Lower CASE</strong> — Coding, testing, debugging</li>
+          <li><strong>Integrated CASE</strong> — Full SDLC support</li>
+        </ul>
+        <p style="margin-top:12px;"><strong>Effect on quality:</strong> Better documentation, improved productivity, less human error, and higher consistency.</p>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">📝</div>
+        <div class="card-title">Inspections vs Walkthroughs</div>
+        <table class="forensic-table">
+          <thead><tr><th>Inspection</th><th>Walkthrough</th></tr></thead>
+          <tbody>
+            <tr><td>Formal</td><td>Informal</td></tr>
+            <tr><td>Moderator present</td><td>Author leads</td></tr>
+            <tr><td>Checklist-based</td><td>Discussion-based</td></tr>
+            <tr><td>Defect focused</td><td>Understanding focused</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">🌊</div>
+        <div class="card-title">Waterfall Model & SQA</div>
+        <div class="card-text">
+          <p>Requirements → Design → Implementation → Testing → Deployment → Maintenance</p>
+          <div class="highlight-box">
+            <div class="highlight-box-title">⚠️ SQA Catch</div>
+            <p>Testing happens only at the end, so a major design flaw can force large rework. For safety-critical systems, a more rigorous model like the V-Model is preferred.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal">
+      <div class="card-icon">🔀</div>
+      <div class="card-title">FSM-Based Testing in Web Applications</div>
+      <div class="card-text">
+        <p><strong>FSM</strong> models states and transitions in user journeys.</p>
+        <p style="margin-top:10px;">Example: Browsing → Cart → Payment Gateway → Order Confirmed.</p>
+        <p style="margin-top:10px;">It helps ensure unexpected actions, such as using the back button during payment, are handled gracefully.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="unit2">
+    <div class="section-header gs-reveal">
+      <div class="section-label">Unit 2</div>
+      <h2 class="section-title">Management &<br>Quality Cost</h2>
+      <p class="section-desc">TQM, Cost of Quality, maintenance QA, documentation control, metrics, and maturity models.</p>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">🎯</div>
+          <div class="card-title">Total Quality Management (TQM)</div>
+        </div>
+        <div class="card-tag tag-red">Very Important</div>
+      </div>
+      <div class="card-text">
+        <p>TQM is an organization-wide approach focused on customer satisfaction, continuous improvement, employee involvement, process orientation, leadership commitment, and data-driven decisions.</p>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">💰</div>
+          <div class="card-title">Cost of Quality (COQ)</div>
+        </div>
+        <div class="card-tag tag-red">Repeated in Exams</div>
+      </div>
+
+      <div class="bento-grid bento-grid-2" style="margin-top:20px;">
+        <div class="bento-card" style="background:rgba(48,209,88,.05);border-color:rgba(48,209,88,.15)">
+          <div class="card-title" style="font-size:18px;">Prevention Cost</div>
+          <div class="card-text">Training, planning, standards, and process improvement to avoid defects.</div>
+        </div>
+        <div class="bento-card" style="background:rgba(41,151,255,.05);border-color:rgba(41,151,255,.15)">
+          <div class="card-title" style="font-size:18px;">Appraisal Cost</div>
+          <div class="card-text">Testing, inspections, reviews, and audits used to detect defects.</div>
+        </div>
+        <div class="bento-card" style="background:rgba(255,159,10,.05);border-color:rgba(255,159,10,.15)">
+          <div class="card-title" style="font-size:18px;">Internal Failure</div>
+          <div class="card-text">Rework, debugging, retesting, and scrap found before release.</div>
+        </div>
+        <div class="bento-card" style="background:rgba(255,69,58,.05);border-color:rgba(255,69,58,.15)">
+          <div class="card-title" style="font-size:18px;">External Failure</div>
+          <div class="card-text">Complaints, support cost, warranty issues, and reputation loss after release.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">🔧</div>
+        <div class="card-title">Software Maintenance QA</div>
+        <div class="card-text">
+          <ul>
+            <li>Corrective, adaptive, perfective, preventive maintenance</li>
+            <li>Regression testing after changes</li>
+            <li>Change management and configuration management</li>
+            <li>Documentation updates</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">📏</div>
+        <div class="card-title">Software Quality Metrics</div>
+        <div class="code-block">
+<span class="comment">// Defect Density</span>
+<span class="func">DefectDensity</span> = <span class="type">NumberOfDefects</span> / <span class="type">KLOC</span>
+
+<span class="comment">// Defect Removal Efficiency</span>
+<span class="func">DRE</span> = (<span class="type">DefectsRemoved</span> / <span class="type">TotalDefects</span>) × <span class="type">100</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal">
+      <div class="card-icon">📄</div>
+      <div class="card-title">Documentation Control</div>
+      <div class="card-text">
+        <ul>
+          <li>Version control</li>
+          <li>Approval process</li>
+          <li>Storage and retrieval</li>
+          <li>Change tracking</li>
+          <li>Access control</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="unit3">
+    <div class="section-header gs-reveal">
+      <div class="section-label">Unit 3</div>
+      <h2 class="section-title">Tools &<br>Methodologies</h2>
+      <p class="section-desc">7 QC tools, Six Sigma, Zero Defect, BPR, QFD, Benchmarking, ISO 9000, SPICE, and SPC.</p>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">🧰</div>
+          <div class="card-title">7 Basic QC Tools</div>
+        </div>
+        <div class="card-tag tag-red">Very Important</div>
+      </div>
+      <div class="bento-grid" style="margin-top:20px;">
+        <div class="bento-card" style="background:rgba(41,151,255,.05);border-color:rgba(41,151,255,.15)">
+          <div class="card-title" style="font-size:16px">Fishbone Diagram</div>
+          <div class="card-text">Identifies possible causes of a problem.</div>
+        </div>
+        <div class="bento-card" style="background:rgba(48,209,88,.05);border-color:rgba(48,209,88,.15)">
+          <div class="card-title" style="font-size:16px">Pareto Chart</div>
+          <div class="card-text">80/20 rule — prioritize the biggest causes.</div>
+        </div>
+        <div class="bento-card" style="background:rgba(255,159,10,.05);border-color:rgba(255,159,10,.15)">
+          <div class="card-title" style="font-size:16px">Histogram</div>
+          <div class="card-text">Shows frequency distribution of data.</div>
+        </div>
+        <div class="bento-card" style="background:rgba(191,90,242,.05);border-color:rgba(191,90,242,.15)">
+          <div class="card-title" style="font-size:16px">Control Chart</div>
+          <div class="card-text">Monitors process stability using UCL and LCL.</div>
+        </div>
+        <div class="bento-card" style="background:rgba(100,210,255,.05);border-color:rgba(100,210,255,.15)">
+          <div class="card-title" style="font-size:16px">Scatter Diagram</div>
+          <div class="card-text">Shows relationship between two variables.</div>
+        </div>
+        <div class="bento-card" style="background:rgba(255,69,58,.05);border-color:rgba(255,69,58,.15)">
+          <div class="card-title" style="font-size:16px">Flow Chart</div>
+          <div class="card-text">Represents process steps and workflow.</div>
+        </div>
+        <div class="bento-card" style="background:rgba(41,151,255,.05);border-color:rgba(41,151,255,.15);grid-column:span 3">
+          <div class="card-title" style="font-size:16px">Check Sheet</div>
+          <div class="card-text">Structured form for collecting quality data.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">📉</div>
+        <div class="card-title">Six Sigma — DMAIC</div>
+        <p style="margin-bottom:12px;">Goal: 3.4 defects per million opportunities.</p>
+        <ol class="numbered-list">
+          <li><div class="step-title">Define</div><div class="step-desc">Identify problem and goals</div></li>
+          <li><div class="step-title">Measure</div><div class="step-desc">Collect current performance data</div></li>
+          <li><div class="step-title">Analyze</div><div class="step-desc">Find root causes</div></li>
+          <li><div class="step-title">Improve</div><div class="step-desc">Implement solutions</div></li>
+          <li><div class="step-title">Control</div><div class="step-desc">Sustain improvements</div></li>
+        </ol>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Zero Defect Philosophy</div>
+        <div class="card-text">
+          <p>Do it right the first time. Prevention is better than correction, and every employee is responsible for quality.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">🏭</div>
+        <div class="card-title">BPR, QFD, Benchmarking, SPC</div>
+        <div class="card-text">
+          <ul>
+            <li><strong>BPR</strong> — radical redesign of business processes</li>
+            <li><strong>QFD</strong> — convert customer needs into technical requirements</li>
+            <li><strong>Benchmarking</strong> — compare against best practices</li>
+            <li><strong>SPC</strong> — statistical monitoring of process variation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">🏅</div>
+        <div class="card-title">ISO 9000 and SPICE</div>
+        <div class="card-text">
+          <ul>
+            <li><strong>ISO 9000</strong> — quality management system standards</li>
+            <li><strong>SPICE</strong> — process capability and improvement framework</li>
+            <li><strong>CMM Level 5</strong> — highest maturity and continuous optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="unit4">
+    <div class="section-header gs-reveal">
+      <div class="section-label">Unit 4</div>
+      <h2 class="section-title">People in<br>SQA</h2>
+      <p class="section-desc">Quality expectations, external participants, procedures and work instructions, training, CAPA, and documentation control.</p>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">👥</div>
+        <div class="card-title">People’s Quality Expectations</div>
+        <div class="card-text">
+          <ul>
+            <li>Customers expect reliability, usability, security, performance, and maintainability.</li>
+            <li>Developers expect clear requirements, proper tools, and training.</li>
+            <li>Management expects productivity, compliance, and customer satisfaction.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">External Participants</div>
+        <div class="card-text">
+          <ul>
+            <li>Supplier evaluation</li>
+            <li>Contract standards</li>
+            <li>Acceptance testing</li>
+            <li>Audits and continuous monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">📘</div>
+        <div class="card-title">Procedures vs Work Instructions</div>
+        <table class="forensic-table">
+          <thead><tr><th>Procedures</th><th>Work Instructions</th></tr></thead>
+          <tbody>
+            <tr><td>High-level guidelines</td><td>Detailed step-by-step</td></tr>
+            <tr><td>What to do</td><td>How to do it</td></tr>
+            <tr><td>Broader scope</td><td>Narrower scope</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">🎓</div>
+        <div class="card-title">Staff Training & Certification</div>
+        <div class="card-text">
+          <ul>
+            <li><strong>Technical</strong> — programming, testing, databases</li>
+            <li><strong>Quality</strong> — standards and defect prevention</li>
+            <li><strong>Safety</strong> — security, data protection, risk management</li>
+            <li><strong>Certification examples</strong> — ISO, Six Sigma, testing, project management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal">
+      <div class="bento-card">
+        <div class="card-icon">🔄</div>
+        <div class="card-title">CAPA</div>
+        <table class="forensic-table">
+          <thead><tr><th>Corrective Action</th><th>Preventive Action</th></tr></thead>
+          <tbody>
+            <tr><td>Fixes existing defects</td><td>Prevents future defects</td></tr>
+            <tr><td>Reactive</td><td>Proactive</td></tr>
+            <tr><td>Bug fixes, patches</td><td>Code reviews, training</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">📁</div>
+        <div class="card-title">Documentation Control</div>
+        <div class="card-text">
+          <ul>
+            <li>Version control</li>
+            <li>Approval process</li>
+            <li>Storage and retrieval</li>
+            <li>Change tracking</li>
+            <li>Access control</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="unit5">
+    <div class="section-header gs-reveal">
+      <div class="section-label">Unit 5</div>
+      <h2 class="section-title">Defect Control<br>& Analysis</h2>
+      <p class="section-desc">Root cause analysis, defect prevention, fault tolerance, failure containment, safety assurance, and hazard analysis.</p>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">🔎</div>
+        <div class="card-title">Root Cause Analysis (RCA)</div>
+        <div class="card-text">
+          <p>RCA finds the real underlying cause of a defect, not just the symptom. Tools include <strong>5 Whys</strong>, <strong>Fishbone</strong>, and <strong>Pareto</strong>.</p>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">🛑</div>
+        <div class="card-title">Defect Prevention Standards</div>
+        <div class="card-text">
+          <ul>
+            <li>Coding standards</li>
+            <li>Reviews and inspections</li>
+            <li>Testing standards</li>
+            <li>Training programs</li>
+            <li>Process improvement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">🧱</div>
+        <div class="card-title">Fault Tolerance & Failure Containment</div>
+        <div class="card-text">
+          <ul>
+            <li><strong>Fault tolerance</strong> — system continues even if a part fails</li>
+            <li><strong>Failure containment</strong> — limits the spread of failure</li>
+            <li>Techniques: redundancy, recovery, exception handling, isolation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">🛡️</div>
+        <div class="card-title">Safety Assurance & Damage Control</div>
+        <div class="card-text">
+          <ul>
+            <li>Hazard identification</li>
+            <li>Risk assessment</li>
+            <li>Safety testing</li>
+            <li>Documentation</li>
+            <li>Backup and recovery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal">
+      <div class="card-icon">🌳</div>
+      <div class="card-title">Fault Tree vs Event Tree Analysis</div>
+      <table class="forensic-table">
+        <thead><tr><th>Fault Tree Analysis</th><th>Event Tree Analysis</th></tr></thead>
+        <tbody>
+          <tr><td>Top-down analysis</td><td>Bottom-up analysis</td></tr>
+          <tr><td>Starts with a disaster</td><td>Starts with an event</td></tr>
+          <tr><td>Finds causes</td><td>Finds outcomes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="quick">
+    <div class="section-header gs-reveal">
+      <div class="section-label">Quick Review</div>
+      <h2 class="section-title">Exam Priority<br>& Memory Shortcuts</h2>
+      <p class="section-desc">High-yield revision points, hidden topics, and comparison tables for fast exam recall.</p>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">🎯</div>
+          <div class="card-title">Most Expected 10-Mark Questions</div>
+        </div>
+        <div class="card-tag tag-red">Exam Focus</div>
+      </div>
+      <div class="bento-grid bento-grid-2" style="margin-top:20px;">
+        <div class="card-text">
+          <ul>
+            <li>Role of management in SQA</li>
+            <li>McCall’s Quality Factors</li>
+            <li>CMM / CMMI Levels</li>
+            <li>Principles of TQM</li>
+            <li>Cost of Quality categories</li>
+            <li>7 QC Tools</li>
+            <li>Six Sigma DMAIC</li>
+          </ul>
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>Inspections vs Walkthroughs</li>
+            <li>Software Quality Metrics</li>
+            <li>Documentation control</li>
+            <li>Root Cause Analysis techniques</li>
+            <li>Fault tolerance and failure containment</li>
+            <li>Safety assurance and damage control</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div class="card-icon">🆚</div>
+      <div class="card-title">Mega Comparison Table</div>
+      <table class="forensic-table">
+        <thead><tr><th>Concept A</th><th>Concept B</th><th>Key Difference</th></tr></thead>
+        <tbody>
+          <tr><td>Inspection</td><td>Walkthrough</td><td>Formal + moderator vs informal + author-led</td></tr>
+          <tr><td>Corrective Action</td><td>Preventive Action</td><td>Fix existing vs prevent future</td></tr>
+          <tr><td>Procedures</td><td>Work Instructions</td><td>What to do vs how to do</td></tr>
+          <tr><td>FTA</td><td>ETA</td><td>Top-down causes vs forward consequences</td></tr>
+          <tr><td>QC</td><td>QA</td><td>Product testing vs process prevention</td></tr>
+          <tr><td>Internal Failure</td><td>External Failure</td><td>Pre-release vs post-release</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal">
+      <div class="bento-card">
+        <div class="card-icon">🌊</div>
+        <div class="card-title">Hidden Topic: Waterfall Model</div>
+        <div class="card-text">Sequential SDLC. Testing at the end can be costly when defects are found late.</div>
+      </div>
+      <div class="bento-card">
+        <div class="card-icon">🏥</div>
+        <div class="card-title">Hidden Topic: V-Model in Healthcare</div>
+        <div class="card-text">Safety-critical systems need strict verification and validation with strong compliance and privacy checks.</div>
+      </div>
+      <div class="bento-card">
+        <div class="card-icon">🔀</div>
+        <div class="card-title">Hidden Topic: FSM Testing</div>
+        <div class="card-text">Models transitions like Browsing → Cart → Payment → Confirmed to test web apps systematically.</div>
+      </div>
+      <div class="bento-card">
+        <div class="card-icon">✍️</div>
+        <div class="card-title">Part C Answer Pattern</div>
+        <div class="card-text">Define the concept → apply it to the given scenario → end with a practical solution or improvement.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div style="max-width:600px;margin:0 auto;">
+      <div style="font-size:32px;margin-bottom:16px;">🎓</div>
+      <div style="font-size:20px;font-weight:700;margin-bottom:8px;color:var(--text-primary);">You've Got This, Tamil Selvan.</div>
+      <div style="font-size:15px;color:var(--text-secondary);line-height:1.6;">
+        Every topic from your SQA syllabus is now arranged in a clean exam-first format with the reference design style preserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Three.js hero background
+    const canvas = document.getElementById('hero-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const particleCount = 60;
+    const particles = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const velocities = [];
+
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+      velocities.push({
+        x: (Math.random() - 0.5) * 0.005,
+        y: (Math.random() - 0.5) * 0.005,
+        z: (Math.random() - 0.5) * 0.002
+      });
+    }
+
+    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const particleMaterial = new THREE.PointsMaterial({
+      color: 0x2997ff, size: 0.08, transparent: true, opacity: 0.6, sizeAttenuation: true
+    });
+    const particleSystem = new THREE.Points(particles, particleMaterial);
+    scene.add(particleSystem);
+
+    const lineMaterial = new THREE.LineBasicMaterial({ color: 0x2997ff, transparent: true, opacity: 0.08 });
+    const lineGeometry = new THREE.BufferGeometry();
+    const linePositions = new Float32Array(particleCount * particleCount * 6);
+    lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+    const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+    scene.add(lines);
+
+    camera.position.z = 8;
+    let mouseX = 0, mouseY = 0, targetMouseX = 0, targetMouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+      targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      const posArray = particles.attributes.position.array;
+      for (let i = 0; i < particleCount; i++) {
+        posArray[i * 3] += velocities[i].x;
+        posArray[i * 3 + 1] += velocities[i].y;
+        posArray[i * 3 + 2] += velocities[i].z;
+
+        if (Math.abs(posArray[i * 3]) > 10) velocities[i].x *= -1;
+        if (Math.abs(posArray[i * 3 + 1]) > 10) velocities[i].y *= -1;
+        if (Math.abs(posArray[i * 3 + 2]) > 5) velocities[i].z *= -1;
+      }
+      particles.attributes.position.needsUpdate = true;
+
+      const linePosArray = lineGeometry.attributes.position.array;
+      let lineIndex = 0;
+      for (let i = 0; i < particleCount; i++) {
+        for (let j = i + 1; j < particleCount; j++) {
+          const dx = posArray[i * 3] - posArray[j * 3];
+          const dy = posArray[i * 3 + 1] - posArray[j * 3 + 1];
+          const dz = posArray[i * 3 + 2] - posArray[j * 3 + 2];
+          const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+          if (distance < 5) {
+            linePosArray[lineIndex++] = posArray[i * 3];
+            linePosArray[lineIndex++] = posArray[i * 3 + 1];
+            linePosArray[lineIndex++] = posArray[i * 3 + 2];
+            linePosArray[lineIndex++] = posArray[j * 3];
+            linePosArray[lineIndex++] = posArray[j * 3 + 1];
+            linePosArray[lineIndex++] = posArray[j * 3 + 2];
+          }
         }
+      }
+      for (let i = lineIndex; i < linePositions.length; i++) linePosArray[i] = 0;
+      lineGeometry.attributes.position.needsUpdate = true;
 
-        function scrollToTabs(tabName) {
-            document.getElementById('syllabus-content').scrollIntoView({ behavior: 'smooth' });
-            openTab(null, tabName);
-        }
+      mouseX += (targetMouseX - mouseX) * 0.05;
+      mouseY += (targetMouseY - mouseY) * 0.05;
+      camera.position.x = mouseX * 0.5;
+      camera.position.y = -mouseY * 0.5;
+      camera.lookAt(0, 0, 0);
+      renderer.render(scene, camera);
+    }
+    animate();
 
-        function scrollToTabsMobile(tabName) {
-            toggleMenu();
-            scrollToTabs(tabName);
-        }
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
 
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const sheetOverlay = document.getElementById('sheet-overlay');
+    // GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
 
-        function toggleMenu() {
-            mobileMenu.classList.toggle('open');
-            sheetOverlay.classList.toggle('open');
-            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-        }
+    document.querySelectorAll('.gs-reveal').forEach((el) => {
+      gsap.fromTo(el, { opacity: 0, y: 40 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+    });
 
-        menuBtn.addEventListener('click', toggleMenu);
-        sheetOverlay.addEventListener('click', toggleMenu);
+    gsap.to('#heroTitle', {
+      y: -100, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
 
-        // Scroll Progress Bar & Navbar Blur
-        window.addEventListener('scroll', () => {
-            // Progress bar
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("progress-bar").style.width = scrolled + "%";
+    gsap.to('#progress-bar', {
+      width: '100%', ease: 'none',
+      scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: true }
+    });
 
-            // Navbar blur
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-blur');
-            } else {
-                navbar.classList.remove('nav-blur');
-            }
-        });
+    // Navbar scroll state
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 100);
+    }, { passive: true });
 
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
+    // Cursor glow
+    const cursorGlow = document.getElementById('cursorGlow');
+    let cursorX = 0, cursorY = 0, currentCursorX = 0, currentCursorY = 0;
+    if (window.matchMedia('(hover: hover)').matches) {
+      document.addEventListener('mousemove', (e) => { cursorX = e.clientX; cursorY = e.clientY; });
+      function updateCursor() {
+        currentCursorX += (cursorX - currentCursorX) * 0.1;
+        currentCursorY += (cursorY - currentCursorY) * 0.1;
+        cursorGlow.style.left = currentCursorX + 'px';
+        cursorGlow.style.top = currentCursorY + 'px';
+        requestAnimationFrame(updateCursor);
+      }
+      updateCursor();
+    }
 
-        // Hero Parallax
-        gsap.to(".gsap-hero", {
-            yPercent: 30,
-            ease: "none",
-            scrollTrigger: { trigger: "main", start: "top top", end: "bottom top", scrub: true }
-        });
+    // Mobile bottom sheet
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const bottomSheet = document.getElementById('bottomSheet');
+    const bottomSheetOverlay = document.getElementById('bottomSheetOverlay');
 
-        // Intro fade ups
-        gsap.from(".gsap-hero, .gsap-hero-sub, .gsap-hero-btn", {
-            y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out", delay: 0.2
-        });
+    function openMenu() {
+      bottomSheet.classList.add('active');
+      bottomSheetOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      bottomSheet.classList.remove('active');
+      bottomSheetOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
 
-        // Initialize CoQ Chart for Unit 2
-        let coqChartInstance = null;
-        function initChart() {
-            if(coqChartInstance) return;
-            const canvas = document.getElementById('coqChart');
-            if(!canvas) return;
-            const ctx = canvas.getContext('2d');
-            
-            Chart.defaults.color = '#86868b';
-            Chart.defaults.font.family = 'Inter';
+    mobileMenuBtn.addEventListener('click', openMenu);
+    bottomSheetOverlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.bottom-sheet-link').forEach(link => link.addEventListener('click', closeMenu));
 
-            coqChartInstance = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Prevention', 'Appraisal', 'Internal Failure', 'External Failure'],
-                    datasets: [{
-                        data: [40, 25, 20, 15],
-                        backgroundColor: [
-                            'rgba(48, 209, 88, 0.8)',  // Green
-                            'rgba(41, 151, 255, 0.8)', // Blue
-                            'rgba(255, 159, 10, 0.8)', // Orange
-                            'rgba(255, 69, 58, 0.8)'   // Red
-                        ],
-                        borderColor: '#1a1a1a',
-                        borderWidth: 2,
-                        hoverOffset: 10
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '70%',
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: 'rgba(0,0,0,0.8)',
-                            titleFont: { size: 14, family: 'Inter' },
-                            bodyFont: { size: 13, family: 'Inter' },
-                            padding: 12,
-                            cornerRadius: 8,
-                            displayColors: true
-                        }
-                    },
-                    animation: {
-                        animateScale: true,
-                        animateRotate: true,
-                        duration: 1500,
-                        easing: 'easeOutQuart'
-                    }
-                }
-            });
-        }
-        
-        // Init chart on load in case Unit 2 is open, or when user clicks Unit 2
-        setTimeout(initChart, 500);
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+      });
+    });
 
-        // Three.js Background Implementation
-        const initThreeJS = () => {
-            const container = document.getElementById('canvas-container');
-            const scene = new THREE.Scene();
-            
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 200;
-
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            container.appendChild(renderer.domElement);
-
-            const particleCount = 60;
-            const particles = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            const velocities = [];
-
-            for (let i = 0; i < particleCount; i++) {
-                positions[i * 3] = (Math.random() - 0.5) * 400;     // x
-                positions[i * 3 + 1] = (Math.random() - 0.5) * 400; // y
-                positions[i * 3 + 2] = (Math.random() - 0.5) * 200; // z
-                velocities.push({
-                    x: (Math.random() - 0.5) * 0.5,
-                    y: (Math.random() - 0.5) * 0.5,
-                    z: (Math.random() - 0.5) * 0.5
-                });
-            }
-
-            particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-            const pMaterial = new THREE.PointsMaterial({
-                color: 0x86868b,
-                size: 3,
-                transparent: true,
-                opacity: 0.6
-            });
-
-            const particleSystem = new THREE.Points(particles, pMaterial);
-            scene.add(particleSystem);
-
-            const lineMaterial = new THREE.LineBasicMaterial({
-                color: 0x4a4a4a,
-                transparent: true,
-                opacity: 0.15
-            });
-
-            let mouseX = 0;
-            let mouseY = 0;
-            let targetX = 0;
-            let targetY = 0;
-
-            const windowHalfX = window.innerWidth / 2;
-            const windowHalfY = window.innerHeight / 2;
-
-            document.addEventListener('mousemove', (event) => {
-                mouseX = (event.clientX - windowHalfX);
-                targetY = (event.clientY - windowHalfY);
-            });
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-
-            const animate = function () {
-                requestAnimationFrame(animate);
-
-                targetX = mouseX * 0.05;
-                targetY = mouseY * 0.05;
-                
-                camera.position.x += (mouseX * 0.05 - camera.position.x) * 0.02;
-                camera.position.y += (-targetY * 0.05 - camera.position.y) * 0.02;
-                camera.lookAt(scene.position);
-
-                const positions = particleSystem.geometry.attributes.position.array;
-                for (let i = 0; i < particleCount; i++) {
-                    positions[i * 3] += velocities[i].x;
-                    positions[i * 3 + 1] += velocities[i].y;
-                    positions[i * 3 + 2] += velocities[i].z;
-
-                    if (Math.abs(positions[i * 3]) > 200) velocities[i].x *= -1;
-                    if (Math.abs(positions[i * 3 + 1]) > 200) velocities[i].y *= -1;
-                    if (Math.abs(positions[i * 3 + 2]) > 100) velocities[i].z *= -1;
-                }
-                particleSystem.geometry.attributes.position.needsUpdate = true;
-
-                scene.children = scene.children.filter(child => child.type !== "Line");
-                
-                const lineGeo = new THREE.BufferGeometry();
-                const linePositions = [];
-
-                for (let i = 0; i < particleCount; i++) {
-                    for (let j = i + 1; j < particleCount; j++) {
-                        const dx = positions[i * 3] - positions[j * 3];
-                        const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
-                        const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
-                        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-                        if (dist < 60) {
-                            linePositions.push(
-                                positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2],
-                                positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]
-                            );
-                        }
-                    }
-                }
-
-                if (linePositions.length > 0) {
-                    lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-                    const lines = new THREE.LineSegments(lineGeo, lineMaterial);
-                    scene.add(lines);
-                }
-
-                renderer.render(scene, camera);
-            };
-
-            animate();
-        };
-
-        window.onload = () => {
-            initThreeJS();
-        };
-    </script>
+    // Reduced motion support
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.globalTimeline.clear();
+      document.querySelectorAll('.gs-reveal').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    }
+  </script>
 </body>
 </html>
