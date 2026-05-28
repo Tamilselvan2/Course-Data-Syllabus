@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Software Quality Assurance — Complete Exam Guide</title>
+  <title>Management Essentials (20CS232) — Complete Exam Guide</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -253,6 +253,7 @@
       padding:80px 24px;text-align:center;border-top:1px solid var(--border-subtle);
     }
   </style>
+<base target="_blank">
 </head>
 <body>
   <div id="progress-bar"></div>
@@ -260,13 +261,11 @@
 
   <nav class="nav-container" id="navbar">
     <div class="nav-inner">
-      <div class="nav-logo">SQA Guide</div>
+      <div class="nav-logo">20CS232 Guide</div>
       <div class="nav-links">
         <a href="#unit1" class="nav-link">Unit 1</a>
         <a href="#unit2" class="nav-link">Unit 2</a>
         <a href="#unit3" class="nav-link">Unit 3</a>
-        <a href="#unit4" class="nav-link">Unit 4</a>
-        <a href="#unit5" class="nav-link">Unit 5</a>
         <a href="#quick" class="nav-cta">Quick Review</a>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
@@ -282,11 +281,9 @@
   <div class="bottom-sheet-overlay" id="bottomSheetOverlay"></div>
   <div class="bottom-sheet" id="bottomSheet">
     <div class="bottom-sheet-grabber"></div>
-    <a href="#unit1" class="bottom-sheet-link">Unit 1 — Quality Control & Concepts</a>
-    <a href="#unit2" class="bottom-sheet-link">Unit 2 — Management & Quality Cost</a>
-    <a href="#unit3" class="bottom-sheet-link">Unit 3 — Tools & Methodologies</a>
-    <a href="#unit4" class="bottom-sheet-link">Unit 4 — People in SQA</a>
-    <a href="#unit5" class="bottom-sheet-link">Unit 5 — Defect Control & Analysis</a>
+    <a href="#unit1" class="bottom-sheet-link">Unit 1 — Foundations of Management</a>
+    <a href="#unit2" class="bottom-sheet-link">Unit 2 — Finance & Economics</a>
+    <a href="#unit3" class="bottom-sheet-link">Unit 3 — Project Management</a>
     <a href="#quick" class="bottom-sheet-link">Quick Review & Exam Strategy</a>
   </div>
 
@@ -299,14 +296,14 @@
           <path d="M2 17l10 5 10-5"></path>
           <path d="M2 12l10 5 10-5"></path>
         </svg>
-        SQA Only • Reference Styled
+        20CS232 Only • Reference Styled
       </div>
-      <h1 class="hero-title" id="heroTitle">Software Quality<br>Assurance</h1>
-      <p class="hero-subtitle">A complete exam guide built from your SQA syllabus.</p>
+      <h1 class="hero-title" id="heroTitle">Management<br>Essentials</h1>
+      <p class="hero-subtitle">A complete exam guide built from your 20CS232 syllabus.</p>
       <div class="hero-stats">
-        <div class="stat-item"><div class="stat-value">5</div><div class="stat-label">Units</div></div>
-        <div class="stat-item"><div class="stat-value">50+</div><div class="stat-label">Topics</div></div>
-        <div class="stat-item"><div class="stat-value">10</div><div class="stat-label">Mark Answers</div></div>
+        <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Units</div></div>
+        <div class="stat-item"><div class="stat-value">40+</div><div class="stat-label">Topics</div></div>
+        <div class="stat-item"><div class="stat-value">15</div><div class="stat-label">Mark Answers</div></div>
       </div>
     </div>
   </section>
@@ -314,297 +311,216 @@
   <section class="section" id="unit1">
     <div class="section-header gs-reveal">
       <div class="section-label">Unit 1</div>
-      <h2 class="section-title">Quality Control<br>& Concepts</h2>
-      <p class="section-desc">QC vs QA, McCall’s model, CMM, SPICE, CASE tools, inspections, walkthroughs, and the Waterfall model.</p>
+      <h2 class="section-title">Foundations of<br>Management</h2>
+      <p class="section-desc">Management concepts, business organizations, Taylor & Fayol, organization structures, leadership styles, and current trends.</p>
     </div>
 
     <div class="bento-card gs-reveal" style="margin-bottom:20px;">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
         <div>
-          <div class="card-icon">🛡️</div>
-          <div class="card-title">Quality Control (QC) vs Quality Assurance (QA)</div>
+          <div class="card-icon">🎯</div>
+          <div class="card-title">Management — Concept & Functions</div>
         </div>
         <div class="card-tag tag-red">Very Important</div>
       </div>
       <div class="card-text" style="margin-top:16px;">
-        <p><strong>QC</strong> is product-oriented and reactive. It focuses on testing and verification to identify defects.</p>
-        <p style="margin-top:10px;"><strong>QA</strong> is process-oriented and proactive. It focuses on building quality into the process so defects are prevented.</p>
+        <p><strong>Definition:</strong> Management is the process of planning, organizing, staffing, directing and controlling resources to achieve organizational goals effectively and efficiently.</p>
+        <p style="margin-top:10px;"><strong>Characteristics:</strong> Goal-oriented, continuous process, universal activity, group activity, dynamic function, and decision-making process.</p>
       </div>
-      <div class="compare-grid">
-        <div class="compare-col">
-          <div class="compare-title">Quality Control</div>
-          <ul class="compare-list">
-            <li>Product testing and inspection</li>
-            <li>Reactive</li>
-            <li>Finds defects</li>
-            <li>Focused on the product</li>
-          </ul>
-        </div>
-        <div class="compare-col">
-          <div class="compare-title">Quality Assurance</div>
-          <ul class="compare-list">
-            <li>Process planning and standards</li>
-            <li>Proactive</li>
-            <li>Prevents defects</li>
-            <li>Focused on the process</li>
-          </ul>
-        </div>
+      <ol class="numbered-list">
+        <li><div class="step-title">Planning</div><div class="step-desc">Forward-looking process of developing mission, setting objectives, and determining how to accomplish them.</div></li>
+        <li><div class="step-title">Organizing</div><div class="step-desc">Arranging, coordinating, and directing resources (men, material, money) to accomplish objectives.</div></li>
+        <li><div class="step-title">Staffing</div><div class="step-desc">Recruiting, hiring, training, and keeping positions filled with qualified people.</div></li>
+        <li><div class="step-title">Directing</div><div class="step-desc">Initiating planned action and guiding subordinates — "management in action."</div></li>
+        <li><div class="step-title">Controlling</div><div class="step-desc">Channeling activities to ensure actual performance aligns with expected results.</div></li>
+      </ol>
+      <div class="highlight-box">
+        <div class="highlight-box-title">📌 Exam Point</div>
+        <p>Management is a continuous, integrating, universal process focused on achieving organizational goals through people.</p>
       </div>
     </div>
-<div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-  <div class="bento-card">
-    <div class="card-icon">⚔️</div>
-    <div class="card-title">Software Quality Challenges</div>
-    <div class="card-text">
-      <ul>
-        <li>Increasing software complexity</li>
-        <li>Changing customer requirements</li>
-        <li>Security and privacy threats</li>
-        <li>Short development schedules</li>
-        <li>Distributed and cloud systems</li>
-        <li>Maintaining reliability and performance</li>
-      </ul>
-    </div>
-  </div>
 
-  <div class="bento-card">
-    <div class="card-icon">🧩</div>
-    <div class="card-title">Components of Software Quality Assurance</div>
-    <div class="card-text">
-      <ul>
-        <li>Standards and procedures</li>
-        <li>Reviews and audits</li>
-        <li>Testing activities</li>
-        <li>Metrics and measurement</li>
-        <li>Configuration management</li>
-        <li>Documentation control</li>
-        <li>Training and certification</li>
-      </ul>
-    </div>
-  </div>
-</div>
     <div class="bento-card gs-reveal" style="margin-bottom:20px;">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
-    <div>
-      <div class="card-icon">🏢</div>
-      <div class="card-title">Management and its Role in SQA</div>
-    </div>
-    <div class="card-tag tag-red">Important Theory</div>
-  </div>
-
-  <div class="card-text" style="margin-top:16px;">
-    <p>
-      Management plays a critical role in ensuring software quality by establishing
-      quality policies, allocating resources, monitoring processes, and supporting
-      continuous improvement activities.
-    </p>
-
-    <div class="highlight-box">
-      <div class="highlight-box-title">📌 Main Goal</div>
-      <p>
-        Ensure that software products meet customer requirements, organizational
-        standards, and quality objectives.
-      </p>
-    </div>
-
-    <ol class="numbered-list">
-      <li>
-        <div class="step-title">Quality Planning</div>
-        <div class="step-desc">
-          Define quality goals, standards, procedures, and project quality policies.
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">🏢</div>
+          <div class="card-title">Types of Business Organization</div>
         </div>
-      </li>
-
-      <li>
-        <div class="step-title">Resource Allocation</div>
-        <div class="step-desc">
-          Provide skilled staff, tools, budget, infrastructure, and training for SQA activities.
+        <div class="card-tag tag-orange">Theory Heavy</div>
+      </div>
+      <div class="bento-grid bento-grid-2" style="margin-top:20px;">
+        <div class="bento-card" style="background:rgba(41,151,255,.05);border-color:rgba(41,151,255,.15)">
+          <div class="card-title" style="font-size:18px">Sole Proprietorship</div>
+          <div class="card-text">Single owner, easy to start, full control, unlimited liability, small capital. Quick decisions but limited growth.</div>
         </div>
-      </li>
-
-      <li>
-        <div class="step-title">Process Monitoring</div>
-        <div class="step-desc">
-          Monitor software development activities using reviews, audits, and metrics.
+        <div class="bento-card" style="background:rgba(48,209,88,.05);border-color:rgba(48,209,88,.15)">
+          <div class="card-title" style="font-size:18px">Partnership</div>
+          <div class="card-text">Two or more owners, partnership agreement, shared profit/loss, mutual agency. More capital but potential conflict.</div>
         </div>
-      </li>
-
-      <li>
-        <div class="step-title">Risk Management</div>
-        <div class="step-desc">
-          Identify quality risks and take preventive actions to reduce failures.
+        <div class="bento-card" style="background:rgba(255,159,10,.05);border-color:rgba(255,159,10,.15)">
+          <div class="card-title" style="font-size:18px">Joint Stock Company</div>
+          <div class="card-text">Separate legal entity, limited liability, large capital, perpetual succession. Complex management but better growth.</div>
         </div>
-      </li>
-
-      <li>
-        <div class="step-title">Training and Motivation</div>
-        <div class="step-desc">
-          Ensure employees are trained in standards, tools, testing, and quality practices.
-        </div>
-      </li>
-
-      <li>
-        <div class="step-title">Continuous Improvement</div>
-        <div class="step-desc">
-          Improve processes using feedback, defect analysis, audits, and performance measurements.
-        </div>
-      </li>
-
-      <li>
-        <div class="step-title">Customer Satisfaction</div>
-        <div class="step-desc">
-          Focus on delivering reliable, secure, maintainable, and user-friendly software.
-        </div>
-      </li>
-    </ol>
-
-    <div class="highlight-box">
-      <div class="highlight-box-title">🎯 Exam Point</div>
-      <p>
-        Management ensures software quality through planning, monitoring,
-        training, resource support, process improvement, and customer-focused quality control.
-      </p>
-    </div>
-  </div>
-</div>
-    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-      <div class="bento-card">
-        <div class="card-icon">📐</div>
-        <div class="card-title">McCall’s Quality Model</div>
-        <div class="card-text">
-          <p style="margin-bottom:10px;">Groups quality into three categories:</p>
-          <ul>
-            <li><strong>Product Operation</strong> — Correctness, Reliability, Efficiency, Integrity, Usability</li>
-            <li><strong>Product Revision</strong> — Maintainability, Flexibility, Testability</li>
-            <li><strong>Product Transition</strong> — Portability, Reusability, Interoperability</li>
-          </ul>
+        <div class="bento-card" style="background:rgba(191,90,242,.05);border-color:rgba(191,90,242,.15)">
+          <div class="card-title" style="font-size:18px">Cooperative Society</div>
+          <div class="card-text">Voluntary association for mutual benefit. Service motive, democratic management, equal voting rights.</div>
         </div>
       </div>
+      <div class="highlight-box">
+        <div class="highlight-box-title">📌 MCQ Hotspot</div>
+        <p>"Separation of ownership and management occurs in <strong>Company</strong> form."</p>
+      </div>
+    </div>
 
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">⚖️</div>
+          <div class="card-title">Taylor vs Fayol</div>
+        </div>
+        <div class="card-tag tag-red">Repeated Question</div>
+      </div>
+      <table class="forensic-table">
+        <thead><tr><th>F.W. Taylor (Scientific Management)</th><th>Henri Fayol (Administrative Management)</th></tr></thead>
+        <tbody>
+          <tr><td>Focused on workers and shop-floor efficiency</td><td>Focused on managers and administration</td></tr>
+          <tr><td>Bottom-up approach</td><td>Top-down approach</td></tr>
+          <tr><td>Time study and motion study</td><td>Planning and control</td></tr>
+          <tr><td>Scientific methods for productivity</td><td>14 principles of management</td></tr>
+          <tr><td>"Father of Scientific Management"</td><td>"Father of General Management"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">📜</div>
+          <div class="card-title">Fayol's 14 Principles of Management</div>
+        </div>
+        <div class="card-tag tag-red">15-Mark Question</div>
+      </div>
+      <ol class="numbered-list">
+        <li><div class="step-title">Division of Work</div><div class="step-desc">Work divided into smaller tasks for specialization and efficiency.</div></li>
+        <li><div class="step-title">Authority & Responsibility</div><div class="step-desc">Managers must have authority along with responsibility.</div></li>
+        <li><div class="step-title">Discipline</div><div class="step-desc">Employees must obey organizational rules and regulations.</div></li>
+        <li><div class="step-title">Unity of Command</div><div class="step-desc">One employee should receive orders from only one superior.</div></li>
+        <li><div class="step-title">Unity of Direction</div><div class="step-desc">One head and one plan for activities with the same objective.</div></li>
+        <li><div class="step-title">Subordination of Individual Interest</div><div class="step-desc">Organization interest is more important than personal interest.</div></li>
+        <li><div class="step-title">Remuneration</div><div class="step-desc">Workers should receive fair wages for their work.</div></li>
+        <li><div class="step-title">Centralization</div><div class="step-desc">Balance between centralized and decentralized authority.</div></li>
+        <li><div class="step-title">Scalar Chain</div><div class="step-desc">Chain of authority from top to bottom must be clear.</div></li>
+        <li><div class="step-title">Order</div><div class="step-desc">Right person in the right place (material and social order).</div></li>
+        <li><div class="step-title">Equity</div><div class="step-desc">Managers should treat employees with kindness and justice.</div></li>
+        <li><div class="step-title">Stability of Tenure</div><div class="step-desc">Employees should have job security to perform efficiently.</div></li>
+        <li><div class="step-title">Initiative</div><div class="step-desc">Employees should be encouraged to take initiative and suggest improvements.</div></li>
+        <li><div class="step-title">Esprit de Corps</div><div class="step-desc">Promote team spirit, unity, and harmony among personnel.</div></li>
+      </ol>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
       <div class="bento-card">
         <div class="card-icon">🏗️</div>
-        <div class="card-title">Software Quality Factors</div>
+        <div class="card-title">Organization Structure & Chart</div>
         <div class="card-text">
-          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;">
-            <div class="tool-mini"><div class="tool-mini-icon">✅</div><div class="tool-mini-name">Correctness</div></div>
-            <div class="tool-mini"><div class="tool-mini-icon">🔒</div><div class="tool-mini-name">Reliability</div></div>
-            <div class="tool-mini"><div class="tool-mini-icon">⚡</div><div class="tool-mini-name">Efficiency</div></div>
-            <div class="tool-mini"><div class="tool-mini-icon">🛡️</div><div class="tool-mini-name">Integrity</div></div>
-            <div class="tool-mini"><div class="tool-mini-icon">👤</div><div class="tool-mini-name">Usability</div></div>
-            <div class="tool-mini"><div class="tool-mini-icon">🔧</div><div class="tool-mini-name">Maintainability</div></div>
-            <div class="tool-mini"><div class="tool-mini-icon">🔄</div><div class="tool-mini-name">Flexibility</div></div>
-            <div class="tool-mini"><div class="tool-mini-icon">🧪</div><div class="tool-mini-name">Testability</div></div>
-          </div>
+          <p style="margin-bottom:10px"><strong>Organization Chart:</strong> Graphical representation showing authority and responsibility relationships from highest to lowest ranks.</p>
+          <ul>
+            <li><strong>Functional:</strong> Grouped by functions (HR, Finance, Marketing). Specialization but poor inter-department coordination.</li>
+            <li><strong>Divisional:</strong> Based on product, region, or customer. Better focus but duplication of resources.</li>
+            <li><strong>Matrix:</strong> Combination of functional and project. Flexible but dual reporting confusion.</li>
+          </ul>
+          <p style="margin-top:10px"><strong>Span of Control:</strong> Narrow (few subordinates) vs Wide (many subordinates).</p>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">👑</div>
+        <div class="card-title">Leadership Styles</div>
+        <div class="card-text">
+          <ul>
+            <li><strong>Autocratic:</strong> Leader takes complete charge. Fast decisions but stifles creativity.</li>
+            <li><strong>Democratic:</strong> Values input, employees participate. High engagement but slower decisions.</li>
+            <li><strong>Laissez-faire:</strong> Employees have freedom. Encourages independence but can cause low control.</li>
+            <li><strong>Servant Leadership:</strong> Focuses on employee growth and welfare. Better collaboration but time-consuming.</li>
+          </ul>
+        </div>
+        <div class="highlight-box" style="margin-top:16px;padding:20px 24px;">
+          <div class="highlight-box-title" style="font-size:14px">🧠 Leadership Traits</div>
+          <p style="font-size:14px">Intelligence, Self-confidence, Determination, Integrity, Sociability.</p>
         </div>
       </div>
     </div>
 
     <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
       <div class="bento-card">
-        <div class="card-icon">📊</div>
-        <div class="card-title">CMM / CMMI Levels</div>
-        <ol class="numbered-list">
-          <li><div class="step-title">Initial</div><div class="step-desc">Chaotic and unpredictable.</div></li>
-          <li><div class="step-title">Repeatable</div><div class="step-desc">Basic project management practices exist.</div></li>
-          <li><div class="step-title">Defined</div><div class="step-desc">Processes are standardized and documented.</div></li>
-          <li><div class="step-title">Managed</div><div class="step-desc">Processes are measured quantitatively.</div></li>
-          <li><div class="step-title">Optimizing</div><div class="step-desc">Continuous improvement and defect prevention.</div></li>
-        </ol>
+        <div class="card-icon">🌐</div>
+        <div class="card-title">Current Trends in Management</div>
+        <div class="card-text">
+          <ul>
+            <li><strong>Agile Management:</strong> Flexible, iterative approach with continuous improvement.</li>
+            <li><strong>Remote Work Management:</strong> Managing distributed teams using digital tools.</li>
+            <li><strong>AI & Automation:</strong> Using artificial intelligence for decision-making.</li>
+            <li><strong>Data-driven Management:</strong> Analytics and business intelligence for decisions.</li>
+            <li><strong>Sustainable Management:</strong> Environmental and social responsibility focus.</li>
+            <li><strong>Globalization & Diversity:</strong> Managing international teams and diverse workforce.</li>
+          </ul>
+        </div>
       </div>
 
       <div class="bento-card">
-        <div class="card-icon">🔍</div>
-        <div class="card-title">SPICE (ISO/IEC 15504)</div>
+        <div class="card-icon">⚙️</div>
+        <div class="card-title">Functional Areas of Management</div>
         <div class="card-text">
-          <p style="margin-bottom:10px;">Software Process Improvement and Capability Determination.</p>
-          <ul>
-            <li>Level 0 — Incomplete</li>
-            <li>Level 1 — Performed</li>
-            <li>Level 2 — Managed</li>
-            <li>Level 3 — Established</li>
-            <li>Level 4 — Predictable</li>
-            <li>Level 5 — Optimizing</li>
-          </ul>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;">
+            <div class="tool-mini"><div class="tool-mini-icon">🏭</div><div class="tool-mini-name">Production</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">📢</div><div class="tool-mini-name">Marketing</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">💰</div><div class="tool-mini-name">Financial</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">👥</div><div class="tool-mini-name">Human Resource</div></div>
+            <div class="tool-mini"><div class="tool-mini-icon">⚡</div><div class="tool-mini-name">Operations</div></div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="bento-card gs-reveal" style="margin-bottom:20px;">
-      <div class="card-icon">🤖</div>
-      <div class="card-title">CASE Tools and Quality</div>
-      <div class="card-text">
-        <ul>
-          <li><strong>Upper CASE</strong> — Requirements, design, modeling</li>
-          <li><strong>Lower CASE</strong> — Coding, testing, debugging</li>
-          <li><strong>Integrated CASE</strong> — Full SDLC support</li>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">📐</div>
+          <div class="card-title">Organization Chart, Scalar Chain & Span of Control</div>
+        </div>
+        <div class="card-tag tag-yellow">2 Marks / MCQ</div>
+      </div>
+      <div class="card-text" style="margin-top:16px;">
+        <p><strong>Organization Chart:</strong> Graphical representation showing authority and responsibility relationships from highest to lowest ranks.</p>
+        <ul style="margin-top:10px">
+          <li><strong>Importance:</strong> Clarifies reporting structure, avoids confusion, improves coordination, defines authority clearly.</li>
+          <li><strong>Scalar Chain:</strong> Chain of authority from top to bottom — the formal line of command.</li>
+          <li><strong>Narrow Span:</strong> Manager has few subordinates. Tall organization, close supervision.</li>
+          <li><strong>Wide Span:</strong> Manager has many subordinates. Flat organization, more delegation.</li>
         </ul>
-        <p style="margin-top:12px;"><strong>Effect on quality:</strong> Better documentation, improved productivity, less human error, and higher consistency.</p>
-      </div>
-    </div>
-<div class="bento-card gs-reveal" style="margin-bottom:20px;">
-  <div class="card-icon">🚀</div>
-  <div class="card-title">Software Quality Implementation</div>
-  <div class="card-text">
-    <ol class="numbered-list">
-      <li>
-        <div class="step-title">Planning</div>
-        <div class="step-desc">Define quality goals, standards, and policies.</div>
-      </li>
-      <li>
-        <div class="step-title">Process Definition</div>
-        <div class="step-desc">Establish procedures and workflows.</div>
-      </li>
-      <li>
-        <div class="step-title">Reviews and Testing</div>
-        <div class="step-desc">Conduct inspections, walkthroughs, and testing.</div>
-      </li>
-      <li>
-        <div class="step-title">Metrics Collection</div>
-        <div class="step-desc">Measure defects, reliability, and productivity.</div>
-      </li>
-      <li>
-        <div class="step-title">Continuous Improvement</div>
-        <div class="step-desc">Improve process quality using feedback and audits.</div>
-      </li>
-    </ol>
-  </div>
-</div>
-    
-    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-      <div class="bento-card">
-        <div class="card-icon">📝</div>
-        <div class="card-title">Inspections vs Walkthroughs</div>
-        <table class="forensic-table">
-          <thead><tr><th>Inspection</th><th>Walkthrough</th></tr></thead>
-          <tbody>
-            <tr><td>Formal</td><td>Informal</td></tr>
-            <tr><td>Moderator present</td><td>Author leads</td></tr>
-            <tr><td>Checklist-based</td><td>Discussion-based</td></tr>
-            <tr><td>Defect focused</td><td>Understanding focused</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="bento-card">
-        <div class="card-icon">🌊</div>
-        <div class="card-title">Waterfall Model & SQA</div>
-        <div class="card-text">
-          <p>Requirements → Design → Implementation → Testing → Deployment → Maintenance</p>
-          <div class="highlight-box">
-            <div class="highlight-box-title">⚠️ SQA Catch</div>
-            <p>Testing happens only at the end, so a major design flaw can force large rework. For safety-critical systems, a more rigorous model like the V-Model is preferred.</p>
-          </div>
+        <div class="highlight-box" style="margin-top:16px;padding:20px 24px;">
+          <div class="highlight-box-title" style="font-size:14px">📌 MCQ Hotspot</div>
+          <p style="font-size:14px">"Narrow vs Wide span of control" • "Scalar chain is the chain of authority from top to bottom"</p>
         </div>
       </div>
     </div>
 
     <div class="bento-card gs-reveal">
-      <div class="card-icon">🔀</div>
-      <div class="card-title">FSM-Based Testing in Web Applications</div>
+      <div class="card-icon">🔧</div>
+      <div class="card-title">Taylor's Scientific Management</div>
       <div class="card-text">
-        <p><strong>FSM</strong> models states and transitions in user journeys.</p>
-        <p style="margin-top:10px;">Example: Browsing → Cart → Payment Gateway → Order Confirmed.</p>
-        <p style="margin-top:10px;">It helps ensure unexpected actions, such as using the back button during payment, are handled gracefully.</p>
+        <p style="margin-bottom:10px">Uses scientific methods to improve worker efficiency and productivity.</p>
+        <ul>
+          <li><strong>Time Study:</strong> Analyzing time taken for tasks.</li>
+          <li><strong>Motion Study:</strong> Eliminating unnecessary movements.</li>
+          <li><strong>Standardization:</strong> Standard tools and procedures.</li>
+          <li><strong>Functional Foremanship:</strong> Specialized supervisors.</li>
+          <li><strong>Differential Piece Wage:</strong> Pay based on output.</li>
+        </ul>
+        <div class="highlight-box" style="margin-top:16px;padding:20px 24px;">
+          <div class="highlight-box-title" style="font-size:14px">📌 Principles</div>
+          <p style="font-size:14px">Science not rule of thumb • Harmony not discord • Cooperation not individualism • Maximum output • Development of workers</p>
+        </div>
       </div>
     </div>
   </section>
@@ -612,130 +528,264 @@
   <section class="section" id="unit2">
     <div class="section-header gs-reveal">
       <div class="section-label">Unit 2</div>
-      <h2 class="section-title">Management &<br>Quality Cost</h2>
-      <p class="section-desc">TQM, Cost of Quality, maintenance QA, documentation control, metrics, and maturity models.</p>
+      <h2 class="section-title">Finance &<br>Economics for Engineers</h2>
+      <p class="section-desc">Micro vs Macro economics, managerial economics, demand & supply, accounting concepts, financial statements, working capital, and crowdfunding.</p>
     </div>
 
-    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
-        <div>
-          <div class="card-icon">🎯</div>
-          <div class="card-title">Total Quality Management (TQM)</div>
-        </div>
-        <div class="card-tag tag-red">Very Important</div>
-      </div>
-      <div class="card-text">
-        <p>TQM is an organization-wide approach focused on customer satisfaction, continuous improvement, employee involvement, process orientation, leadership commitment, and data-driven decisions.</p>
-      </div>
-    </div>
-
-    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
-        <div>
-          <div class="card-icon">💰</div>
-          <div class="card-title">Cost of Quality (COQ)</div>
-        </div>
-        <div class="card-tag tag-red">Repeated in Exams</div>
-      </div>
-
-      <div class="bento-grid bento-grid-2" style="margin-top:20px;">
-        <div class="bento-card" style="background:rgba(48,209,88,.05);border-color:rgba(48,209,88,.15)">
-          <div class="card-title" style="font-size:18px;">Prevention Cost</div>
-          <div class="card-text">Training, planning, standards, and process improvement to avoid defects.</div>
-        </div>
-        <div class="bento-card" style="background:rgba(41,151,255,.05);border-color:rgba(41,151,255,.15)">
-          <div class="card-title" style="font-size:18px;">Appraisal Cost</div>
-          <div class="card-text">Testing, inspections, reviews, and audits used to detect defects.</div>
-        </div>
-        <div class="bento-card" style="background:rgba(255,159,10,.05);border-color:rgba(255,159,10,.15)">
-          <div class="card-title" style="font-size:18px;">Internal Failure</div>
-          <div class="card-text">Rework, debugging, retesting, and scrap found before release.</div>
-        </div>
-        <div class="bento-card" style="background:rgba(255,69,58,.05);border-color:rgba(255,69,58,.15)">
-          <div class="card-title" style="font-size:18px;">External Failure</div>
-          <div class="card-text">Complaints, support cost, warranty issues, and reputation loss after release.</div>
-        </div>
-      </div>
-    </div>
-<div class="bento-card gs-reveal" style="margin-bottom:20px;">
-  <div class="card-icon">🔄</div>
-  <div class="card-title">Integrating Quality Activities in Project Life Cycle</div>
-  <div class="card-text">
-    <ul>
-      <li><strong>Requirement Phase</strong> — Requirement reviews and validation</li>
-      <li><strong>Design Phase</strong> — Design inspections and standards checking</li>
-      <li><strong>Coding Phase</strong> — Code reviews and static testing</li>
-      <li><strong>Testing Phase</strong> — Functional and non-functional testing</li>
-      <li><strong>Maintenance Phase</strong> — Regression testing and defect tracking</li>
-    </ul>
-  </div>
-</div>
-    
     <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
       <div class="bento-card">
-        <div class="card-icon">🔧</div>
-        <div class="card-title">Software Maintenance QA</div>
+        <div class="card-icon">📈</div>
+        <div class="card-title">Economics — Concept</div>
         <div class="card-text">
+          <p>Study of how people and organizations use limited resources to satisfy unlimited wants. Helps businesses decide what to produce, how much, and how to allocate efficiently.</p>
+        </div>
+      </div>
+      <div class="bento-card">
+        <div class="card-icon">🧮</div>
+        <div class="card-title">Managerial Economics</div>
+        <div class="card-text">
+          <p>Applies economic theories and analytical tools to business decision-making. Helps managers with pricing, production, investment, and profit maximization.</p>
+          <ul style="margin-top:8px">
+            <li>Demand analysis</li>
+            <li>Pricing decisions</li>
+            <li>Cost analysis</li>
+            <li>Profit planning</li>
+            <li>Risk analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">⚖️</div>
+          <div class="card-title">Micro vs Macro Economics</div>
+        </div>
+        <div class="card-tag tag-red">Repeated Question</div>
+      </div>
+      <table class="forensic-table">
+        <thead><tr><th>Microeconomics</th><th>Macroeconomics</th></tr></thead>
+        <tbody>
+          <tr><td>Studies individual units (consumer, firm, household)</td><td>Studies economy as a whole (aggregate variables)</td></tr>
+          <tr><td>Small units and specific markets</td><td>National income, total employment, GDP</td></tr>
+          <tr><td>Price of one product, consumer behavior</td><td>Inflation, economic growth, unemployment</td></tr>
+          <tr><td>Factor pricing, law of demand</td><td>Total demand, monetary and fiscal policy</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">📉</div>
+          <div class="card-title">Demand, Supply & Equilibrium</div>
+        </div>
+        <div class="card-tag tag-blue">Numerical Zone</div>
+      </div>
+      <div class="card-text">
+        <p><strong>Law of Demand:</strong> Inverse relationship between price and quantity demanded. Price ↑ → Demand ↓</p>
+        <p style="margin-top:8px"><strong>Law of Supply:</strong> Direct relationship between price and quantity supplied. Price ↑ → Supply ↑</p>
+        <p style="margin-top:8px"><strong>Equilibrium:</strong> Where Qd = Qs</p>
+      </div>
+      <div class="code-block">
+<span class="comment">// Example: Find Equilibrium</span>
+<span class="type">Qd</span> = <span class="string">100 - 5P</span>
+<span class="type">Qs</span> = <span class="string">20 + 5P</span>
+
+<span class="comment">// Set Qd = Qs</span>
+<span class="string">100 - 5P = 20 + 5P</span>
+<span class="string">80 = 10P</span>
+<span class="type">P</span> = <span class="string">8</span>
+
+<span class="comment">// Substitute back</span>
+<span class="type">Q</span> = <span class="string">100 - 5(8) = 60</span>
+
+<span class="comment">// Answer: Equilibrium Price = 8, Quantity = 60</span>
+      </div>
+      <div class="highlight-box">
+        <div class="highlight-box-title">📌 Elasticity of Demand</div>
+        <p>E<sub>d</sub> = (% Change in Quantity) / (% Change in Price)</p>
+        <p style="margin-top:6px;font-size:14px">Elastic → Large demand change | Inelastic → Small demand change | Perfectly Inelastic → Demand constant</p>
+        <p style="margin-top:6px;font-size:14px"><strong>MCQ:</strong> "If price and total revenue move in same direction → Inelastic demand"</p>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">📊</div>
+          <div class="card-title">Accounting Concepts & Conventions</div>
+        </div>
+        <div class="card-tag tag-purple">Theory Heavy</div>
+      </div>
+      <div class="bento-grid bento-grid-2" style="margin-top:20px;">
+        <div>
+          <div class="card-title" style="font-size:16px;margin-bottom:10px">9 Accounting Concepts</div>
+          <ol class="numbered-list">
+            <li><div class="step-title">Business Entity</div><div class="step-desc">Business and owner treated separately.</div></li>
+            <li><div class="step-title">Money Measurement</div><div class="step-desc">Only transactions in money recorded.</div></li>
+            <li><div class="step-title">Going Concern</div><div class="step-desc">Business continues for long period.</div></li>
+            <li><div class="step-title">Accounting Period</div><div class="step-desc">Fixed time period for accounts.</div></li>
+            <li><div class="step-title">Cost Concept</div><div class="step-desc">Assets recorded at original cost.</div></li>
+            <li><div class="step-title">Dual Aspect</div><div class="step-desc">Every transaction has debit and credit.</div></li>
+            <li><div class="step-title">Realization</div><div class="step-desc">Revenue recognized when earned.</div></li>
+            <li><div class="step-title">Accrual</div><div class="step-desc">Recorded when incurred, not when paid.</div></li>
+            <li><div class="step-title">Matching</div><div class="step-desc">Revenue and expenses match in same period.</div></li>
+          </ol>
+        </div>
+        <div>
+          <div class="card-title" style="font-size:16px;margin-bottom:10px">Accounting Conventions</div>
           <ul>
-            <li>Corrective, adaptive, perfective, preventive maintenance</li>
-            <li>Regression testing after changes</li>
-            <li>Change management and configuration management</li>
-            <li>Documentation updates</li>
+            <li><strong>Consistency:</strong> Same methods every year.</li>
+            <li><strong>Conservatism:</strong> Avoid overestimating profits.</li>
+            <li><strong>Full Disclosure:</strong> All important info disclosed.</li>
+            <li><strong>Materiality:</strong> Only important info emphasized.</li>
+          </ul>
+          <div class="highlight-box" style="margin-top:16px;padding:20px 24px;">
+            <div class="highlight-box-title" style="font-size:14px">📌 Fill in Blank</div>
+            <p style="font-size:14px">"Accounting rules remain same according to <strong>Consistency</strong> concept."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">💵</div>
+        <div class="card-title">Profit & Loss Account</div>
+        <div class="card-text">
+          <p>Shows net profit or loss during an accounting period.</p>
+          <div class="code-block" style="margin-top:12px">
+<span class="comment">// Formula</span>
+<span class="type">Net Profit</span> = <span class="string">Gross Profit - Expenses + Other Income</span>
+
+<span class="comment">// Example</span>
+<span class="type">Gross Profit</span> = <span class="string">₹25,000</span>
+<span class="type">Office Expenses</span> = <span class="string">₹4,000</span>
+<span class="type">Insurance</span> = <span class="string">₹1,000</span>
+
+<span class="type">Net Profit</span> = <span class="string">25,000 - (4,000 + 1,000) = ₹20,000</span>
+          </div>
+          <p style="margin-top:10px;font-size:14px">Common expenses: Salary, Rent, Advertisement, Depreciation, Legal charges.</p>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Balance Sheet</div>
+        <div class="card-text">
+          <p>Shows assets, liabilities, and owner's equity at a specific date.</p>
+          <div class="code-block" style="margin-top:12px">
+<span class="comment">// Fundamental Equation</span>
+<span class="type">Assets</span> = <span class="string">Liabilities + Capital</span>
+
+<span class="comment">// Example</span>
+<span class="type">Total Assets</span> = <span class="string">₹1,60,000</span>
+<span class="type">Creditors</span> = <span class="string">₹40,000</span>
+
+<span class="type">Capital</span> = <span class="string">1,60,000 - 40,000 = ₹1,20,000</span>
+          </div>
+          <p style="margin-top:10px;font-size:14px"><strong>Current Assets:</strong> Cash, Stock, Debtors | <strong>Fixed Assets:</strong> Land, Building, Machinery</p>
+          <p style="margin-top:6px;font-size:14px"><strong>Current Liabilities:</strong> Creditors, Bills payable | <strong>Long-term:</strong> Bank loan, Debentures</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">⚡</div>
+        <div class="card-title">Working Capital Management</div>
+        <div class="card-text">
+          <p><strong>Formula:</strong> Working Capital = Current Assets − Current Liabilities</p>
+          <p style="margin-top:10px">Ensures smooth day-to-day operations.</p>
+          <ul style="margin-top:8px">
+            <li><strong>Permanent W.C:</strong> Minimum capital permanently needed.</li>
+            <li><strong>Variable W.C:</strong> Temporary capital for seasonal demand.</li>
           </ul>
         </div>
       </div>
 
       <div class="bento-card">
-        <div class="card-icon">📏</div>
-        <div class="card-title">Software Quality Metrics</div>
-        <div class="code-block">
-<span class="comment">// Defect Density</span>
-<span class="func">DefectDensity</span> = <span class="type">NumberOfDefects</span> / <span class="type">KLOC</span>
-
-<span class="comment">// Defect Removal Efficiency</span>
-<span class="func">DRE</span> = (<span class="type">DefectsRemoved</span> / <span class="type">TotalDefects</span>) × <span class="type">100</span>
+        <div class="card-icon">🏦</div>
+        <div class="card-title">Sources of Finance</div>
+        <div class="card-text">
+          <ul>
+            <li><strong>Internal:</strong> Retained earnings, reserves.</li>
+            <li><strong>External:</strong> Bank loan, shares, debentures, venture capital.</li>
+          </ul>
+          <div class="highlight-box" style="margin-top:16px;padding:20px 24px;">
+            <div class="highlight-box-title" style="font-size:14px">🌐 Crowdfunding</div>
+            <p style="font-size:14px">Raising money from large public through online platforms. Types: Equity, Reward-based, Donation-based, Peer-to-peer lending.</p>
+          </div>
         </div>
       </div>
     </div>
-<div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-  <div class="bento-card">
-    <div class="card-icon">🏛️</div>
-    <div class="card-title">Models for Quality Assurance</div>
-    <div class="card-text">
-      <ul>
-        <li><strong>McCall Model</strong> — Product operation, revision, transition</li>
-        <li><strong>Boehm Model</strong> — Maintainability, portability, usability</li>
-        <li><strong>ISO Quality Model</strong> — Standardized quality framework</li>
-      </ul>
-    </div>
-  </div>
 
-  <div class="bento-card">
-    <div class="card-icon">📊</div>
-    <div class="card-title">Statistical Process Control (SPC)</div>
-    <div class="card-text">
-      <ul>
-        <li>Uses statistical methods to monitor processes</li>
-        <li>Identifies process variation</li>
-        <li>Uses Upper and Lower Control Limits</li>
-        <li>Distinguishes common and assignable causes</li>
-        <li>Improves process stability and predictability</li>
-      </ul>
-    </div>
-  </div>
-</div>
-    
-    <div class="bento-card gs-reveal">
-      <div class="card-icon">📄</div>
-      <div class="card-title">Documentation Control</div>
-      <div class="card-text">
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">🏦</div>
+          <div class="card-title">Sources of Finance — Detailed</div>
+        </div>
+        <div class="card-tag tag-yellow">2 Marks / MCQ</div>
+      </div>
+      <div class="card-text" style="margin-top:16px;">
+        <p><strong>Internal Sources:</strong> Retained earnings, reserves, sale of assets.</p>
+        <p style="margin-top:10px"><strong>External Sources:</strong></p>
         <ul>
-          <li>Version control</li>
-          <li>Approval process</li>
-          <li>Storage and retrieval</li>
-          <li>Change tracking</li>
-          <li>Access control</li>
+          <li><strong>Shares:</strong> Ownership capital issued to public. Equity shares (voting rights) and Preference shares (fixed dividend).</li>
+          <li><strong>Debentures:</strong> Long-term borrowed capital. Fixed interest rate, no voting rights.</li>
+          <li><strong>Loans:</strong> Term loans from banks/financial institutions. Must be repaid with interest.</li>
+          <li><strong>Venture Capital:</strong> Funding from investors for high-growth startups in exchange for equity stake.</li>
         </ul>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">📉</div>
+          <div class="card-title">Elasticity of Demand — Types</div>
+        </div>
+        <div class="card-tag tag-yellow">2 Marks / MCQ</div>
+      </div>
+      <div class="card-text" style="margin-top:16px;">
+        <p>Measures how demand changes when price changes. <strong>E<sub>d</sub> = (%ΔQ) / (%ΔP)</strong></p>
+        <div class="bento-grid bento-grid-2" style="margin-top:16px;">
+          <div class="bento-card" style="background:rgba(48,209,88,.05);border-color:rgba(48,209,88,.15)">
+            <div class="card-title" style="font-size:16px">Elastic Demand</div>
+            <div class="card-text">Small price change causes <strong>large</strong> demand change. |E| &gt; 1</div>
+          </div>
+          <div class="bento-card" style="background:rgba(255,159,10,.05);border-color:rgba(255,159,10,.15)">
+            <div class="card-title" style="font-size:16px">Inelastic Demand</div>
+            <div class="card-text">Price change causes <strong>small</strong> demand change. |E| &lt; 1</div>
+          </div>
+          <div class="bento-card" style="background:rgba(191,90,242,.05);border-color:rgba(191,90,242,.15)">
+            <div class="card-title" style="font-size:16px">Perfectly Elastic</div>
+            <div class="card-text">Tiny price change causes <strong>huge</strong> demand change. |E| = ∞</div>
+          </div>
+          <div class="bento-card" style="background:rgba(255,69,58,.05);border-color:rgba(255,69,58,.15)">
+            <div class="card-title" style="font-size:16px">Perfectly Inelastic</div>
+            <div class="card-text">Demand remains <strong>constant</strong> regardless of price. |E| = 0</div>
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-top:16px;padding:20px 24px;">
+          <div class="highlight-box-title" style="font-size:14px">📌 MCQ Hotspot</div>
+          <p style="font-size:14px">"If price and total revenue move in same direction → <strong>Inelastic</strong> demand" • "If they move in opposite directions → <strong>Elastic</strong> demand"</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal">
+      <div class="card-icon">📉</div>
+      <div class="card-title">Depreciation</div>
+      <div class="card-text">
+        <p>Reduction in value of fixed assets due to wear and tear over time. Example: Machine value decreases every year after use.</p>
+        <div class="highlight-box" style="margin-top:16px;padding:20px 24px;">
+          <div class="highlight-box-title" style="font-size:14px">📌 Fill in Blank</div>
+          <p style="font-size:14px">"Consumption of fixed capital is <strong>depreciation</strong>."</p>
+        </div>
       </div>
     </div>
   </section>
@@ -743,335 +793,291 @@
   <section class="section" id="unit3">
     <div class="section-header gs-reveal">
       <div class="section-label">Unit 3</div>
-      <h2 class="section-title">Tools &<br>Methodologies</h2>
-      <p class="section-desc">7 QC tools, Six Sigma, Zero Defect, BPR, QFD, Benchmarking, ISO 9000, SPICE, and SPC.</p>
+      <h2 class="section-title">Project Management<br>for Engineers</h2>
+      <p class="section-desc">Project planning, Gantt charts, CPM, EVM, Agile, Scrum, cost management, and modern tracking tools.</p>
     </div>
 
     <div class="bento-card gs-reveal" style="margin-bottom:20px;">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
         <div>
-          <div class="card-icon">🧰</div>
-          <div class="card-title">7 Basic QC Tools</div>
+          <div class="card-icon">🚀</div>
+          <div class="card-title">Project Management & Life Cycle</div>
         </div>
         <div class="card-tag tag-red">Very Important</div>
       </div>
-      <div class="bento-grid" style="margin-top:20px;">
+      <div class="card-text" style="margin-top:16px;">
+        <p><strong>Definition:</strong> Process of planning, organizing, scheduling and controlling resources to complete a project successfully within time and budget.</p>
+      </div>
+      <ol class="numbered-list">
+        <li><div class="step-title">Initiation</div><div class="step-desc">Project idea and objectives identified.</div></li>
+        <li><div class="step-title">Planning</div><div class="step-desc">Resources, schedule, budget and risks planned.</div></li>
+        <li><div class="step-title">Execution</div><div class="step-desc">Actual project work carried out.</div></li>
+        <li><div class="step-title">Monitoring & Controlling</div><div class="step-desc">Performance tracked and corrected.</div></li>
+        <li><div class="step-title">Closure</div><div class="step-desc">Project completed and delivered.</div></li>
+      </ol>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">📝</div>
+          <div class="card-title">7 Steps in Project Planning</div>
+        </div>
+        <div class="card-tag tag-red">Repeated Question</div>
+      </div>
+      <ol class="numbered-list">
+        <li><div class="step-title">Define Objectives</div><div class="step-desc">Clearly identify goals and expected outcomes.</div></li>
+        <li><div class="step-title">Identify Tasks</div><div class="step-desc">Break project into smaller activities.</div></li>
+        <li><div class="step-title">Estimate Resources</div><div class="step-desc">Determine manpower, materials, and budget.</div></li>
+        <li><div class="step-title">Develop Schedule</div><div class="step-desc">Assign start and finish dates.</div></li>
+        <li><div class="step-title">Risk Analysis</div><div class="step-desc">Identify risks and prepare solutions.</div></li>
+        <li><div class="step-title">Assign Responsibilities</div><div class="step-desc">Allocate tasks to team members.</div></li>
+        <li><div class="step-title">Monitoring Plan</div><div class="step-desc">Create methods to track progress.</div></li>
+      </ol>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">🗂️</div>
+        <div class="card-title">Work Breakdown Structure (WBS)</div>
+        <div class="card-text">
+          <p>Divides a project into smaller, manageable tasks. Improves task clarity, scheduling, and resource allocation.</p>
+        </div>
+      </div>
+      <div class="bento-card">
+        <div class="card-icon">📊</div>
+        <div class="card-title">Gantt Chart</div>
+        <div class="card-text">
+          <p>Graphical project schedule showing activities against time. Helps track progress, duration, and dependencies visually.</p>
+          <div class="code-block" style="margin-top:12px">
+<span class="comment">// Simple Example</span>
+<span class="type">Task A</span> = <span class="string">2 Days</span>
+<span class="type">Task B</span> = <span class="string">3 Days</span>
+<span class="type">Task C</span> = <span class="string">2 Days</span>
+
+<span class="type">Total</span> = <span class="string">2 + 3 + 2 = 7 Days</span>
+<span class="type">Sequence</span> = <span class="string">A → B → C</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">🚩</div>
+        <div class="card-title">Milestone Chart</div>
+        <div class="card-text">
+          <p>Shows important events or checkpoints in a project. Milestones measure progress and ensure accountability.</p>
+        </div>
+      </div>
+      <div class="bento-card">
+        <div class="card-icon">⏱️</div>
+        <div class="card-title">Critical Path Method (CPM)</div>
+        <div class="card-text">
+          <p>The longest sequence of dependent activities. Any delay here delays the entire project.</p>
+          <ul style="margin-top:8px">
+            <li>Zero slack activities</li>
+            <li>Determines project duration</li>
+            <li>Helps schedule optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">📡</div>
+          <div class="card-title">Project Tracking Tools</div>
+        </div>
+        <div class="card-tag tag-blue">Tools Focus</div>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-title">Traditional Tools</div>
+          <ul class="compare-list">
+            <li>Microsoft Excel</li>
+            <li>Manual reports</li>
+            <li>Physical whiteboards</li>
+            <li>Simple and low cost</li>
+            <li>Limited automation</li>
+          </ul>
+        </div>
+        <div class="compare-col">
+          <div class="compare-title">Modern Tools</div>
+          <ul class="compare-list">
+            <li><strong>ClickUp</strong> — Cloud-based with dashboards</li>
+            <li><strong>Trello</strong> — Kanban-style visual boards</li>
+            <li><strong>Asana</strong> — Collaboration & workflows</li>
+            <li><strong>Microsoft Project</strong> — Advanced scheduling</li>
+            <li><strong>Jira / Wrike</strong> — Agile & issue tracking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">💹</div>
+          <div class="card-title">Earned Value Management (EVM)</div>
+        </div>
+        <div class="card-tag tag-red">Numerical Zone</div>
+      </div>
+      <div class="card-text">
+        <p>Measures project performance using scope, cost, and schedule. Identifies if project is ahead or behind.</p>
+      </div>
+      <div class="code-block">
+<span class="comment">// Key Terms</span>
+<span class="type">PV</span> = <span class="string">Planned Value (budgeted work scheduled)</span>
+<span class="type">EV</span> = <span class="string">Earned Value (actual completed work)</span>
+<span class="type">AC</span> = <span class="string">Actual Cost (money spent)</span>
+
+<span class="comment">// Formulas</span>
+<span class="type">SV</span> = <span class="string">EV - PV</span>   <span class="comment">// Schedule Variance</span>
+<span class="type">CV</span> = <span class="string">EV - AC</span>   <span class="comment">// Cost Variance</span>
+
+<span class="comment">// Example</span>
+<span class="type">PV</span> = <span class="string">2000</span>
+<span class="type">EV</span> = <span class="string">1000</span>
+<span class="type">AC</span> = <span class="string">800</span>
+
+<span class="type">SV</span> = <span class="string">1000 - 2000 = -1000</span>  <span class="comment">// Behind schedule</span>
+<span class="type">CV</span> = <span class="string">1000 - 800 = +200</span>    <span class="comment">// Under budget</span>
+      </div>
+    </div>
+
+    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
+      <div class="bento-card">
+        <div class="card-icon">💰</div>
+        <div class="card-title">Cost Management</div>
+        <div class="card-text">
+          <p><strong>Types of Costs:</strong></p>
+          <ul>
+            <li><strong>Direct Cost:</strong> Labor, raw materials (directly linked).</li>
+            <li><strong>Indirect Cost:</strong> Electricity, administration (not directly linked).</li>
+          </ul>
+          <p style="margin-top:10px"><strong>4 Phases:</strong></p>
+          <ol class="numbered-list" style="margin-top:8px">
+            <li><div class="step-title">Resource Planning</div></li>
+            <li><div class="step-title">Cost Estimating</div></li>
+            <li><div class="step-title">Cost Budgeting</div></li>
+            <li><div class="step-title">Cost Control</div></li>
+          </ol>
+        </div>
+      </div>
+      <div class="bento-card">
+        <div class="card-icon">🔀</div>
+        <div class="card-title">Managing Multiple Projects</div>
+        <div class="card-text">
+          <p>Handling simultaneous projects with shared resources.</p>
+          <ul style="margin-top:8px">
+            <li><strong>Resource Allocation:</strong> Identify bottlenecks and stagger schedules.</li>
+            <li><strong>Prioritization:</strong> Rank by organizational value and urgency.</li>
+            <li><strong>Standardized Tracking:</strong> Use uniform tools for high-level visibility.</li>
+          </ul>
+          <div class="highlight-box" style="margin-top:16px;padding:20px 24px;">
+            <div class="highlight-box-title" style="font-size:14px">📌 Case Study</div>
+            <p style="font-size:14px">E-commerce site + Digital marketing campaign sharing the same design team → stagger tasks to avoid overload.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">🔄</div>
+          <div class="card-title">Agile vs Traditional Project Management</div>
+        </div>
+        <div class="card-tag tag-red">Comparison Question</div>
+      </div>
+      <table class="forensic-table">
+        <thead><tr><th>Agile</th><th>Traditional (Waterfall)</th></tr></thead>
+        <tbody>
+          <tr><td>Flexible and iterative</td><td>Fixed and sequential</td></tr>
+          <tr><td>Continuous feedback</td><td>Limited feedback</td></tr>
+          <tr><td>Fast adaptation to changes</td><td>Hard to change scope</td></tr>
+          <tr><td>High customer involvement</td><td>Low customer involvement</td></tr>
+          <tr><td>Short sprints / cycles</td><td>Long phases</td></tr>
+        </tbody>
+      </table>
+      <div class="card-text" style="margin-top:16px;">
+        <p><strong>Agile Principles:</strong> Customer satisfaction through continuous delivery • Welcome changing requirements • Frequent delivery of working software • Collaboration between developers and customers • Simplicity is essential.</p>
+      </div>
+    </div>
+
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">🏉</div>
+          <div class="card-title">Scrum Framework</div>
+        </div>
+        <div class="card-tag tag-purple">15-Mark Question</div>
+      </div>
+      <div class="card-text">
+        <p>Agile framework using iterative development through short cycles called <strong>sprints</strong> (1–4 weeks).</p>
+      </div>
+      <div class="bento-grid bento-grid-2" style="margin-top:20px;">
         <div class="bento-card" style="background:rgba(41,151,255,.05);border-color:rgba(41,151,255,.15)">
-          <div class="card-title" style="font-size:16px">Fishbone Diagram</div>
-          <div class="card-text">Identifies possible causes of a problem.</div>
+          <div class="card-title" style="font-size:16px">Product Owner</div>
+          <div class="card-text">Defines product goals, manages backlog, maximizes product value.</div>
         </div>
         <div class="bento-card" style="background:rgba(48,209,88,.05);border-color:rgba(48,209,88,.15)">
-          <div class="card-title" style="font-size:16px">Pareto Chart</div>
-          <div class="card-text">80/20 rule — prioritize the biggest causes.</div>
+          <div class="card-title" style="font-size:16px">Scrum Master</div>
+          <div class="card-text">Ensures Scrum process is followed, mitigates distractions, facilitates daily stand-ups.</div>
         </div>
-        <div class="bento-card" style="background:rgba(255,159,10,.05);border-color:rgba(255,159,10,.15)">
-          <div class="card-title" style="font-size:16px">Histogram</div>
-          <div class="card-text">Shows frequency distribution of data.</div>
-        </div>
-        <div class="bento-card" style="background:rgba(191,90,242,.05);border-color:rgba(191,90,242,.15)">
-          <div class="card-title" style="font-size:16px">Control Chart</div>
-          <div class="card-text">Monitors process stability using UCL and LCL.</div>
-        </div>
-        <div class="bento-card" style="background:rgba(100,210,255,.05);border-color:rgba(100,210,255,.15)">
-          <div class="card-title" style="font-size:16px">Scatter Diagram</div>
-          <div class="card-text">Shows relationship between two variables.</div>
-        </div>
-        <div class="bento-card" style="background:rgba(255,69,58,.05);border-color:rgba(255,69,58,.15)">
-          <div class="card-title" style="font-size:16px">Flow Chart</div>
-          <div class="card-text">Represents process steps and workflow.</div>
-        </div>
-        <div class="bento-card" style="background:rgba(41,151,255,.05);border-color:rgba(41,151,255,.15);grid-column:span 3">
-          <div class="card-title" style="font-size:16px">Check Sheet</div>
-          <div class="card-text">Structured form for collecting quality data.</div>
+        <div class="bento-card" style="background:rgba(255,159,10,.05);border-color:rgba(255,159,10,.15);grid-column:span 2">
+          <div class="card-title" style="font-size:16px">Development Team</div>
+          <div class="card-text">Builds and delivers product increments. Adapts based on daily stand-up meetings (15 min discussions on progress, plans, blockers).</div>
         </div>
       </div>
-    </div>
-<div class="bento-card gs-reveal" style="margin-top:20px;">
-  <div class="card-icon">📐</div>
-  <div class="card-title">McCall’s Quality Criteria</div>
-  <div class="card-text">
-    <p>McCall’s model connects:</p>
-
-    <div class="highlight-box">
-      <div class="highlight-box-title">📌 Hierarchy</div>
-      <p>
-        Quality Factors → Quality Criteria → Quality Metrics
-      </p>
+      <div class="highlight-box" style="margin-top:20px;">
+        <div class="highlight-box-title">📌 Backlogs & Board</div>
+        <p><strong>Product Backlog:</strong> List of all requirements maintained by Product Owner.</p>
+        <p style="margin-top:6px"><strong>Sprint Backlog:</strong> Tasks selected for current sprint.</p>
+        <p style="margin-top:6px"><strong>Kanban Board:</strong> Visual tracking with columns: To Do → In Progress → Testing → Done.</p>
+      </div>
     </div>
 
-    <ul>
-      <li><strong>Factors</strong> — High-level quality goals</li>
-      <li><strong>Criteria</strong> — Properties affecting quality factors</li>
-      <li><strong>Metrics</strong> — Quantitative measurements</li>
-    </ul>
-  </div>
-</div>
-    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-      <div class="bento-card">
-        <div class="card-icon">📉</div>
-        <div class="card-title">Six Sigma — DMAIC</div>
-        <p style="margin-bottom:12px;">Goal: 3.4 defects per million opportunities.</p>
+    <div class="bento-card gs-reveal" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="card-icon">🔄</div>
+          <div class="card-title">Agile Principles — 12 Core Ideas</div>
+        </div>
+        <div class="card-tag tag-yellow">2 Marks / Short</div>
+      </div>
+      <div class="card-text" style="margin-top:16px;">
+        <p>Know at least 5–6 of these for short answers and MCQs:</p>
         <ol class="numbered-list">
-          <li><div class="step-title">Define</div><div class="step-desc">Identify problem and goals</div></li>
-          <li><div class="step-title">Measure</div><div class="step-desc">Collect current performance data</div></li>
-          <li><div class="step-title">Analyze</div><div class="step-desc">Find root causes</div></li>
-          <li><div class="step-title">Improve</div><div class="step-desc">Implement solutions</div></li>
-          <li><div class="step-title">Control</div><div class="step-desc">Sustain improvements</div></li>
+          <li><div class="step-title">Customer Satisfaction</div><div class="step-desc">Highest priority through continuous delivery of valuable software.</div></li>
+          <li><div class="step-title">Welcome Changes</div><div class="step-desc">Requirements can change anytime, even late in development.</div></li>
+          <li><div class="step-title">Frequent Delivery</div><div class="step-desc">Deliver working software frequently, from weeks to months.</div></li>
+          <li><div class="step-title">Daily Collaboration</div><div class="step-desc">Developers and business people must work together daily.</div></li>
+          <li><div class="step-title">Motivated Individuals</div><div class="step-desc">Build projects around motivated people with support and trust.</div></li>
+          <li><div class="step-title">Face-to-Face Conversation</div><div class="step-desc">Most efficient method of conveying information.</div></li>
+          <li><div class="step-title">Working Software</div><div class="step-desc">Primary measure of progress.</div></li>
+          <li><div class="step-title">Sustainable Pace</div><div class="step-desc">Constant speed indefinitely — no burnout.</div></li>
+          <li><div class="step-title">Technical Excellence</div><div class="step-desc">Good design and agility enhance each other.</div></li>
+          <li><div class="step-title">Simplicity</div><div class="step-desc">Maximize work not done — keep it simple.</div></li>
+          <li><div class="step-title">Self-Organizing Teams</div><div class="step-desc">Best architectures emerge from self-organizing teams.</div></li>
+          <li><div class="step-title">Reflect & Adjust</div><div class="step-desc">Team reflects on how to become more effective at regular intervals.</div></li>
         </ol>
-      </div>
-
-      <div class="bento-card">
-        <div class="card-icon">🎯</div>
-        <div class="card-title">Zero Defect Philosophy</div>
-        <div class="card-text">
-          <p>Do it right the first time. Prevention is better than correction, and every employee is responsible for quality.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-      <div class="bento-card">
-        <div class="card-icon">🏭</div>
-        <div class="card-title">BPR, QFD, Benchmarking, SPC</div>
-        <div class="card-text">
-          <ul>
-            <li><strong>BPR</strong> — radical redesign of business processes</li>
-            <li><strong>QFD</strong> — convert customer needs into technical requirements</li>
-            <li><strong>Benchmarking</strong> — compare against best practices</li>
-            <li><strong>SPC</strong> — statistical monitoring of process variation</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <div class="card-icon">🏅</div>
-        <div class="card-title">ISO 9000 and SPICE</div>
-        <div class="card-text">
-          <ul>
-            <li><strong>ISO 9000</strong> — quality management system standards</li>
-            <li><strong>SPICE</strong> — process capability and improvement framework</li>
-            <li><strong>CMM Level 5</strong> — highest maturity and continuous optimization</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  
-    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-top:20px;">
-      <div class="bento-card">
-        <div class="card-icon">🧠</div>
-        <div class="card-title">Modern QC Tools</div>
-        <div class="card-text">
-          <ul>
-            <li><strong>Affinity Diagram</strong> — groups related ideas and issues.</li>
-            <li><strong>Tree Diagram</strong> — breaks objectives into smaller tasks.</li>
-            <li><strong>Matrix Diagram</strong> — shows relationships between factors.</li>
-            <li><strong>PDPC</strong> — Process Decision Program Chart for risk handling.</li>
-            <li><strong>Arrow Diagram</strong> — project scheduling and dependencies.</li>
-            <li><strong>Interrelationship Diagram</strong> — identifies cause-effect links.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <div class="card-icon">📡</div>
-        <div class="card-title">QA Monitoring & Measurement</div>
-        <div class="card-text">
-          <ul>
-            <li>Continuous monitoring of quality activities.</li>
-            <li>Defect trend analysis and tracking.</li>
-            <li>KPI measurement and reporting.</li>
-            <li>Quality dashboards and review meetings.</li>
-            <li>Measurement of reliability, maintainability, and defect density.</li>
-            <li>Supports quantifiable quality improvement.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="bento-card gs-reveal" style="margin-top:20px;">
-      <div class="card-icon">⚠️</div>
-      <div class="card-title">Risk Identification for Quantifiable Quality Improvement</div>
-      <div class="card-text">
-        <p>Risk identification helps detect possible failures before they impact quality.</p>
-        <ul style="margin-top:12px;">
-          <li>Identify technical, operational, and security risks.</li>
-          <li>Analyze probability and impact.</li>
-          <li>Prioritize risks using severity matrices.</li>
-          <li>Create mitigation and contingency plans.</li>
-          <li>Track risks continuously through monitoring and metrics.</li>
-          <li>Improve measurable software quality through preventive action.</li>
-        </ul>
-
-        <div class="highlight-box">
-          <div class="highlight-box-title">📌 Exam Tip</div>
-          <p>Always mention Probability × Impact analysis, mitigation planning, and continuous monitoring when answering risk identification questions.</p>
-        </div>
-      </div>
-    </div>
-</section>
-
-  <section class="section" id="unit4">
-    <div class="section-header gs-reveal">
-      <div class="section-label">Unit 4</div>
-      <h2 class="section-title">People in<br>SQA</h2>
-      <p class="section-desc">Quality expectations, external participants, procedures and work instructions, training, CAPA, and documentation control.</p>
-    </div>
-
-    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-      <div class="bento-card">
-        <div class="card-icon">👥</div>
-        <div class="card-title">People’s Quality Expectations</div>
-        <div class="card-text">
-          <ul>
-            <li>Customers expect reliability, usability, security, performance, and maintainability.</li>
-            <li>Developers expect clear requirements, proper tools, and training.</li>
-            <li>Management expects productivity, compliance, and customer satisfaction.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <div class="card-icon">🤝</div>
-        <div class="card-title">External Participants</div>
-        <div class="card-text">
-          <ul>
-            <li>Supplier evaluation</li>
-            <li>Contract standards</li>
-            <li>Acceptance testing</li>
-            <li>Audits and continuous monitoring</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-      <div class="bento-card">
-        <div class="card-icon">📘</div>
-        <div class="card-title">Procedures vs Work Instructions</div>
-        <table class="forensic-table">
-          <thead><tr><th>Procedures</th><th>Work Instructions</th></tr></thead>
-          <tbody>
-            <tr><td>High-level guidelines</td><td>Detailed step-by-step</td></tr>
-            <tr><td>What to do</td><td>How to do it</td></tr>
-            <tr><td>Broader scope</td><td>Narrower scope</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="bento-card">
-        <div class="card-icon">🎓</div>
-        <div class="card-title">Staff Training & Certification</div>
-        <div class="card-text">
-          <ul>
-            <li><strong>Technical</strong> — programming, testing, databases</li>
-            <li><strong>Quality</strong> — standards and defect prevention</li>
-            <li><strong>Safety</strong> — security, data protection, risk management</li>
-            <li><strong>Certification examples</strong> — ISO, Six Sigma, testing, project management</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="bento-grid bento-grid-2 gs-reveal">
-      <div class="bento-card">
-        <div class="card-icon">🔄</div>
-        <div class="card-title">CAPA</div>
-        <table class="forensic-table">
-          <thead><tr><th>Corrective Action</th><th>Preventive Action</th></tr></thead>
-          <tbody>
-            <tr><td>Fixes existing defects</td><td>Prevents future defects</td></tr>
-            <tr><td>Reactive</td><td>Proactive</td></tr>
-            <tr><td>Bug fixes, patches</td><td>Code reviews, training</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="bento-card">
-        <div class="card-icon">📁</div>
-        <div class="card-title">Documentation Control</div>
-        <div class="card-text">
-          <ul>
-            <li>Version control</li>
-            <li>Approval process</li>
-            <li>Storage and retrieval</li>
-            <li>Change tracking</li>
-            <li>Access control</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="unit5">
-    <div class="section-header gs-reveal">
-      <div class="section-label">Unit 5</div>
-      <h2 class="section-title">Defect Control<br>& Analysis</h2>
-      <p class="section-desc">Root cause analysis, defect prevention, fault tolerance, failure containment, safety assurance, and hazard analysis.</p>
-    </div>
-
-    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-      <div class="bento-card">
-        <div class="card-icon">🔎</div>
-        <div class="card-title">Root Cause Analysis (RCA)</div>
-        <div class="card-text">
-          <p>RCA finds the real underlying cause of a defect, not just the symptom. Tools include <strong>5 Whys</strong>, <strong>Fishbone</strong>, and <strong>Pareto</strong>.</p>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <div class="card-icon">🛑</div>
-        <div class="card-title">Defect Prevention Standards</div>
-        <div class="card-text">
-          <ul>
-            <li>Coding standards</li>
-            <li>Reviews and inspections</li>
-            <li>Testing standards</li>
-            <li>Training programs</li>
-            <li>Process improvement</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="bento-grid bento-grid-2 gs-reveal" style="margin-bottom:20px;">
-      <div class="bento-card">
-        <div class="card-icon">🧱</div>
-        <div class="card-title">Fault Tolerance & Failure Containment</div>
-        <div class="card-text">
-          <ul>
-            <li><strong>Fault tolerance</strong> — system continues even if a part fails</li>
-            <li><strong>Failure containment</strong> — limits the spread of failure</li>
-            <li>Techniques: redundancy, recovery, exception handling, isolation</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <div class="card-icon">🛡️</div>
-        <div class="card-title">Safety Assurance & Damage Control</div>
-        <div class="card-text">
-          <ul>
-            <li>Hazard identification</li>
-            <li>Risk assessment</li>
-            <li>Safety testing</li>
-            <li>Documentation</li>
-            <li>Backup and recovery</li>
-          </ul>
-        </div>
       </div>
     </div>
 
     <div class="bento-card gs-reveal">
-      <div class="card-icon">🌳</div>
-      <div class="card-title">Fault Tree vs Event Tree Analysis</div>
-      <table class="forensic-table">
-        <thead><tr><th>Fault Tree Analysis</th><th>Event Tree Analysis</th></tr></thead>
-        <tbody>
-          <tr><td>Top-down analysis</td><td>Bottom-up analysis</td></tr>
-          <tr><td>Starts with a disaster</td><td>Starts with an event</td></tr>
-          <tr><td>Finds causes</td><td>Finds outcomes</td></tr>
-        </tbody>
-      </table>
+      <div class="card-icon">⚠️</div>
+      <div class="card-title">Limitations of Agile</div>
+      <div class="card-text">
+        <ul>
+          <li>Difficult for large projects — continuous changes create complexity.</li>
+          <li>Requires skilled, collaborative, and experienced teams.</li>
+          <li>Scope creep — requirements may continuously expand.</li>
+          <li>Less documentation — detailed docs sometimes missing.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -1079,37 +1085,74 @@
     <div class="section-header gs-reveal">
       <div class="section-label">Quick Review</div>
       <h2 class="section-title">Exam Priority<br>& Memory Shortcuts</h2>
-      <p class="section-desc">High-yield revision points, hidden topics, and comparison tables for fast exam recall.</p>
+      <p class="section-desc">High-yield revision points, comparison tables, and numerical practice for fast exam recall.</p>
     </div>
 
     <div class="bento-card gs-reveal" style="margin-bottom:20px;">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
         <div>
           <div class="card-icon">🎯</div>
-          <div class="card-title">Most Expected 10-Mark Questions</div>
+          <div class="card-title">Most Expected Questions</div>
         </div>
         <div class="card-tag tag-red">Exam Focus</div>
       </div>
       <div class="bento-grid bento-grid-2" style="margin-top:20px;">
         <div class="card-text">
+          <p style="font-weight:600;color:var(--text-primary);margin-bottom:8px">15 Marks</p>
           <ul>
-            <li>Role of management in SQA</li>
-            <li>McCall’s Quality Factors</li>
-            <li>CMM / CMMI Levels</li>
-            <li>Principles of TQM</li>
-            <li>Cost of Quality categories</li>
-            <li>7 QC Tools</li>
-            <li>Six Sigma DMAIC</li>
+            <li>Explain Fayol's 14 principles</li>
+            <li>Compare Taylor and Fayol</li>
+            <li>Explain functional areas of management</li>
+            <li>Leadership styles with pros/cons</li>
+            <li>Organization structure and charts</li>
+            <li>Nature and scope of managerial economics</li>
+            <li>Compare micro and macro economics</li>
           </ul>
         </div>
         <div class="card-text">
+          <p style="font-weight:600;color:var(--text-primary);margin-bottom:8px">15 Marks (Contd.)</p>
           <ul>
-            <li>Inspections vs Walkthroughs</li>
-            <li>Software Quality Metrics</li>
-            <li>Documentation control</li>
-            <li>Root Cause Analysis techniques</li>
-            <li>Fault tolerance and failure containment</li>
-            <li>Safety assurance and damage control</li>
+            <li>Explain accounting concepts</li>
+            <li>Balance sheet with example</li>
+            <li>Crowdfunding and its advantages</li>
+            <li>Explain Agile Project Management</li>
+            <li>Scrum workflow and sprint backlog</li>
+            <li>Project scheduling and cost management</li>
+            <li>Gantt chart with example</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bento-grid bento-grid-2" style="margin-top:20px;">
+        <div class="card-text">
+          <p style="font-weight:600;color:var(--text-primary);margin-bottom:8px">3 Marks / Short</p>
+          <ul>
+            <li>Define management</li>
+            <li>Importance of organization chart</li>
+            <li>Scalar chain and span of control</li>
+            <li>Types of leadership</li>
+            <li>Current trends in management</li>
+            <li>Law of demand</li>
+            <li>Types of elasticity</li>
+            <li>Sources of finance (shares vs debentures)</li>
+            <li>Working capital</li>
+            <li>Project life cycle phases</li>
+            <li>What is WBS?</li>
+            <li>What is critical path?</li>
+            <li>Agile principles (any 5)</li>
+          </ul>
+        </div>
+        <div class="card-text">
+          <p style="font-weight:600;color:var(--text-primary);margin-bottom:8px">Numericals & MCQs</p>
+          <ul>
+            <li>Equilibrium price and quantity</li>
+            <li>Profit & Loss Account</li>
+            <li>Balance Sheet (Assets = Liabilities + Capital)</li>
+            <li>Working Capital calculation</li>
+            <li>EVM: SV and CV calculation</li>
+            <li>Elasticity calculations</li>
+            <li>Father of Scientific Management → Taylor</li>
+            <li>Unity of Direction / Unity of Command</li>
+            <li>Democratic leadership characteristics</li>
           </ul>
         </div>
       </div>
@@ -1121,36 +1164,49 @@
       <table class="forensic-table">
         <thead><tr><th>Concept A</th><th>Concept B</th><th>Key Difference</th></tr></thead>
         <tbody>
-          <tr><td>Inspection</td><td>Walkthrough</td><td>Formal + moderator vs informal + author-led</td></tr>
-          <tr><td>Corrective Action</td><td>Preventive Action</td><td>Fix existing vs prevent future</td></tr>
-          <tr><td>Procedures</td><td>Work Instructions</td><td>What to do vs how to do</td></tr>
-          <tr><td>FTA</td><td>ETA</td><td>Top-down causes vs forward consequences</td></tr>
-          <tr><td>QC</td><td>QA</td><td>Product testing vs process prevention</td></tr>
-          <tr><td>Internal Failure</td><td>External Failure</td><td>Pre-release vs post-release</td></tr>
+          <tr><td>Taylor</td><td>Fayol</td><td>Workers/efficiency vs Managers/administration</td></tr>
+          <tr><td>Microeconomics</td><td>Macroeconomics</td><td>Individual units vs Aggregate economy</td></tr>
+          <tr><td>Agile</td><td>Traditional</td><td>Iterative/flexible vs Sequential/fixed</td></tr>
+          <tr><td>Current Assets</td><td>Fixed Assets</td><td>Short-term liquid vs Long-term use</td></tr>
+          <tr><td>Direct Cost</td><td>Indirect Cost</td><td>Linked to activity vs Overhead</td></tr>
+          <tr><td>Narrow Span</td><td>Wide Span</td><td>Few subordinates vs Many subordinates</td></tr>
+          <tr><td>Product Backlog</td><td>Sprint Backlog</td><td>All requirements vs Current sprint tasks</td></tr>
+          <tr><td>Autocratic</td><td>Democratic</td><td>Leader decides alone vs Team participates</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="bento-grid bento-grid-2 gs-reveal">
       <div class="bento-card">
-        <div class="card-icon">🌊</div>
-        <div class="card-title">Hidden Topic: Waterfall Model</div>
-        <div class="card-text">Sequential SDLC. Testing at the end can be costly when defects are found late.</div>
-      </div>
-      <div class="bento-card">
-        <div class="card-icon">🏥</div>
-        <div class="card-title">Hidden Topic: V-Model in Healthcare</div>
-        <div class="card-text">Safety-critical systems need strict verification and validation with strong compliance and privacy checks.</div>
-      </div>
-      <div class="bento-card">
-        <div class="card-icon">🔀</div>
-        <div class="card-title">Hidden Topic: FSM Testing</div>
-        <div class="card-text">Models transitions like Browsing → Cart → Payment → Confirmed to test web apps systematically.</div>
+        <div class="card-icon">📉</div>
+        <div class="card-title">Hidden Topic: Demand Forecasting</div>
+        <div class="card-text">
+          <p><strong>Survey Methods:</strong> Market Research, Delphi Method (anonymous expert consensus).</p>
+          <p style="margin-top:8px"><strong>Statistical Methods:</strong> Trend Projection (past data), Barometric Forecasting (economic indicators).</p>
+        </div>
       </div>
       <div class="bento-card">
         <div class="card-icon">✍️</div>
         <div class="card-title">Part C Answer Pattern</div>
-        <div class="card-text">Define the concept → apply it to the given scenario → end with a practical solution or improvement.</div>
+        <div class="card-text">
+          <p>Define the concept → Explain with points/examples → Draw diagram/table if applicable → Conclude with practical significance.</p>
+        </div>
+      </div>
+      <div class="bento-card">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Memory Shortcut: Fayol's 14</div>
+        <div class="card-text">
+          <p><strong>D</strong>ivision • <strong>A</strong>uthority • <strong>D</strong>iscipline • <strong>U</strong>nity of Command • <strong>U</strong>nity of Direction • <strong>S</strong>ubordination • <strong>R</strong>emuneration • <strong>C</strong>entralization • <strong>S</strong>calar • <strong>O</strong>rder • <strong>E</strong>quity • <strong>S</strong>tability • <strong>I</strong>nitiative • <strong>E</strong>sprit de Corps</p>
+        </div>
+      </div>
+      <div class="bento-card">
+        <div class="card-icon">📐</div>
+        <div class="card-title">Memory Shortcut: EVM</div>
+        <div class="card-text">
+          <p><strong>SV = EV − PV</strong> (Schedule: negative = behind)</p>
+          <p style="margin-top:6px"><strong>CV = EV − AC</strong> (Cost: positive = under budget)</p>
+          <p style="margin-top:6px">Remember: <strong>E</strong>arned value is always first in both formulas.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1160,7 +1216,7 @@
       <div style="font-size:32px;margin-bottom:16px;">🎓</div>
       <div style="font-size:20px;font-weight:700;margin-bottom:8px;color:var(--text-primary);">You've Got This</div>
       <div style="font-size:15px;color:var(--text-secondary);line-height:1.6;">
-        Every topic from your SQA syllabus is now arranged in a clean exam-first format
+        Every topic from your 20CS232 syllabus is now arranged in a clean exam-first format.
       </div>
     </div>
   </footer>
